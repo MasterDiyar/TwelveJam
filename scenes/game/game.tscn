@@ -1,17 +1,47 @@
 [gd_scene format=3 uid="uid://c7gp3nt6poj22"]
 
 [ext_resource type="Script" uid="uid://caaukhd5vtdyg" path="res://scripts/game/Game.cs" id="1_sul5r"]
+[ext_resource type="PackedScene" uid="uid://da5k1outx1dvd" path="res://scenes/map/space.tscn" id="2_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://qqew4py6wcdn" path="res://scenes/ui/pause_menu.tscn" id="2_7h61r"]
+[ext_resource type="Texture2D" uid="uid://dln4rimifg4sx" path="res://assets/textures/ui/selector.png" id="3_lfrn8"]
+[ext_resource type="Texture2D" uid="uid://bubw1fxpeoltx" path="res://assets/textures/ui/darkliht.png" id="4_kelw5"]
 
-[node name="Game" type="Node2D" unique_id=1666462603 node_paths=PackedStringArray("Pausable", "UI", "PauseMenu")]
+[sub_resource type="Environment" id="Environment_sdmle"]
+glow_enabled = true
+glow_intensity = 3.93
+glow_strength = 1.7
+glow_blend_mode = 0
+
+[node name="Game" type="Node2D" unique_id=1666462603 node_paths=PackedStringArray("Pausable", "UI", "PauseMenu", "Picker")]
 script = ExtResource("1_sul5r")
 Pausable = NodePath("Pausable")
 UI = NodePath("UI")
 PauseMenu = NodePath("UI/PauseMenu")
+Picker = NodePath("Pausable/Picker")
 
 [node name="Pausable" type="Node2D" parent="." unique_id=534425687]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="Pausable" unique_id=461786814]
+color = Color(0.71848166, 0.7282755, 0.8007568, 1)
+
+[node name="Space" parent="Pausable" unique_id=509825059 instance=ExtResource("2_0sr1o")]
+
+[node name="Picker" type="Sprite2D" parent="Pausable" unique_id=1076200927]
+top_level = true
+z_index = 2
+position = Vector2(19, -39)
+texture = ExtResource("3_lfrn8")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1798494945]
 
 [node name="PauseMenu" parent="UI" unique_id=1473235742 instance=ExtResource("2_7h61r")]
 visible = false
+
+[node name="TextureRect" type="TextureRect" parent="UI" unique_id=1120910342]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("4_kelw5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=693728675]
+environment = SubResource("Environment_sdmle")

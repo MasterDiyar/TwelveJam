@@ -5,6 +5,8 @@ public partial class GameManager : Node2D
 {
 	public static GameManager Instance;
 
+	public Sprite2D Picker;
+
 	public Game Game;
 	public override void _Ready()
 	{
@@ -12,8 +14,10 @@ public partial class GameManager : Node2D
 			GameManager.Instance = this;
 		else QueueFree();
 	}
-	public override void _Process(double delta)
+
+	public void SetPicker(Vector2 scale, Vector2 position)
 	{
-		
+		Picker.GlobalPosition = position;
+		Picker.GlobalScale = scale;
 	}
 }

@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://da5k1outx1dvd"]
+
+[ext_resource type="Texture2D" uid="uid://lj4oqwnbky2w" path="res://assets/textures/background/canvas.png" id="1_t1xst"]
+[ext_resource type="Shader" uid="uid://cjkdantipd0ik" path="res://shaders/space_gas.gdshader" id="2_orbv3"]
+[ext_resource type="Texture2D" uid="uid://dipj3igxptnov" path="res://assets/textures/background/white.png" id="3_71ude"]
+[ext_resource type="PackedScene" uid="uid://c1cdhoa62bkq0" path="res://scenes/player/player.tscn" id="4_71ude"]
+[ext_resource type="PackedScene" uid="uid://dv72amp00wjyn" path="res://scenes/buildings/meteor.tscn" id="5_3jwen"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yb3g2"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3jwen"]
+width = 7680
+height = 4320
+noise = SubResource("FastNoiseLite_yb3g2")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7yfhu"]
+shader = ExtResource("2_orbv3")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_3jwen")
+shader_parameter/noise_scale = Vector2(0.03, 0.03)
+shader_parameter/pixel_size = 2048.0
+shader_parameter/threshold_red = 0.47600002261
+shader_parameter/threshold_purple = 0.6910000328225
+shader_parameter/threshold_blue = 0.774000036765
+shader_parameter/color_red = Color(0.17362507, 0.0975, 0.75, 0.1254902)
+shader_parameter/color_purple = Color(0, 0.77, 0.6544999, 0.19607843)
+shader_parameter/color_blue = Color(0.54599965, 0, 0.84, 0.37254903)
+
+[node name="Space" type="Node2D" unique_id=509825059]
+texture_filter = 3
+
+[node name="Canvas" type="Sprite2D" parent="." unique_id=1813181672]
+modulate = Color(1.753959, 1.753959, 1.753959, 1)
+texture_repeat = 2
+position = Vector2(960, 527)
+texture = ExtResource("1_t1xst")
+region_enabled = true
+region_rect = Rect2(0, 0, 7680, 4320)
+
+[node name="White" type="Sprite2D" parent="Canvas" unique_id=1570698277]
+modulate = Color(1, 1, 1, 0.19215687)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_7yfhu")
+position = Vector2(5, 0)
+texture = ExtResource("3_71ude")
+region_enabled = true
+region_rect = Rect2(0, 0, 7680, 4320)
+
+[node name="Player" parent="." unique_id=1969940008 instance=ExtResource("4_71ude")]
+position = Vector2(965, 527)
+
+[node name="Meteor" parent="." unique_id=1188832017 instance=ExtResource("5_3jwen")]
+position = Vector2(1219.2688, 444.65857)
