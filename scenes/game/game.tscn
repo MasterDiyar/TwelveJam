@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://da5k1outx1dvd" path="res://scenes/map/space.tscn" id="2_0sr1o"]
 [ext_resource type="PackedScene" uid="uid://qqew4py6wcdn" path="res://scenes/ui/pause_menu.tscn" id="2_7h61r"]
 [ext_resource type="Texture2D" uid="uid://dln4rimifg4sx" path="res://assets/textures/ui/selector.png" id="3_lfrn8"]
+[ext_resource type="Script" uid="uid://cnr1hp5k2qqj2" path="res://scripts/ui/Picker.cs" id="4_5i0tg"]
 [ext_resource type="Texture2D" uid="uid://bubw1fxpeoltx" path="res://assets/textures/ui/darkliht.png" id="4_kelw5"]
+[ext_resource type="PackedScene" uid="uid://du6c1gimi6f2w" path="res://scenes/ui/info_tablet.tscn" id="5_bdhmt"]
 
 [sub_resource type="Environment" id="Environment_sdmle"]
 glow_enabled = true
@@ -12,12 +14,13 @@ glow_intensity = 3.93
 glow_strength = 1.7
 glow_blend_mode = 0
 
-[node name="Game" type="Node2D" unique_id=1666462603 node_paths=PackedStringArray("Pausable", "UI", "PauseMenu", "Picker")]
+[node name="Game" type="Node2D" unique_id=1666462603 node_paths=PackedStringArray("Pausable", "UI", "PauseMenu", "Picker", "InfoTablet")]
 script = ExtResource("1_sul5r")
 Pausable = NodePath("Pausable")
 UI = NodePath("UI")
 PauseMenu = NodePath("UI/PauseMenu")
 Picker = NodePath("Pausable/Picker")
+InfoTablet = NodePath("Pausable/InfoTablet")
 
 [node name="Pausable" type="Node2D" parent="." unique_id=534425687]
 
@@ -31,6 +34,9 @@ top_level = true
 z_index = 2
 position = Vector2(19, -39)
 texture = ExtResource("3_lfrn8")
+script = ExtResource("4_5i0tg")
+
+[node name="InfoTablet" parent="Pausable" unique_id=1991134222 instance=ExtResource("5_bdhmt")]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1798494945]
 

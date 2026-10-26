@@ -1,11 +1,12 @@
 using Godot;
 using System;
+using TwelveJam.scripts.game;
 
 public partial class MoneyManager : Node
 {
 	[Signal] public delegate void MoneyChangeEventHandler(float currentMoney, float consumed);
 
-	public float Ferrum, Titan, Silicon, Sulfur;
+	public Items Items;
 	
 	public static MoneyManager Instance;
 
@@ -18,6 +19,16 @@ public partial class MoneyManager : Node
 	
 	public string GetMoney() => $"{Money:F1}";
 
-	public bool CanConsume(float count) => count >= Money;
+	public bool CanConsumeMoney(float count) => count >= Money;
+
+	public bool CanConsumeResources(Items item)
+	{
+		return (Items > item);
+	}
+
+	public void ConsumeResources(Items item)
+	{
+		Items -= item;
+	}
 	
 }

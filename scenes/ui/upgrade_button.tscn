@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dykqvpdcakpvq"]
+
+[ext_resource type="Texture2D" uid="uid://p8c4sk2lnq8k" path="res://assets/textures/ui/button_upgrade.png" id="1_tii4b"]
+[ext_resource type="Script" uid="uid://brwsxobt5ixv8" path="res://scripts/ui/UpgradeButton.cs" id="2_3io4o"]
+
+[node name="Button" type="Button" unique_id=421685302]
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("1_tii4b")
+flat = true
+script = ExtResource("2_3io4o")

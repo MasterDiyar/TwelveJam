@@ -7,6 +7,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyovt"]
 size = Vector2(128, 128)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1tjxf"]
+load_path = "res://.godot/imported/meteor.png-a841c35bdb8049cf7173c7f4e9578c12.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmegu"]
+atlas = SubResource("CompressedTexture2D_1tjxf")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_7iymu"]
 atlas = ExtResource("3_rmegu")
 region = Rect2(0, 0, 64, 64)
@@ -32,17 +39,20 @@ load_path = "res://.godot/imported/meteor.png-a841c35bdb8049cf7173c7f4e9578c12.c
 atlas = SubResource("CompressedTexture2D_6ti65")
 region = Rect2(192, 0, 64, 64)
 
-[node name="Meteor" type="StaticBody2D" unique_id=1188832017]
+[node name="Meteor" type="StaticBody2D" unique_id=1188832017 node_paths=PackedStringArray("RotatingNode")]
 collision_layer = 128
 input_pickable = true
-constant_angular_velocity = 0.08726646
 script = ExtResource("1_2lnv5")
 Faction = 3
+RotationSpeed = 0.786
+RotatingNode = NodePath("RandomSprite")
+AmplitudeMinimal = Vector2(0.1, 0.6)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=459046725]
 shape = SubResource("RectangleShape2D_iyovt")
 
 [node name="RandomSprite" type="Sprite2D" parent="." unique_id=1285639609]
+texture = SubResource("AtlasTexture_rmegu")
 script = ExtResource("2_1tjxf")
 sprites = Array[Texture2D]([SubResource("AtlasTexture_7iymu"), SubResource("AtlasTexture_ohhlg"), SubResource("AtlasTexture_nthne"), SubResource("AtlasTexture_aitre")])
 chances = PackedFloat32Array(1, 1, 1, 1)

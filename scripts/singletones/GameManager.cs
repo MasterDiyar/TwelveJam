@@ -1,13 +1,16 @@
 using Godot;
 using System;
+using TwelveJam.scripts.buildings;
 
 public partial class GameManager : Node2D
 {
 	public static GameManager Instance;
 
-	public Sprite2D Picker;
+	public Picker Picker;
+	public InfoTablet InfoTablet;
 
 	public Game Game;
+	public Player Player;
 	public override void _Ready()
 	{
 		if (GameManager.Instance == null)
@@ -15,9 +18,12 @@ public partial class GameManager : Node2D
 		else QueueFree();
 	}
 
-	public void SetPicker(Vector2 scale, Vector2 position)
+	public void OpenInfoForBuilding(Building building)
 	{
-		Picker.GlobalPosition = position;
-		Picker.GlobalScale = scale;
+		Picker?.SetPicker(building.GlobalPosition, building.AmplitudeMinimal.X, building.AmplitudeMinimal.Y);
+		
+		if (InfoTablet == null) return;
+		InfoTablet.GlobalPosition = building.GlobalPosition; 
+		InfoTablet.ShowData(building.Ferrum, building.Titan, building.Silicon, building.Sulfur);
 	}
 }
