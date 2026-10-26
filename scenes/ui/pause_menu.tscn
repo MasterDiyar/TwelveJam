@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://qqew4py6wcdn"]
+
+[ext_resource type="Script" uid="uid://cxo14wrkphj0m" path="res://scripts/ui/PauseMenu.cs" id="1_6tw0m"]
+
+[node name="PauseMenu" type="Control" unique_id=1473235742 node_paths=PackedStringArray("resumeButton", "restartButton", "exitButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6tw0m")
+resumeButton = NodePath("Button")
+restartButton = NodePath("Button2")
+exitButton = NodePath("Button3")
+
+[node name="Button" type="Button" parent="." unique_id=1563871733]
+layout_mode = 0
+offset_left = 513.0
+offset_top = 171.0
+offset_right = 604.0
+offset_bottom = 193.0
+text = "resume"
+
+[node name="Button2" type="Button" parent="." unique_id=2115669260]
+layout_mode = 0
+offset_left = 512.0
+offset_top = 206.0
+offset_right = 603.0
+offset_bottom = 237.0
+text = "restart"
+
+[node name="Button3" type="Button" parent="." unique_id=944727518]
+layout_mode = 0
+offset_left = 514.0
+offset_top = 240.0
+offset_right = 605.0
+offset_bottom = 271.0
+text = "exit"

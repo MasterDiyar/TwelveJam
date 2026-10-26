@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://beko7vil8b5t0"]
+
+[ext_resource type="Script" uid="uid://qmetj5m2itig" path="res://scripts/singletones/GameManager.cs" id="1_pggnu"]
+
+[node name="GameManager" type="Node2D" unique_id=1390869700]
+script = ExtResource("1_pggnu")
