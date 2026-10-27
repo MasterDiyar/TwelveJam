@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ru2w83g2fvmy"]
+
+[ext_resource type="Texture2D" uid="uid://cj8j84xtlmgc4" path="res://assets/textures/light/smoke.png" id="1_w7gg4"]
+[ext_resource type="PackedScene" uid="uid://bb6jti86crey8" path="res://scenes/game/clearer.tscn" id="2_brruq"]
+
+[sub_resource type="Gradient" id="Gradient_sdmle"]
+colors = PackedColorArray(0.52067494, 0.5015, 0.59, 1, 0.89, 0.89, 0.89, 1)
+
+[node name="smoke" type="CPUParticles2D" unique_id=396308066]
+amount = 44
+texture = ExtResource("1_w7gg4")
+lifetime = 1.5
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 32.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 120.0
+angular_velocity_min = -71.29
+angular_velocity_max = 28.51
+orbit_velocity_min = -0.1
+orbit_velocity_max = 0.1
+scale_amount_max = 4.0
+color_initial_ramp = SubResource("Gradient_sdmle")
+
+[node name="Clearer" parent="." unique_id=188140631 instance=ExtResource("2_brruq")]
+wait_time = 1.5

@@ -2,8 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://d4gg6gbcyrkqr" path="res://assets/textures/player/player_test1.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://4rxgt5a15se4" path="res://scripts/player/Player.cs" id="1_gmlin"]
-[ext_resource type="PackedScene" uid="uid://cd5fpee8cj45l" path="res://scenes/weapon/weapon.tscn" id="3_gmlin"]
-[ext_resource type="PackedScene" uid="uid://bou8deaxx4kwr" path="res://scenes/bullets/laser.tscn" id="4_lvxji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmle"]
 
@@ -52,7 +50,3 @@ scale_amount_min = 1.5
 scale_amount_max = 3.5
 color_ramp = SubResource("Gradient_grgi1")
 color_initial_ramp = SubResource("Gradient_sdmle")
-
-[node name="Weapon" parent="." unique_id=1494475726 instance=ExtResource("3_gmlin")]
-position = Vector2(8, 16)
-BulletScene = ExtResource("4_lvxji")

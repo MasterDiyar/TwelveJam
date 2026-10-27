@@ -56,6 +56,18 @@ position = Vector2(965, 527)
 [node name="Meteor" parent="." unique_id=1188832017 instance=ExtResource("5_3jwen")]
 position = Vector2(1219.2688, 444.65857)
 
+[node name="Meteor4" parent="." unique_id=825692288 instance=ExtResource("5_3jwen")]
+position = Vector2(944, 659)
+
+[node name="Meteor5" parent="." unique_id=988510128 instance=ExtResource("5_3jwen")]
+position = Vector2(614, 389)
+
+[node name="Meteor6" parent="." unique_id=346937616 instance=ExtResource("5_3jwen")]
+position = Vector2(595, 667)
+
+[node name="Meteor7" parent="." unique_id=1500813987 instance=ExtResource("5_3jwen")]
+position = Vector2(761, 326)
+
 [node name="Meteor2" parent="." unique_id=783626396 instance=ExtResource("5_3jwen")]
 position = Vector2(959, 846)
 

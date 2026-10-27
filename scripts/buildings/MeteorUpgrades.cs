@@ -20,12 +20,23 @@ public partial class MeteorUpgrades : HBoxContainer
 
 	private void ExcavateOnPressed()
 	{
+		var Drone = GD.Load<PackedScene>("res://scenes/units/burovik.tscn").Instantiate<Burovik>();
+		Drone.building = parent;
+		parent.AddChild(Drone);
 		
+		Visible = false;
 	}
 
 	private void DemolishOnPressed()
 	{
 		MoneyManager.Instance.Items += parent.GetItem()*GameManager.Instance.DemolishMultiplier;
+
+		var a = GD.Load<PackedScene>("res://scenes/particles/smoke.tscn").Instantiate<CpuParticles2D>();
+		a.GlobalPosition = parent.GlobalPosition;
+		
+		parent.GetParent().CallDeferred("add_child", a);
+		
+		parent.QueueFree();
 	}
 	
 	
@@ -39,6 +50,7 @@ public partial class MeteorUpgrades : HBoxContainer
 
 	void undetec(Building building1)
 	{
+		if (!IsInstanceValid(this)) return;
 		if (building1 != parent) Visible = false;
 	}
 }

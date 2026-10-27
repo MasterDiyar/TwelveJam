@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bb6jti86crey8"]
+
+[ext_resource type="Script" uid="uid://b23h7kd8fayqs" path="res://scripts/game/Clearer.cs" id="1_qusle"]
+
+[node name="Clearer" type="Timer" unique_id=188140631]
+script = ExtResource("1_qusle")

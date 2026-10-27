@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://ba3vsvljmnstk"]
+
+[ext_resource type="Texture2D" uid="uid://ck41w3f60j6kc" path="res://assets/textures/units/miner_drone1.png" id="1_owcl1"]
+[ext_resource type="Script" uid="uid://cyg5t6cp317ge" path="res://scripts/units/Burovik.cs" id="1_w4e38"]
+
+[sub_resource type="Animation" id="Animation_w4e38"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MinerDrone1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-52, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MinerDrone1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wet0d"]
+resource_name = "mine"
+length = 5.5666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MinerDrone1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.5, 2.6, 4, 4.2, 4.65, 5.2, 5.5666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-27, 1), Vector2(-21.000002, -25.000002), Vector2(0, -34), Vector2(21, -23.000004), Vector2(33, -1), Vector2(39, 23), Vector2(40, 24), Vector2(29, 13.999999), Vector2(29, 13.999999), Vector2(40, 24), Vector2(13, 42), Vector2(-28, 34), Vector2(-27, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MinerDrone1:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.5, 4, 4.0003, 4.65, 5.2, 5.5666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.7853982, 1.5707964, 2.3561945, 3.1415927, 3.9269907, 3.9269907, 3.9269907, -2.356194490192345, -1.5707964, -0.7853982, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_it4gi"]
+_data = {
+&"RESET": SubResource("Animation_w4e38"),
+&"mine": SubResource("Animation_wet0d")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sdmle"]
+radius = 32.0
+
+[node name="Drone" type="CharacterBody2D" unique_id=18471083 node_paths=PackedStringArray("anim")]
+script = ExtResource("1_w4e38")
+anim = NodePath("AnimationPlayer")
+
+[node name="MinerDrone1" type="Sprite2D" parent="." unique_id=332204374]
+position = Vector2(-52, 0)
+texture = ExtResource("1_owcl1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1469751706]
+libraries/ = SubResource("AnimationLibrary_it4gi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=308180212]
+shape = SubResource("CircleShape2D_sdmle")
