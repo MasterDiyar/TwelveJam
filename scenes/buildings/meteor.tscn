@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://dfjrynjhsdao7" path="res://scripts/buildings/Building.cs" id="1_2lnv5"]
 [ext_resource type="Script" uid="uid://bve6dmk6irtot" path="res://scripts/godot_extension/RandomSprite.cs" id="2_1tjxf"]
 [ext_resource type="Texture2D" uid="uid://br83by56858mt" path="res://assets/textures/env/meteor.png" id="3_rmegu"]
+[ext_resource type="PackedScene" uid="uid://brq7j67pkm750" path="res://scenes/ui/meteor_upgrades.tscn" id="4_rmegu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyovt"]
-size = Vector2(128, 128)
+size = Vector2(48, 48)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1tjxf"]
 load_path = "res://.godot/imported/meteor.png-a841c35bdb8049cf7173c7f4e9578c12.ctex"
@@ -57,3 +58,15 @@ script = ExtResource("2_1tjxf")
 sprites = Array[Texture2D]([SubResource("AtlasTexture_7iymu"), SubResource("AtlasTexture_ohhlg"), SubResource("AtlasTexture_nthne"), SubResource("AtlasTexture_aitre")])
 chances = PackedFloat32Array(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://bve6dmk6irtot"
+
+[node name="Control" parent="." unique_id=1187285385 instance=ExtResource("4_rmegu")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -64.0
+offset_top = 29.0
+offset_right = 64.0
+offset_bottom = 69.0
+grow_horizontal = 1
+grow_vertical = 1

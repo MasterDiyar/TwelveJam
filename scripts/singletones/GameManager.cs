@@ -11,6 +11,8 @@ public partial class GameManager : Node2D
 
 	public Game Game;
 	public Player Player;
+	
+	public float DemolishMultiplier = .25f;
 	public override void _Ready()
 	{
 		if (GameManager.Instance == null)
@@ -25,5 +27,8 @@ public partial class GameManager : Node2D
 		if (InfoTablet == null) return;
 		InfoTablet.GlobalPosition = building.GlobalPosition + Vector2.Right * 64 * building.AmplitudeMinimal.Y; 
 		InfoTablet.ShowData(building.Ferrum, building.Titan, building.Silicon, building.Sulfur);
+		EmitSignalBuildingChanged(building);
 	}
+	
+	[Signal] public delegate void BuildingChangedEventHandler(Building building);
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using Godot;
+using TwelveJam.scripts.game;
 using TwelveJam.scripts.units;
 
 namespace TwelveJam.scripts.buildings;
@@ -52,5 +53,10 @@ public partial class Building : StaticBody2D, IDamagable
     public override void _Process(double delta)
     {
         RotatingNode.Rotation += RotationSpeed * (float)delta;
+    }
+
+    public Items GetItem()
+    {
+        return new Items(Ferrum, Titan, Silicon, Sulfur);
     }
 }

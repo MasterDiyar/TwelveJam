@@ -10,4 +10,7 @@
     <Folder Include="scripts\ui\" />
     <Folder Include="scripts\weapons\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="scripts\TODOLIST.txt" />
+  </ItemGroup>
 </Project>

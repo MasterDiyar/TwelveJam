@@ -23,11 +23,11 @@ color = Color(0.39, 0.109199986, 0.109199986, 0.21960784)
 
 [node name="Button" parent="." unique_id=421685302 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
 layout_mode = 0
-offset_left = 141.0
-offset_top = 689.0
-offset_right = 277.0
-offset_bottom = 793.0
-text = "fix all"
+offset_left = 34.0
+offset_top = 900.0
+offset_right = 170.0
+offset_bottom = 1004.0
+text = "fix turbines"
 Unlocker = [NodePath("../Button2")]
 isUnlocked = true
 Id = 1
@@ -35,32 +35,44 @@ Money = 20.0
 
 [node name="Button2" parent="." unique_id=1483949857 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
 layout_mode = 0
-offset_left = 422.0
-offset_top = 543.0
-offset_right = 558.0
-offset_bottom = 647.0
+offset_left = 224.0
+offset_top = 901.0
+offset_right = 360.0
+offset_bottom = 1005.0
+text = "laser"
 Unlocker = [NodePath("../Button3")]
+Id = 2
 
 [node name="Button3" parent="." unique_id=91629053 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
 layout_mode = 0
-offset_left = 778.0
-offset_top = 649.0
-offset_right = 914.0
-offset_bottom = 753.0
+offset_left = 417.0
+offset_top = 951.0
+offset_right = 553.0
+offset_bottom = 1055.0
+text = "armor"
 Unlocker = [NodePath("../Button4"), NodePath("../Button5")]
 
 [node name="Button4" parent="." unique_id=101626787 instance=ExtResource("1_uqwgi")]
 layout_mode = 0
-offset_left = 1003.0
-offset_top = 536.0
-offset_right = 1139.0
-offset_bottom = 640.0
+offset_left = 621.0
+offset_top = 721.0
+offset_right = 757.0
+offset_bottom = 825.0
 
 [node name="Button5" parent="." unique_id=2078307187 instance=ExtResource("1_uqwgi")]
 layout_mode = 0
-offset_left = 995.0
-offset_top = 741.0
-offset_right = 1131.0
-offset_bottom = 845.0
+offset_left = 606.0
+offset_top = 959.0
+offset_right = 742.0
+offset_bottom = 1063.0
+
+[node name="Button6" parent="." unique_id=1898990680 instance=ExtResource("1_uqwgi")]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 768.0
+offset_right = 360.0
+offset_bottom = 872.0
+text = "more lasers!!!"
+Id = 3
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1880010037]

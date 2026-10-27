@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://d4gg6gbcyrkqr" path="res://assets/textures/player/player_test1.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://4rxgt5a15se4" path="res://scripts/player/Player.cs" id="1_gmlin"]
+[ext_resource type="PackedScene" uid="uid://cd5fpee8cj45l" path="res://scenes/weapon/weapon.tscn" id="3_gmlin"]
+[ext_resource type="PackedScene" uid="uid://bou8deaxx4kwr" path="res://scenes/bullets/laser.tscn" id="4_lvxji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmle"]
 
@@ -15,7 +17,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1.8989718, 1.4668138, 0, 1, 0.12750009, 0,
 [sub_resource type="Gradient" id="Gradient_sdmle"]
 colors = PackedColorArray(1, 0.050000012, 0.050000012, 1, 0.9999998, 0.5280756, 0.15972024, 1)
 
-[node name="Player" type="CharacterBody2D" unique_id=1969940008 node_paths=PackedStringArray("_thrusterParticles", "_camera")]
+[node name="Player" type="CharacterBody2D" unique_id=1969940008 node_paths=PackedStringArray("_thrusterParticles", "_camera", "Sprite")]
 top_level = true
 texture_filter = 3
 script = ExtResource("1_gmlin")
@@ -23,6 +25,7 @@ _thrusterParticles = NodePath("CPUParticles2D")
 _camera = NodePath("Camera2D")
 _zoomSpeed = 0.5
 _rotationSpeed = 2.5
+Sprite = NodePath("PlayerTest1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1097042692]
 shape = SubResource("CircleShape2D_sdmle")
@@ -49,3 +52,7 @@ scale_amount_min = 1.5
 scale_amount_max = 3.5
 color_ramp = SubResource("Gradient_grgi1")
 color_initial_ramp = SubResource("Gradient_sdmle")
+
+[node name="Weapon" parent="." unique_id=1494475726 instance=ExtResource("3_gmlin")]
+position = Vector2(8, 16)
+BulletScene = ExtResource("4_lvxji")

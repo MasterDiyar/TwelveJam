@@ -21,7 +21,7 @@ default_color = Color(0.12799999, 0.32, 0.16639999, 1)
 [node name="Line2D2" type="Line2D" parent="." unique_id=1508628057]
 position = Vector2(0, -34)
 points = PackedVector2Array(10, 26, 60, 26)
-default_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+default_color = Color(0.46, 0.46, 0.46, 1)
 
 [node name="Line2D3" type="Line2D" parent="." unique_id=919967452]
 position = Vector2(0, -34)

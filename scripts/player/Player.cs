@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using TwelveJam.scripts.units;
 
 public partial class Player : Unit
@@ -8,7 +9,7 @@ public partial class Player : Unit
 
     [Export] private CpuParticles2D _thrusterParticles; 
     [Export] private Camera2D _camera;                 
-
+    
     
     [Export] private float _minZoom = 1.0f;
     [Export] private float _maxZoom = 3.0f; 
@@ -16,6 +17,10 @@ public partial class Player : Unit
     [Export] private float _zoomStep = 0.1f;
 
     [Export] private float _rotationSpeed = 10.0f;
+
+    [Export] public Sprite2D Sprite;
+    
+    public List<Weapon> Weapons = [];
 
     private float _targetZoom;
 
@@ -38,17 +43,13 @@ public partial class Player : Unit
 
     public override void _Input(InputEvent @event)
     {
-        if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed)
-        {
+        if (@event is InputEventMouseButton mouseEvent && mouseEvent.Pressed) {
             if (mouseEvent.ButtonIndex == MouseButton.WheelUp)
-            {
                 _targetZoom += _zoomStep;
-            }
+            
             else if (mouseEvent.ButtonIndex == MouseButton.WheelDown)
-            {
                 _targetZoom -= _zoomStep;
-            }
-
+            
             _targetZoom = Mathf.Clamp(_targetZoom, _minZoom, _maxZoom);
         }
     }
@@ -78,17 +79,19 @@ public partial class Player : Unit
         Velocity = velocity;
         MoveAndSlide();
 
-        if (velocity.LengthSquared() > 1.0f)
-        {
+        if (velocity.LengthSquared() > 1.0f) {
             float targetAngle = velocity.Angle();
 
             Rotation = Mathf.LerpAngle(Rotation, targetAngle, (float)(_rotationSpeed * delta));
         }
 
-        if (_camera != null)
-        {
+        if (_camera != null) {
             float currentZoomX = Mathf.Lerp(_camera.Zoom.X, _targetZoom, (float)(_zoomSpeed * delta * 10.0));
             _camera.Zoom = new Vector2(currentZoomX, currentZoomX);
+        }
+        var angle = (-GlobalPosition + GetGlobalMousePosition()).Angle();
+        if (Input.IsActionPressed("lm")) foreach (var wep in Weapons) {
+            wep.Attack(angle);        
         }
     }
 }

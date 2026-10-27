@@ -39,9 +39,23 @@ public partial class UpgradeButton : Button
 
 	void AfterBuy()
 	{
+		var player = GameManager.Instance.Player;
 		switch (Id)
 		{
 			case 1: 
+				break;
+			
+			case 2:
+				var laser = GD.Load<PackedScene>("res://scenes/weapon/laser_weapon.tscn");
+				var laser1 = laser.Instantiate<Weapon>();
+				laser1.Position = new Vector2(8, -17);
+				player.AddChild(laser1);
+				player.Weapons.Add(laser1);
+				var laser2 = laser.Instantiate<Weapon>();
+				laser2.Position = new Vector2(8, 16);
+				player.AddChild(laser2);
+				player.Weapons.Add(laser2);
+				player.Sprite.Texture = GD.Load<Texture2D>("res://assets/textures/player/player_test2.png");
 				break;
 		}
 	}

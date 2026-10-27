@@ -5,7 +5,7 @@ public class Items
     public Items(){}
     public Items(float ferrum, float silicon, float titan, float sulfur) {
         Ferrum = ferrum;
-        Sulfur = silicon;
+        Silicon = silicon;
         Titan = titan;
         Sulfur = sulfur;
     }
@@ -34,4 +34,13 @@ public class Items
         a.Silicon + b.Silicon,
          a.Titan + b.Titan,
         a.Sulfur + b.Sulfur);
+    
+    public static Items operator *(Items a, float multiplier) => new(
+        a.Ferrum * multiplier,
+        a.Silicon * multiplier,
+        a.Titan * multiplier,
+        a.Sulfur * multiplier
+    );
+
+    public static Items operator *(float multiplier, Items a) => a * multiplier;
 }

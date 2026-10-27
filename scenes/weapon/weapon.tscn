@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cd5fpee8cj45l"]
+
+[ext_resource type="Script" uid="uid://bbfkus5u7tws2" path="res://scripts/weapons/Weapon.cs" id="1_l3xq3"]
+
+[node name="Weapon" type="Node2D" unique_id=1494475726 node_paths=PackedStringArray("BetweenAttackTimer")]
+script = ExtResource("1_l3xq3")
+BetweenAttackTimer = NodePath("BetweenAttack")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1456674349]
+
+[node name="BetweenAttack" type="Timer" parent="." unique_id=273288028]

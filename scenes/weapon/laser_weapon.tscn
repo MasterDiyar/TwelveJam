@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cch2e3qmpn1mi"]
+
+[ext_resource type="PackedScene" uid="uid://cd5fpee8cj45l" path="res://scenes/weapon/weapon.tscn" id="1_qh4bf"]
+[ext_resource type="PackedScene" uid="uid://bou8deaxx4kwr" path="res://scenes/bullets/laser.tscn" id="2_v548t"]
+
+[node name="LaserWeapon" unique_id=1494475726 instance=ExtResource("1_qh4bf")]
+BulletScene = ExtResource("2_v548t")
+SpawnOffset = Vector2(3, 0)
