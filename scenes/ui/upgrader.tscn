@@ -1,14 +1,25 @@
 [gd_scene format=3 uid="uid://ddnejx1v8qrly"]
 
+[ext_resource type="Script" uid="uid://b7cnq7iede5dv" path="res://scripts/ui/Upgrader.cs" id="1_d445r"]
 [ext_resource type="PackedScene" uid="uid://dykqvpdcakpvq" path="res://scenes/ui/upgrade_button.tscn" id="1_uqwgi"]
 
-[node name="Upgrader" type="Control" unique_id=1374668955]
+[node name="Upgrader" type="Control" unique_id=1374668955 node_paths=PackedStringArray("rext")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_d445r")
+rext = NodePath("ColorRect")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1502616276]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+offset_transform_position = Vector2(40, 40)
+mouse_filter = 2
+color = Color(0.39, 0.109199986, 0.109199986, 0.21960784)
 
 [node name="Button" parent="." unique_id=421685302 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
 layout_mode = 0
@@ -16,7 +27,11 @@ offset_left = 141.0
 offset_top = 689.0
 offset_right = 277.0
 offset_bottom = 793.0
-Unlocker = []
+text = "fix all"
+Unlocker = [NodePath("../Button2")]
+isUnlocked = true
+Id = 1
+Money = 20.0
 
 [node name="Button2" parent="." unique_id=1483949857 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
 layout_mode = 0
@@ -24,7 +39,7 @@ offset_left = 422.0
 offset_top = 543.0
 offset_right = 558.0
 offset_bottom = 647.0
-Unlocker = []
+Unlocker = [NodePath("../Button3")]
 
 [node name="Button3" parent="." unique_id=91629053 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
 layout_mode = 0
@@ -32,22 +47,20 @@ offset_left = 778.0
 offset_top = 649.0
 offset_right = 914.0
 offset_bottom = 753.0
-Unlocker = []
+Unlocker = [NodePath("../Button4"), NodePath("../Button5")]
 
-[node name="Button4" parent="." unique_id=101626787 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
+[node name="Button4" parent="." unique_id=101626787 instance=ExtResource("1_uqwgi")]
 layout_mode = 0
 offset_left = 1003.0
 offset_top = 536.0
 offset_right = 1139.0
 offset_bottom = 640.0
-Unlocker = []
 
-[node name="Button5" parent="." unique_id=2078307187 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
+[node name="Button5" parent="." unique_id=2078307187 instance=ExtResource("1_uqwgi")]
 layout_mode = 0
 offset_left = 995.0
 offset_top = 741.0
 offset_right = 1131.0
 offset_bottom = 845.0
-Unlocker = []
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1880010037]

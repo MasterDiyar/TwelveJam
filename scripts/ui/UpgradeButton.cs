@@ -13,6 +13,13 @@ public partial class UpgradeButton : Button
 	public override void _Ready()
 	{
 		Pressed += OnPress;
+		TooltipText = $"cost: {Money}\niron: {Ferrum}\ntitan: {Titan}\nsilicon: {Silicon}\nsulfur: {Sulfur}";
+	}
+
+	public void UpdateVisualState()
+	{
+		Visible = isUnlocked;
+		Disabled = !isUnlocked;
 	}
 
 	void OnPress()

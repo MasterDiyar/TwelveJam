@@ -2,9 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://lj4oqwnbky2w" path="res://assets/textures/background/canvas.png" id="1_t1xst"]
 [ext_resource type="Shader" uid="uid://cjkdantipd0ik" path="res://shaders/space_gas.gdshader" id="2_orbv3"]
+[ext_resource type="Script" uid="uid://d171dya1y2jks" path="res://scripts/game/ParralaxCanvas.cs" id="2_yb3g2"]
 [ext_resource type="Texture2D" uid="uid://dipj3igxptnov" path="res://assets/textures/background/white.png" id="3_71ude"]
 [ext_resource type="PackedScene" uid="uid://c1cdhoa62bkq0" path="res://scenes/player/player.tscn" id="4_71ude"]
 [ext_resource type="PackedScene" uid="uid://dv72amp00wjyn" path="res://scenes/buildings/meteor.tscn" id="5_3jwen"]
+[ext_resource type="Texture2D" uid="uid://bxuxodl4b4muo" path="res://assets/textures/light/small_no_gradient.png" id="7_sgeah"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yb3g2"]
 
@@ -30,14 +32,17 @@ texture_filter = 3
 
 [node name="Canvas" type="Sprite2D" parent="." unique_id=1813181672]
 modulate = Color(1.753959, 1.753959, 1.753959, 1)
+light_mask = 2
 texture_repeat = 2
 position = Vector2(960, 527)
 texture = ExtResource("1_t1xst")
 region_enabled = true
 region_rect = Rect2(0, 0, 7680, 4320)
+script = ExtResource("2_yb3g2")
 
 [node name="White" type="Sprite2D" parent="Canvas" unique_id=1570698277]
 modulate = Color(1, 1, 1, 0.19215687)
+light_mask = 2
 texture_repeat = 2
 material = SubResource("ShaderMaterial_7yfhu")
 position = Vector2(5, 0)
@@ -50,3 +55,16 @@ position = Vector2(965, 527)
 
 [node name="Meteor" parent="." unique_id=1188832017 instance=ExtResource("5_3jwen")]
 position = Vector2(1219.2688, 444.65857)
+
+[node name="Meteor2" parent="." unique_id=783626396 instance=ExtResource("5_3jwen")]
+position = Vector2(959, 846)
+
+[node name="Meteor3" parent="." unique_id=487905572 instance=ExtResource("5_3jwen")]
+position = Vector2(1385, 703)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=139181184]
+position = Vector2(927, 526)
+rotation = 3.1415927
+color = Color(1, 0.3, 0.3, 1)
+texture = ExtResource("7_sgeah")
+texture_scale = 0.4

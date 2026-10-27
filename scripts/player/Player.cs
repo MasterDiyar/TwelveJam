@@ -4,7 +4,7 @@ using TwelveJam.scripts.units;
 
 public partial class Player : Unit
 {
-    public const float Speed = 300.0f;
+    public float Speed = 300.0f;
 
     [Export] private CpuParticles2D _thrusterParticles; 
     [Export] private Camera2D _camera;                 

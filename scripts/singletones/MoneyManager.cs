@@ -6,7 +6,7 @@ public partial class MoneyManager : Node
 {
 	[Signal] public delegate void MoneyChangeEventHandler(float currentMoney, float consumed);
 
-	public Items Items;
+	public Items Items = new Items();
 	
 	public static MoneyManager Instance;
 
@@ -19,11 +19,11 @@ public partial class MoneyManager : Node
 	
 	public string GetMoney() => $"{Money:F1}";
 
-	public bool CanConsumeMoney(float count) => count >= Money;
+	public bool CanConsumeMoney(float count) => count <= Money;
 
 	public bool CanConsumeResources(Items item)
 	{
-		return (Items > item);
+		return (Items >= item);
 	}
 
 	public void ConsumeResources(Items item)
