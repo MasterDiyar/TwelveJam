@@ -7,7 +7,7 @@ public partial class Unit : CharacterBody2D, IDamagable
     [Export] public Faction Faction;
 
     [Export] public float Hp = 100;
-    
+    [Export] public float Speed = 300f;
     
     public Faction GetFaction() => Faction;
 

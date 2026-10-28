@@ -8,12 +8,17 @@ using System;
 public partial class LaserBeamWeapon : Node2D
 {
     [Export] private RayCast2D _rayCast;
-    [Export] private Line2D _lineVisual;
+    [Export] private Line2D _lineVisual;    
+    [Export] private Line2D _coreLineVisual; 
+    
     [Export] private Faction _myFaction = Faction.Player;
-    [Export] private float _beamDuration = 2.0f; // Сколько секунд светит
-    [Export] private float _cooldownDuration = 3.0f; // Перезарядка
+    [Export] private float _beamDuration = 2.0f;
+    [Export] private float _cooldownDuration = 3.0f; 
     [Export] private float _damagePerSecond = 10.0f;
-    [Export] private float _maxRange = 500f; // Максимальная длина луча
+    [Export] private float _maxRange = 500f; 
+
+    [Export] private float _minWidth = 2.0f;
+    [Export] private float _maxWidth = 12.0f;
 
     private float _timer = 0f;
     private bool _isFiring = false;
@@ -22,39 +27,34 @@ public partial class LaserBeamWeapon : Node2D
 
     public override void _Ready()
     {
-        if (_rayCast != null)
-        {
+        if (_rayCast != null) {
             _rayCast.Enabled = false;
             _rayCast.TargetPosition = new Vector2(_maxRange, 0);
         }
         if (_lineVisual != null) _lineVisual.Visible = false;
+        if (_coreLineVisual != null) _coreLineVisual.Visible = false;
     }
 
     public override void _Process(double delta)
     {
-        if (_isCooldown)
-        {
+        if (_isCooldown) {
             _timer -= (float)delta;
             if (_timer <= 0) _isCooldown = false;
             return;
         }
 
-        if (_isFiring)
-        {
+        if (_isFiring) {
             _timer -= (float)delta;
-            UpdateBeam();
+            UpdateBeam(delta);
 
-            if (_timer <= 0)
-            {
+            if (_timer <= 0) {
                 StopFiring();
                 StartCooldown();
             }
         }
+        Rotation = GetParent<Node2D>().Rotation;
     }
 
-    /// <summary>
-    /// Запуск луча с заданным углом атаки
-    /// </summary>
     public void StartFiring(float angleInDegrees)
     {
         if (_isCooldown || _isFiring) return;
@@ -63,11 +63,11 @@ public partial class LaserBeamWeapon : Node2D
         _timer = _beamDuration;
         _currentAngle = angleInDegrees;
 
-        // Поворачиваем орудие или RayCast под переданный угол
-        Rotation = Mathf.DegToRad(angleInDegrees);
+        Rotation = _currentAngle;
         
         if (_rayCast != null) _rayCast.Enabled = true;
         if (_lineVisual != null) _lineVisual.Visible = true;
+        if (_coreLineVisual != null) _coreLineVisual.Visible = true;
     }
 
     private void StopFiring()
@@ -75,6 +75,7 @@ public partial class LaserBeamWeapon : Node2D
         _isFiring = false;
         if (_rayCast != null) _rayCast.Enabled = false;
         if (_lineVisual != null) _lineVisual.Visible = false;
+        if (_coreLineVisual != null) _coreLineVisual.Visible = false;
     }
 
     private void StartCooldown()
@@ -83,74 +84,67 @@ public partial class LaserBeamWeapon : Node2D
         _timer = _cooldownDuration;
     }
 
-    private void UpdateBeam()
+    private void UpdateBeam(double delta)
     {
         if (_rayCast == null) return;
 
-        // Логика сквозного пролета через одинаковый Faction
-        // Так как стандартный RayCast2D возвращает первое же попавшееся тело,
-        // для точного игнорирования союзников используем PhysicsDirectSpaceState2D или цикл исключений.
-        
         var spaceState = GetWorld2D().DirectSpaceState;
         var query = PhysicsRayQueryParameters2D.Create(GlobalPosition, GlobalPosition + Vector2.Right.Rotated(Rotation) * _maxRange);
         
-        // Можем исключать сам корабль из запроса
-        // query.Exclude = ... 
-
-        // Итеративный пролет сквозь союзников (до 5 попыток за кадр, чтобы не уйти в бесконечный цикл)
         Godot.Collections.Dictionary result = default;
-        for (int i = 0; i < 5; i++)
-        {
+        for (int i = 0; i < 5; i++) {
             result = spaceState.IntersectRay(query);
-            if (result.Count > 0)
-            {
+            if (result.Count > 0) {
                 var collider = result["collider"].As<Node>();
 
-                if (collider is IDamagable factionObj)
-                {
-                    if (factionObj.GetFaction() == _myFaction)
-                    //query.Exclude.Add(collider.);
+                if (collider is IDamagable factionObj) {
+                    if (factionObj.GetFaction() == _myFaction) {
+                        query.Exclude = new Godot.Collections.Array<Rid> { (Rid)result["rid"] };
                         continue;
-                    else
-                    {
-                        factionObj.TakeDamage(_damagePerSecond, _myFaction);
                     }
-                }
-                
-                // Если это враг или нейтральный объект — останавливаем луч здесь
-                break;
-            }
-            else
-            {
-                break;
-            }
+                } break;
+            }else { break; }
         }
 
-        // Отрисовка и нанесение урона по финальной точке
+        Vector2 targetPoint;
         if (result.Count > 0)
         {
-            Vector2 collisionPoint = (Vector2)result["position"];
+            targetPoint = (Vector2)result["position"];
             var collider = result["collider"].As<Node>();
 
-            // Наносим урон, если это враг
-            // if (collider is Enemy enemy) enemy.TakeDamage(_damagePerSecond * (float)delta);
-
-            DrawVisualBeam(collisionPoint);
+            if (collider is IDamagable enemy) 
+            {
+                enemy.TakeDamage(_damagePerSecond * (float)delta, _myFaction);
+            }
         }
         else
         {
-            // Ни в кого не попали, луч летит на максимум
-            Vector2 maxPoint = GlobalPosition + Vector2.Right.Rotated(Rotation) * _maxRange;
-            DrawVisualBeam(maxPoint);
+            targetPoint = GlobalPosition + Vector2.Right.Rotated(Rotation) * _maxRange;
         }
+
+        // Вычисляем прогресс стрельбы от 0 до 1 (чтобы ширина росла по мере удержания луча)
+        float progress = 1.0f - (_timer / _beamDuration);
+        float currentDynamicWidth = Mathf.Lerp(_minWidth, _maxWidth, progress);
+
+        DrawVisualBeam(targetPoint, currentDynamicWidth);
     }
 
-    private void DrawVisualBeam(Vector2 targetGlobalPoint)
+    private void DrawVisualBeam(Vector2 targetGlobalPoint, float dynamicWidth)
     {
-        if (_lineVisual == null) return;
+        if (_lineVisual != null)
+        {
+            _lineVisual.Width = dynamicWidth;
+            _lineVisual.ClearPoints();
+            _lineVisual.AddPoint(Vector2.Zero);
+            _lineVisual.AddPoint(_lineVisual.ToLocal(targetGlobalPoint));
+        }
 
-        _lineVisual.ClearPoints();
-        _lineVisual.AddPoint(Vector2.Zero);
-        _lineVisual.AddPoint(_lineVisual.ToLocal(targetGlobalPoint));
+        if (_coreLineVisual != null)
+        {
+            _coreLineVisual.Width = Mathf.Max(1.0f, dynamicWidth * 0.4f);
+            _coreLineVisual.ClearPoints();
+            _coreLineVisual.AddPoint(Vector2.Zero);
+            _coreLineVisual.AddPoint(_coreLineVisual.ToLocal(targetGlobalPoint));
+        }
     }
 }

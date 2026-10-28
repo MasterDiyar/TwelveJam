@@ -58,6 +58,11 @@ public partial class UpgradeButton : Button
 				player.Sprite.Texture = GD.Load<Texture2D>("res://assets/textures/player/player_test2.png");
 				player.ThrusterParticles.Position += Vector2.Left * 14; 
 				break;
+			
+			case 4:
+				player.Sprite.Texture = GD.Load<Texture2D>("res://assets/textures/player/player_test3.png");
+				
+				break;
 		}
 	}
 }

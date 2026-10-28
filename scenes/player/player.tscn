@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d4gg6gbcyrkqr" path="res://assets/textures/player/player_test1.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://4rxgt5a15se4" path="res://scripts/player/Player.cs" id="1_gmlin"]
 [ext_resource type="Texture2D" uid="uid://cbtnc3nup6erg" path="res://assets/textures/light/firelight.png" id="3_gmlin"]
+[ext_resource type="PackedScene" uid="uid://b6uqhnsnsd7s8" path="res://scenes/weapon/laserbeam.tscn" id="4_lvxji"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmle"]
 
@@ -16,9 +17,11 @@ colors = PackedColorArray(1, 1, 1, 1, 1.8989718, 1.4668138, 0, 1, 0.12750009, 0,
 [sub_resource type="Gradient" id="Gradient_sdmle"]
 colors = PackedColorArray(1, 0.050000012, 0.050000012, 1, 0.9999998, 0.5280756, 0.15972024, 1)
 
-[node name="Player" type="CharacterBody2D" unique_id=1969940008 node_paths=PackedStringArray("ThrusterParticles", "_camera", "Sprite", "Firelight")]
+[node name="Player" type="CharacterBody2D" unique_id=1969940008 node_paths=PackedStringArray("ThrusterParticles", "_camera", "Sprite", "Firelight", "Laser")]
 top_level = true
 texture_filter = 3
+motion_mode = 1
+platform_on_leave = 2
 script = ExtResource("1_gmlin")
 ThrusterParticles = NodePath("CPUParticles2D")
 _camera = NodePath("Camera2D")
@@ -26,6 +29,7 @@ _zoomSpeed = 0.5
 _rotationSpeed = 2.5
 Sprite = NodePath("PlayerTest1")
 Firelight = NodePath("CPUParticles2D/Smoke")
+Laser = NodePath("LaserBeam")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1097042692]
 shape = SubResource("CircleShape2D_sdmle")
@@ -57,3 +61,10 @@ color_initial_ramp = SubResource("Gradient_sdmle")
 modulate = Color(2.5032542, 1.048323, 0, 1)
 position = Vector2(0, -0.5)
 texture = ExtResource("3_gmlin")
+
+[node name="LaserBeam" parent="." unique_id=1731546378 instance=ExtResource("4_lvxji")]
+position = Vector2(22, -0.5)
+_beamDuration = 0.5
+_cooldownDuration = 1.5
+_maxRange = 1200.0
+_maxWidth = 7.0

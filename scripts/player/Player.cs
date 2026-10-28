@@ -2,14 +2,17 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using TwelveJam.scripts.units;
+using TwelveJam.scripts.weapons;
 
 public partial class Player : Unit
 {
-    public float Speed = 300.0f;
 
     [Export] public CpuParticles2D ThrusterParticles; 
     [Export] private Camera2D _camera;                 
     
+    public float MaxHp = 200, Repair = 5f;
+    
+        
     
     [Export] private float _minZoom = 1.0f;
     [Export] private float _maxZoom = 3.0f; 
@@ -19,6 +22,7 @@ public partial class Player : Unit
     [Export] private float _rotationSpeed = 10.0f, _firelightPower = 0;
 
     [Export] public Sprite2D Sprite, Firelight;
+    [Export] public LaserBeamWeapon Laser;
     
     public List<Weapon> Weapons = [];
 
@@ -59,8 +63,7 @@ public partial class Player : Unit
         Vector2 velocity = Velocity;
 
         Vector2 direction = Input.GetVector("a", "d", "w", "s");
-        if (direction != Vector2.Zero)
-        {
+        if (direction != Vector2.Zero) {
             velocity = direction * Speed;
 
             if (ThrusterParticles != null && !ThrusterParticles.Emitting)
@@ -95,7 +98,17 @@ public partial class Player : Unit
         }
         var angle = (-GlobalPosition + GetGlobalMousePosition()).Angle();
         if (Input.IsActionPressed("lm")) foreach (var wep in Weapons) {
-            wep.Attack(angle);        
+            wep.Attack(angle);    
+            Laser.StartFiring(angle);
         }
+
+        Hp = Mathf.Clamp(Hp + Repair * (float)delta, -10, MaxHp);
+    }
+
+    public override void OnDie()
+    {
+        GetTree().Root.AddChild(GD.Load<PackedScene>("res://scenes/ui/retry.tscn").Instantiate());
+        GetTree().Root.GetNode<Game>("Game").QueueFree();
+        
     }
 }

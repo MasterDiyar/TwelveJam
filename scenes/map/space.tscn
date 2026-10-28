@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c1cdhoa62bkq0" path="res://scenes/player/player.tscn" id="4_71ude"]
 [ext_resource type="PackedScene" uid="uid://dv72amp00wjyn" path="res://scenes/buildings/meteor.tscn" id="5_3jwen"]
 [ext_resource type="Texture2D" uid="uid://bxuxodl4b4muo" path="res://assets/textures/light/small_no_gradient.png" id="7_sgeah"]
+[ext_resource type="PackedScene" uid="uid://blubn7r1vqpba" path="res://scenes/units/enemy_1.tscn" id="8_os47o"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yb3g2"]
 
@@ -80,3 +81,6 @@ rotation = 3.1415927
 color = Color(1, 0.3, 0.3, 1)
 texture = ExtResource("7_sgeah")
 texture_scale = 0.4
+
+[node name="Enemy1" parent="." unique_id=1192629781 instance=ExtResource("8_os47o")]
+position = Vector2(1365, 350)

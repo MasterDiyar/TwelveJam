@@ -23,6 +23,7 @@ public partial class MeteorUpgrades : HBoxContainer
 		var Drone = GD.Load<PackedScene>("res://scenes/units/burovik.tscn").Instantiate<Burovik>();
 		Drone.building = parent;
 		parent.AddChild(Drone);
+		parent.Clickable = false;
 		
 		GameManager.Instance.Picker.Visible = false;
 		GameManager.Instance.InfoTablet.Visible = false;

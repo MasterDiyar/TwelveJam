@@ -8,7 +8,7 @@ public partial class MoneyManager : Node
 
 	public Items Items = new Items();
 	
-	public Items QuoteItems = new Items(0,0,0,0);
+	public Items QuoteItems = new Items(10,10,10,10);
 	
 	public static MoneyManager Instance;
 

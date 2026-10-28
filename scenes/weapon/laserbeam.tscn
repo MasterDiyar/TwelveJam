@@ -2,9 +2,27 @@
 
 [ext_resource type="Script" uid="uid://bfuqudlbhp6g5" path="res://scripts/weapons/LaserBeamWeapon.cs" id="1_gab0f"]
 
-[node name="Node2D" type="Node2D" unique_id=1731546378]
+[sub_resource type="Curve" id="Curve_p47bc"]
+_data = [Vector2(0, 0.39325845), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_lvxji"]
+colors = PackedColorArray(0.94661134, 0.5956609, 0.49904168, 0.5921569, 1, 1, 1, 1)
+
+[node name="Node2D" type="Node2D" unique_id=1731546378 node_paths=PackedStringArray("_rayCast", "_lineVisual", "_coreLineVisual")]
 script = ExtResource("1_gab0f")
+_rayCast = NodePath("RayCast2D")
+_lineVisual = NodePath("Line2D2")
+_coreLineVisual = NodePath("Line2D")
+_minWidth = 0.01
+_maxWidth = 6.0
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=319400787]
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1693331522]
+width_curve = SubResource("Curve_p47bc")
+default_color = Color(1.6193057, 0.9138209, 0.33660606, 1)
+gradient = SubResource("Gradient_lvxji")
+
+[node name="Line2D2" type="Line2D" parent="." unique_id=1174735967]
+default_color = Color(2.8165433, 2.8165433, 2.8165433, 0.78431374)

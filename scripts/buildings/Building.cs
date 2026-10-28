@@ -16,6 +16,7 @@ public partial class Building : StaticBody2D, IDamagable
     public Faction GetFaction() => Faction;
 
     [Export]public Vector2 AmplitudeMinimal;
+    public bool Clickable = true;
 
     private RandomNumberGenerator _rng = new();
     public override void _Ready()
@@ -39,7 +40,7 @@ public partial class Building : StaticBody2D, IDamagable
 
     public override void _InputEvent(Viewport viewport, InputEvent @event, int shapeIdx)
     {
-        if (@event is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left }) {
+        if (@event is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } && Clickable) {
             GameManager.Instance.OpenInfoForBuilding(this);
             EmitSignal(SignalName.OnClick, this);
         }

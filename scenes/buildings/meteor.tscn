@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://br83by56858mt" path="res://assets/textures/env/meteor.png" id="3_rmegu"]
 [ext_resource type="PackedScene" uid="uid://brq7j67pkm750" path="res://scenes/ui/meteor_upgrades.tscn" id="4_rmegu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyovt"]
-size = Vector2(48, 48)
+[sub_resource type="CircleShape2D" id="CircleShape2D_lvxji"]
+radius = 17.029387
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1tjxf"]
 load_path = "res://.godot/imported/meteor.png-a841c35bdb8049cf7173c7f4e9578c12.ctex"
@@ -47,10 +47,10 @@ script = ExtResource("1_2lnv5")
 Faction = 3
 RotationSpeed = 0.786
 RotatingNode = NodePath("RandomSprite")
-AmplitudeMinimal = Vector2(0.1, 0.6)
+AmplitudeMinimal = Vector2(0.05, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=459046725]
-shape = SubResource("RectangleShape2D_iyovt")
+shape = SubResource("CircleShape2D_lvxji")
 
 [node name="RandomSprite" type="Sprite2D" parent="." unique_id=1285639609]
 texture = SubResource("AtlasTexture_rmegu")

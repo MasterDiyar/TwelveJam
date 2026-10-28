@@ -16,13 +16,16 @@ glow_intensity = 3.93
 glow_strength = 1.7
 glow_blend_mode = 0
 
-[node name="Game" type="Node2D" unique_id=1666462603 node_paths=PackedStringArray("Pausable", "UI", "PauseMenu", "Picker", "InfoTablet")]
+[node name="Game" type="Node2D" unique_id=1666462603 node_paths=PackedStringArray("Pausable", "UI", "PauseMenu", "Picker", "InfoTablet", "Modulation")]
 script = ExtResource("1_sul5r")
 Pausable = NodePath("Pausable")
 UI = NodePath("UI")
 PauseMenu = NodePath("UI/PauseMenu")
 Picker = NodePath("Pausable/Picker")
 InfoTablet = NodePath("Pausable/InfoTablet")
+Modulation = NodePath("Pausable/CanvasModulate")
+Normal = Color(0.71848166, 0.7282755, 0.8007568, 1)
+LowHp = Color(0.92, 0.2392, 0.5796, 1)
 
 [node name="Pausable" type="Node2D" parent="." unique_id=534425687]
 
