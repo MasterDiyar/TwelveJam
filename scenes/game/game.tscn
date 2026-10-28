@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bubw1fxpeoltx" path="res://assets/textures/ui/darkliht.png" id="4_kelw5"]
 [ext_resource type="PackedScene" uid="uid://du6c1gimi6f2w" path="res://scenes/ui/info_tablet.tscn" id="5_bdhmt"]
 [ext_resource type="PackedScene" uid="uid://ddnejx1v8qrly" path="res://scenes/ui/upgrader.tscn" id="8_87uf6"]
+[ext_resource type="PackedScene" uid="uid://1omatt6fuk54" path="res://scenes/ui/resource_ui.tscn" id="9_2a8rs"]
 
 [sub_resource type="Environment" id="Environment_sdmle"]
 glow_enabled = true
@@ -52,6 +53,8 @@ texture = ExtResource("4_kelw5")
 
 [node name="Upgrader" parent="UI" unique_id=1374668955 instance=ExtResource("8_87uf6")]
 visible = false
+
+[node name="ResourceUI" parent="UI" unique_id=1377592144 instance=ExtResource("9_2a8rs")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=693728675]
 environment = SubResource("Environment_sdmle")

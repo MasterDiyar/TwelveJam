@@ -3,6 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://cj8j84xtlmgc4" path="res://assets/textures/light/smoke.png" id="1_w7gg4"]
 [ext_resource type="PackedScene" uid="uid://bb6jti86crey8" path="res://scenes/game/clearer.tscn" id="2_brruq"]
 
+[sub_resource type="Gradient" id="Gradient_rmegu"]
+offsets = PackedFloat32Array(0, 0.97530866)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
 [sub_resource type="Gradient" id="Gradient_sdmle"]
 colors = PackedColorArray(0.52067494, 0.5015, 0.59, 1, 0.89, 0.89, 0.89, 1)
 
@@ -21,6 +25,7 @@ angular_velocity_max = 28.51
 orbit_velocity_min = -0.1
 orbit_velocity_max = 0.1
 scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_rmegu")
 color_initial_ramp = SubResource("Gradient_sdmle")
 
 [node name="Clearer" parent="." unique_id=188140631 instance=ExtResource("2_brruq")]

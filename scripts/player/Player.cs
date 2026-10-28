@@ -7,7 +7,7 @@ public partial class Player : Unit
 {
     public float Speed = 300.0f;
 
-    [Export] private CpuParticles2D _thrusterParticles; 
+    [Export] public CpuParticles2D ThrusterParticles; 
     [Export] private Camera2D _camera;                 
     
     
@@ -16,9 +16,9 @@ public partial class Player : Unit
     [Export] private float _zoomSpeed = 0.2f;
     [Export] private float _zoomStep = 0.1f;
 
-    [Export] private float _rotationSpeed = 10.0f;
+    [Export] private float _rotationSpeed = 10.0f, _firelightPower = 0;
 
-    [Export] public Sprite2D Sprite;
+    [Export] public Sprite2D Sprite, Firelight;
     
     public List<Weapon> Weapons = [];
 
@@ -33,9 +33,9 @@ public partial class Player : Unit
             _targetZoom = Mathf.Clamp(_camera.Zoom.X, _minZoom, _maxZoom);
         }
 
-        if (_thrusterParticles != null)
+        if (ThrusterParticles != null)
         {
-            _thrusterParticles.Emitting = false;
+            ThrusterParticles.Emitting = false;
         }
 
         GameManager.Instance.Player = this;
@@ -63,19 +63,23 @@ public partial class Player : Unit
         {
             velocity = direction * Speed;
 
-            if (_thrusterParticles != null && !_thrusterParticles.Emitting)
-                _thrusterParticles.Emitting = true;
+            if (ThrusterParticles != null && !ThrusterParticles.Emitting)
+                ThrusterParticles.Emitting = true;
+            
+            _firelightPower = Mathf.Clamp(_firelightPower+(float)delta, 0.0f, 1.0f);
             
         }else {
             velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
             velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
-
-            if (_thrusterParticles != null && _thrusterParticles.Emitting)
+            
+            _firelightPower = Mathf.Clamp(_firelightPower-5*(float)delta, 0.0f, 1.0f);
+            if (ThrusterParticles != null && ThrusterParticles.Emitting)
             {
-                _thrusterParticles.Emitting = false;
+                ThrusterParticles.Emitting = false;
             }
         }
 
+        Firelight.Modulate = Firelight.Modulate with { A = _firelightPower };
         Velocity = velocity;
         MoveAndSlide();
 

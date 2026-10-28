@@ -8,7 +8,6 @@
     <Folder Include="scripts\bullets\" />
     <Folder Include="scripts\resources\" />
     <Folder Include="scripts\ui\" />
-    <Folder Include="scripts\weapons\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="scripts\TODOLIST.txt" />

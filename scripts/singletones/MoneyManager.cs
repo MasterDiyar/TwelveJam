@@ -8,9 +8,12 @@ public partial class MoneyManager : Node
 
 	public Items Items = new Items();
 	
+	public Items QuoteItems = new Items(0,0,0,0);
+	
 	public static MoneyManager Instance;
 
 	public float Money = 100;
+	
 	
 	public override void _Ready()
 	{
@@ -30,5 +33,25 @@ public partial class MoneyManager : Node
 	{
 		Items -= item;
 	}
+
+	public void Daychanged()
+	{
+		Items -= QuoteItems;
+		if (Items.AnyNegative())
+		{
+			GameManager.Instance.ExecuteGameOver();
+			return;
+		}
+		QuoteItems *= 1.2f;
+	}
 	
+	public void ResetGame()
+	{
+		Money = 100f;
+
+		Items =new Items(0,0,0,0); 
+		QuoteItems = new Items(0,0,0,0); 
+    
+		
+	}
 }

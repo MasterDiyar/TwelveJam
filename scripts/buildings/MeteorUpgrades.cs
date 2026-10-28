@@ -24,6 +24,9 @@ public partial class MeteorUpgrades : HBoxContainer
 		Drone.building = parent;
 		parent.AddChild(Drone);
 		
+		GameManager.Instance.Picker.Visible = false;
+		GameManager.Instance.InfoTablet.Visible = false;
+		
 		Visible = false;
 	}
 
@@ -33,6 +36,9 @@ public partial class MeteorUpgrades : HBoxContainer
 
 		var a = GD.Load<PackedScene>("res://scenes/particles/smoke.tscn").Instantiate<CpuParticles2D>();
 		a.GlobalPosition = parent.GlobalPosition;
+		
+		GameManager.Instance.Picker.Visible = false;
+		GameManager.Instance.InfoTablet.Visible = false;
 		
 		parent.GetParent().CallDeferred("add_child", a);
 		

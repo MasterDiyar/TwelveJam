@@ -4,16 +4,23 @@ using System;
 public partial class ParralaxCanvas : Sprite2D
 {
 
-	public float Speed = 300f;
+	private Vector2 _lastPlayerPosition;
+
+	public override void _Ready()
+	{
+		if (GameManager.Instance?.Player != null)
+			_lastPlayerPosition = GameManager.Instance.Player.GlobalPosition;
+		
+	}
+
 	public override void _Process(double delta)
 	{
-		
-		Vector2 direction = Input.GetVector("a", "d", "w", "s");
+		if (GameManager.Instance?.Player == null) return;
 
-		if (direction != Vector2.Zero)
-		{
-			Speed = GameManager.Instance.Player.Speed;
-			Position += direction * (float)delta * Speed * .82f ;
-		}
+		var currentPlayerPos = GameManager.Instance.Player.GlobalPosition;
+		Vector2 playerDelta = currentPlayerPos - _lastPlayerPosition;
+        
+		Position += playerDelta * 0.92f;
+		_lastPlayerPosition = currentPlayerPos;
 	}
 }

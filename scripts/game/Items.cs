@@ -43,4 +43,9 @@ public class Items
     );
 
     public static Items operator *(float multiplier, Items a) => a * multiplier;
+
+    public bool AnyNegative()
+    {
+        return Ferrum < 0 || Titan < 0 || Silicon < 0 || Sulfur < 0;
+    }
 }

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b6uqhnsnsd7s8"]
+
+[ext_resource type="Script" uid="uid://bfuqudlbhp6g5" path="res://scripts/weapons/LaserBeamWeapon.cs" id="1_gab0f"]
+
+[node name="Node2D" type="Node2D" unique_id=1731546378]
+script = ExtResource("1_gab0f")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=319400787]
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1693331522]

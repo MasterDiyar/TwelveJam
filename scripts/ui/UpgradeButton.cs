@@ -56,6 +56,7 @@ public partial class UpgradeButton : Button
 				player.AddChild(laser2);
 				player.Weapons.Add(laser2);
 				player.Sprite.Texture = GD.Load<Texture2D>("res://assets/textures/player/player_test2.png");
+				player.ThrusterParticles.Position += Vector2.Left * 14; 
 				break;
 		}
 	}
