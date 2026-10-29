@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://ceups7nyc556o"]
+
+[ext_resource type="Script" uid="uid://cawin86qmklh1" path="res://scripts/bullets/Bullet.cs" id="1_b30t5"]
+[ext_resource type="Texture2D" uid="uid://d4epodgngrf4h" path="res://assets/textures/bullets/alexandria.png" id="1_imfsu"]
+[ext_resource type="Texture2D" uid="uid://cbtnc3nup6erg" path="res://assets/textures/light/firelight.png" id="3_y54ph"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4snov"]
+radius = 3.0
+height = 16.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cvk6l"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_xee20"]
+offsets = PackedFloat32Array(0, 0.54320985, 0.93209875)
+colors = PackedColorArray(1, 1, 1, 1, 1.8989718, 1.4668138, 0, 1, 0.12750009, 0, 0.85, 1)
+
+[sub_resource type="Gradient" id="Gradient_pmakh"]
+colors = PackedColorArray(1, 0.050000012, 0.050000012, 1, 0.9999998, 0.5280756, 0.15972024, 1)
+
+[node name="Roketka" type="Area2D" unique_id=305521579]
+script = ExtResource("1_b30t5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1340688151]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_4snov")
+
+[node name="Alexandria" type="Sprite2D" parent="." unique_id=551028217]
+texture = ExtResource("1_imfsu")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1218298057]
+material = SubResource("CanvasItemMaterial_cvk6l")
+position = Vector2(-6, 0)
+amount = 10
+explosiveness = 0.05
+direction = Vector2(-1, 0)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+scale_amount_min = 1.5
+scale_amount_max = 3.5
+color_ramp = SubResource("Gradient_xee20")
+color_initial_ramp = SubResource("Gradient_pmakh")
+
+[node name="Smoke" type="Sprite2D" parent="CPUParticles2D" unique_id=695296107]
+modulate = Color(2.5032542, 1.048323, 0, 1)
+texture = ExtResource("3_y54ph")

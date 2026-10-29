@@ -16,6 +16,14 @@ public partial class BaseUpgrader : Control
 		
 		Tower.Pressed += TowerOnPressed;
 		Demolish.Pressed += DemolishOnPressed;
+		Kazarma.Pressed += KazarmaOnPressed;
+
+		Tower.TooltipText = "30 15 20";
+	}
+
+	private void KazarmaOnPressed()
+	{
+		
 	}
 
 	private void DemolishOnPressed()
@@ -42,6 +50,7 @@ public partial class BaseUpgrader : Control
 		var ep = GD.Load<PackedScene>("res://scenes/weapon/turret.tscn").Instantiate<Weapon>();
 		parent.AddChild(ep);
 		parent.weapon = ep;
+		parent.CanShoot = true;
 		Tower.QueueFree();
 		Tower.Pressed -= TowerOnPressed;
 		Tower = null;

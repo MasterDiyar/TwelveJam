@@ -1,25 +1,24 @@
-﻿
-
-TODO seller
+﻿TODO normal reset
 
 TODO timer of mining meteor
 
 TODO Baseline of Building +=+
+
+TODO Helper Drones +-
+
+TODO Helper stations
+
+TODO MUSIC
+
+
+
+
+
+
+
 
 TODO Third enemy which attacks player
 
 TODO First enemy which attacks drones
 
 TODO First enemy which attacks seller
-
-TODO Cycle counter and penalty sys
-
-TODO Helper Drones
-
-TODO Helper stations
-
-TODO MUSIC
-
-TODO Effects of demolishing meteors
-
-

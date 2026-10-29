@@ -23,15 +23,16 @@ texture = ExtResource("1_rp2fc")
 shape = SubResource("RectangleShape2D_sdmle")
 
 [node name="BaseUpgrader" parent="." unique_id=1226673482 instance=ExtResource("3_qxjns")]
-visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_top = 23.0
-offset_right = -60.0
-offset_bottom = 23.0
+offset_left = -48.0
+offset_top = 32.0
+offset_right = -48.0
+offset_bottom = 32.0
 grow_horizontal = 1
 grow_vertical = 1
+scale = Vector2(0.8, 0.8)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=825700946]
 

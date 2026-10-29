@@ -36,6 +36,11 @@ public partial class Base : Building
     public override void _Process(double delta)
     {
         if (_body == null || !CanShoot) return;
+        if (!IsInstanceValid(_body))
+        {
+            _body = null;
+            return;
+        }
         var a = (_body.GlobalPosition - GlobalPosition).Angle();
         weapon.Attack(a);
         weapon.Rotation = a;

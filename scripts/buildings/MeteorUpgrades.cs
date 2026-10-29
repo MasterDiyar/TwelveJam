@@ -70,7 +70,8 @@ public partial class MeteorUpgrades : HBoxContainer
 	{
 		Visible = true;
 		GameManager.Instance.BuildingChanged += undetec;
-		excavate.TooltipText = $"Excavate up to {GameManager.Instance.DemolishMultiplier*100}% of all ore";
+		demolish.TooltipText = $"Demolish up to {GameManager.Instance.DemolishMultiplier*100}% of all ore.";
+		excavate.TooltipText = $"Excavate 100% of all ore";
 	}
 
 	void undetec(Building building1)

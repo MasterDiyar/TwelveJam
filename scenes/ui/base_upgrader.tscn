@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://mblgi0rld20k" path="res://assets/textures/ui/kazarma.png" id="2_xorce"]
 [ext_resource type="Texture2D" uid="uid://ckm0p6sxhe2bl" path="res://assets/textures/ui/trash_demolish.png" id="3_60w8v"]
 
-[node name="BaseUpgrader" type="Control" unique_id=1226673482]
+[node name="BaseUpgrader" type="Control" unique_id=1226673482 node_paths=PackedStringArray("Tower", "Kazarma", "Demolish")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,9 @@ offset_bottom = -1040.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xorce")
+Tower = NodePath("tower")
+Kazarma = NodePath("kazarma")
+Demolish = NodePath("demolish")
 
 [node name="tower" type="Button" parent="." unique_id=2077076008]
 texture_filter = 3

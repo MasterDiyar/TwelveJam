@@ -51,6 +51,7 @@ offset_right = 553.0
 offset_bottom = 1055.0
 text = "armor"
 Unlocker = [NodePath("../Button4"), NodePath("../Button5")]
+Id = 4
 
 [node name="Button4" parent="." unique_id=101626787 instance=ExtResource("1_uqwgi")]
 layout_mode = 0

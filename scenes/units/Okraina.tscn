@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dr3m4jehpld0q"]
+
+[ext_resource type="Script" uid="uid://vu0bvuitxcu5" path="res://scripts/units/Okraina.cs" id="1_7qk8a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sdmle"]
+radius = 601.8513
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2047837662]
+motion_mode = 1
+script = ExtResource("1_7qk8a")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=632767873]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1177202659]
+shape = SubResource("CircleShape2D_sdmle")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=36746986]
