@@ -14,7 +14,7 @@ public partial class Enemy2 : Unit
 	public override void _Ready()
 	{
 		_player = GameManager.Instance.Player;sohal.Play("default");
-		Scale = (GD.Randf() / 2f + 0.5f)* Scale;
+		Scale = (GD.Randf() / 2f + 0.3f)* Scale;
 		closeRange *= Scale.X;
 		_maxSpeed = Speed + 100f;
 	}

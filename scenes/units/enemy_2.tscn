@@ -74,7 +74,7 @@ shape = SubResource("CapsuleShape2D_tvc2c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1677383742]
 sprite_frames = SubResource("SpriteFrames_sdmle")
-frame_progress = 0.9531068
+frame_progress = 0.27614632
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1475755294]
 material = SubResource("CanvasItemMaterial_h3p6v")

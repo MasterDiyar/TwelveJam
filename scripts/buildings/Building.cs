@@ -24,10 +24,10 @@ public partial class Building : StaticBody2D, IDamagable
         base._Ready();
         _rng.Randomize();
 
-        Ferrum =  _rng.RandiRange(0, 100);
-        Titan =   _rng.RandiRange(0, 100);
-        Silicon = _rng.RandiRange(0, 100);
-        Sulfur =  _rng.RandiRange(0, 100);
+        Ferrum =  _rng.RandiRange(20, 120);
+        Titan =   _rng.RandiRange(0, 80);
+        Silicon = _rng.RandiRange(10, 115);
+        Sulfur =  _rng.RandiRange(0, 900);
     }
 
     public void TakeDamage(float amount, Faction attackerFaction)

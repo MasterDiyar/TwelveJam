@@ -7,6 +7,7 @@ public partial class MeteorUpgrades : HBoxContainer
 {
 	private Building parent;
 	[Export] private Button demolish, excavate, build;
+	
 	public override void _Ready()
 	{
 		parent =  (Building)GetParent();
@@ -20,9 +21,12 @@ public partial class MeteorUpgrades : HBoxContainer
 
 	private void BuildOnPressed()
 	{
+		if (MoneyManager.Instance.CanConsumeResources(new Items(0, 5, 10, 0))) 
+			MoneyManager.Instance.ConsumeResources(new Items(0, 5, 10, 0));
+		else return;
 		var Basement = GD.Load<PackedScene>("res://scenes/buildings/base.tscn").Instantiate<Base>();
 		Basement.GlobalPosition = parent.GlobalPosition;
-		
+		Basement.SetForConsume(parent.Ferrum, parent.Titan, parent.Silicon, parent.Sulfur);
 		GameManager.Instance.Picker.Visible = false;
 		GameManager.Instance.InfoTablet.Visible = false;
 		

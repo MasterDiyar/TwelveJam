@@ -1,15 +1,24 @@
 using Godot;
 using System;
 using TwelveJam.scripts.buildings;
+using TwelveJam.scripts.game;
 using TwelveJam.scripts.units;
 
 public partial class Base : Building
 {
-    [Export] protected Weapon weapon;
+    [Export] public Weapon weapon;
     [Export] protected Area2D area;
-    [Export] protected bool CanShoot = false;
+    [Export] public bool CanShoot = false;
 
     private Node2D _body;
+
+    public void SetForConsume(float ferrum, float titan, float silicon, float sulfur)
+    {
+        Ferrum = ferrum;
+        Titan = titan;
+        Sulfur = sulfur;
+        Silicon = silicon;
+    }
     public override void _Ready()
     {
         area.BodyEntered += AreaOnBodyEntered;
