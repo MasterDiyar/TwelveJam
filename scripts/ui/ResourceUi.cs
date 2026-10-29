@@ -33,5 +33,12 @@ public partial class ResourceUi : Control
 		
 		Time -= (float)delta;
 		TimerLabel.Text = $"{Time:N0}";
+
+		if (Time < 0)
+		{
+			GameManager.Instance.CurrentDay++;
+			mm.Daychanged();
+			Time = 60 + 10*GameManager.Instance.CurrentDay;
+		}
 	}
 }

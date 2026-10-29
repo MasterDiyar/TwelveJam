@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://mljnk35gvpsf" path="res://scripts/buildings/Base.cs" id="1_o6as2"]
 [ext_resource type="Texture2D" uid="uid://om60tf53slfe" path="res://assets/textures/env/box.png" id="1_rp2fc"]
+[ext_resource type="PackedScene" uid="uid://cn8ryrwecewml" path="res://scenes/ui/base_upgrader.tscn" id="3_qxjns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sdmle"]
 size = Vector2(48, 48)
@@ -16,3 +17,18 @@ texture = ExtResource("1_rp2fc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1487518924]
 shape = SubResource("RectangleShape2D_sdmle")
+
+[node name="BaseUpgrader" parent="." unique_id=1226673482 instance=ExtResource("3_qxjns")]
+visible = false
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = 23.0
+offset_right = -60.0
+offset_bottom = 23.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=825700946]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=553873677]

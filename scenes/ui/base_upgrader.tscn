@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cn8ryrwecewml"]
+
+[ext_resource type="Texture2D" uid="uid://cql6y00jchq0s" path="res://assets/textures/ui/bashnya.png" id="1_1gqhm"]
+[ext_resource type="Script" uid="uid://bs0oeyil84mqw" path="res://scripts/buildings/BaseUpgrader.cs" id="1_xorce"]
+[ext_resource type="Texture2D" uid="uid://mblgi0rld20k" path="res://assets/textures/ui/kazarma.png" id="2_xorce"]
+[ext_resource type="Texture2D" uid="uid://ckm0p6sxhe2bl" path="res://assets/textures/ui/trash_demolish.png" id="3_60w8v"]
+
+[node name="BaseUpgrader" type="Control" unique_id=1226673482]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -60.0
+offset_right = -1860.0
+offset_bottom = -1040.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xorce")
+
+[node name="tower" type="Button" parent="." unique_id=2077076008]
+texture_filter = 3
+layout_mode = 0
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 39.0
+offset_bottom = 42.0
+icon = ExtResource("1_1gqhm")
+flat = true
+
+[node name="kazarma" type="Button" parent="." unique_id=570127147]
+texture_filter = 3
+layout_mode = 0
+offset_left = 40.0
+offset_top = 2.0
+offset_right = 80.0
+offset_bottom = 42.0
+icon = ExtResource("2_xorce")
+flat = true
+
+[node name="demolish" type="Button" parent="." unique_id=1195729995]
+texture_filter = 3
+layout_mode = 0
+offset_left = 81.0
+offset_top = 2.0
+offset_right = 121.0
+offset_bottom = 42.0
+icon = ExtResource("3_60w8v")
+flat = true

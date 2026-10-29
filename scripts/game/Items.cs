@@ -48,4 +48,6 @@ public class Items
     {
         return Ferrum < 0 || Titan < 0 || Silicon < 0 || Sulfur < 0;
     }
+    
+    public static Items One() => new Items(1,1,1,1);
 }

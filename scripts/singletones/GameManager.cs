@@ -19,6 +19,7 @@ public partial class GameManager : Node2D
 		if (GameManager.Instance == null)
 			GameManager.Instance = this;
 		else QueueFree();
+		
 	}
 
 	public void OpenInfoForBuilding(Building building)
@@ -35,7 +36,8 @@ public partial class GameManager : Node2D
 	
 	public void ExecuteGameOver()
 	{
-		
+		Game.QueueFree();
+		GetParent().AddChild(GD.Load<PackedScene>("res://scenes/ui/retry.tscn").Instantiate());
 		
 	}
 	

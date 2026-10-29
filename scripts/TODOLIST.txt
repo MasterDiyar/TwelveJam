@@ -1,24 +1,22 @@
-﻿TODO flying drones around meteor while mining
+﻿
 
 TODO seller
 
 TODO timer of mining meteor
 
-TODO Baseline of Building
+TODO Baseline of Building +=+
 
-TODO First enemy which attacks player
+TODO Third enemy which attacks player
 
-TODO Second enemy which attacks drones
+TODO First enemy which attacks drones
 
-TODO Third enemy which attacks seller
+TODO First enemy which attacks seller
 
 TODO Cycle counter and penalty sys
 
 TODO Helper Drones
 
 TODO Helper stations
-
-TODO UI
 
 TODO MUSIC
 

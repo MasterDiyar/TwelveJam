@@ -14,9 +14,23 @@ public partial class MeteorUpgrades : HBoxContainer
 		
 		demolish.Pressed += DemolishOnPressed;
 		excavate.Pressed += ExcavateOnPressed;
-		
+		build.Pressed += BuildOnPressed;	
 		
 	}
+
+	private void BuildOnPressed()
+	{
+		var Basement = GD.Load<PackedScene>("res://scenes/buildings/base.tscn").Instantiate<Base>();
+		Basement.GlobalPosition = parent.GlobalPosition;
+		
+		GameManager.Instance.Picker.Visible = false;
+		GameManager.Instance.InfoTablet.Visible = false;
+		
+		parent.GetParent().AddChild(Basement);
+		
+		parent.QueueFree();
+	}
+
 
 	private void ExcavateOnPressed()
 	{

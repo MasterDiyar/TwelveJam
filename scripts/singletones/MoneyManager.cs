@@ -8,7 +8,7 @@ public partial class MoneyManager : Node
 
 	public Items Items = new Items();
 	
-	public Items QuoteItems = new Items(10,10,10,10);
+	public Items QuoteItems = new Items(10,10,10,10), QuoteNeed = new Items(10,10,10,10);
 	
 	public static MoneyManager Instance;
 
@@ -36,13 +36,14 @@ public partial class MoneyManager : Node
 
 	public void Daychanged()
 	{
-		Items -= QuoteItems;
+		Items -= QuoteNeed;
 		if (Items.AnyNegative())
 		{
 			GameManager.Instance.ExecuteGameOver();
 			return;
 		}
-		QuoteItems *= 1.2f;
+		QuoteItems *= 2.5f/GameManager.Instance.CurrentDay+1;
+		QuoteNeed = QuoteItems * 1;
 	}
 	
 	public void ResetGame()
@@ -50,8 +51,8 @@ public partial class MoneyManager : Node
 		Money = 100f;
 
 		Items =new Items(0,0,0,0); 
-		QuoteItems = new Items(0,0,0,0); 
-    
+		QuoteItems = new Items(10,10,10,10); 
+		QuoteNeed = QuoteItems*1;
 		
 	}
 }
