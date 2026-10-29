@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dv72amp00wjyn" path="res://scenes/buildings/meteor.tscn" id="5_3jwen"]
 [ext_resource type="Texture2D" uid="uid://bxuxodl4b4muo" path="res://assets/textures/light/small_no_gradient.png" id="7_sgeah"]
 [ext_resource type="PackedScene" uid="uid://blubn7r1vqpba" path="res://scenes/units/enemy_1.tscn" id="8_os47o"]
+[ext_resource type="PackedScene" uid="uid://dhf451nagtbr6" path="res://scenes/units/enemy_2.tscn" id="9_ucy6o"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yb3g2"]
 
@@ -84,3 +85,9 @@ texture_scale = 0.4
 
 [node name="Enemy1" parent="." unique_id=1192629781 instance=ExtResource("8_os47o")]
 position = Vector2(1365, 350)
+
+[node name="Enemy2" parent="." unique_id=1268421380 instance=ExtResource("9_ucy6o")]
+position = Vector2(692.0369, 821.70135)
+
+[node name="Enemy3" parent="." unique_id=1135803986 instance=ExtResource("9_ucy6o")]
+position = Vector2(292, 578)

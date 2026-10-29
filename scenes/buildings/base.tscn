@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dmgueptx1pdp0"]
+
+[ext_resource type="Script" uid="uid://mljnk35gvpsf" path="res://scripts/buildings/Base.cs" id="1_o6as2"]
+[ext_resource type="Texture2D" uid="uid://om60tf53slfe" path="res://assets/textures/env/box.png" id="1_rp2fc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdmle"]
+size = Vector2(48, 48)
+
+[node name="Base" type="StaticBody2D" unique_id=1411011894]
+collision_layer = 2
+input_pickable = true
+script = ExtResource("1_o6as2")
+
+[node name="Box" type="Sprite2D" parent="." unique_id=22933756]
+texture = ExtResource("1_rp2fc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1487518924]
+shape = SubResource("RectangleShape2D_sdmle")

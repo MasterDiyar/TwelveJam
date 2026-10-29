@@ -63,7 +63,7 @@ BetweenShotTime = 0.1
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=156266851]
 material = SubResource("CanvasItemMaterial_iqe7g")
-position = Vector2(-40, 0)
+position = Vector2(-40, -6.5)
 amount = 24
 lifetime = 1.5
 explosiveness = 0.05

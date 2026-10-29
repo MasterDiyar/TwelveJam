@@ -30,6 +30,7 @@ _rotationSpeed = 2.5
 Sprite = NodePath("PlayerTest1")
 Firelight = NodePath("CPUParticles2D/Smoke")
 Laser = NodePath("LaserBeam")
+Speed = 150.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1097042692]
 shape = SubResource("CircleShape2D_sdmle")
@@ -43,7 +44,7 @@ texture = ExtResource("1_8afob")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=63278577]
 material = SubResource("CanvasItemMaterial_gmlin")
-position = Vector2(-40, 0)
+position = Vector2(-40, -0.5)
 amount = 40
 lifetime = 2.0
 explosiveness = 0.05
@@ -59,7 +60,6 @@ color_initial_ramp = SubResource("Gradient_sdmle")
 
 [node name="Smoke" type="Sprite2D" parent="CPUParticles2D" unique_id=1098481024]
 modulate = Color(2.5032542, 1.048323, 0, 1)
-position = Vector2(0, -0.5)
 texture = ExtResource("3_gmlin")
 
 [node name="LaserBeam" parent="." unique_id=1731546378 instance=ExtResource("4_lvxji")]

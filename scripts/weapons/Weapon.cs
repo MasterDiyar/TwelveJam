@@ -24,10 +24,10 @@ public partial class Weapon : Node2D
     [Export] public Timer BetweenAttackTimer;
 
     [Export] public float AttackSpeed = 1;
-
+    [Export] public GpuParticles2D Particle;
+    
     public bool CanShoot = true;
 
-    // Внутренние переменные для очереди
     private float _currentBaseAngle;
     private int _bulletsLeftInBurst = 0;
     private float _shotTimer = 0f;
@@ -59,6 +59,9 @@ public partial class Weapon : Node2D
     {
         if (!CanShoot) return;
         CanShoot = false;
+        if (Particle != null)
+            Particle.Emitting = true;
+        
 
         if (BetweenAttackTimer != null)
         {

@@ -19,6 +19,8 @@ public partial class LaserBeamWeapon : Node2D
 
     [Export] private float _minWidth = 2.0f;
     [Export] private float _maxWidth = 12.0f;
+    [Export] public Sprite2D lighter;
+    private float lightStrength = 0;
 
     private float _timer = 0f;
     private bool _isFiring = false;
@@ -46,10 +48,12 @@ public partial class LaserBeamWeapon : Node2D
         if (_isFiring) {
             _timer -= (float)delta;
             UpdateBeam(delta);
-
+            lighter.Modulate = lighter.Modulate with { A = lightStrength};
+            lightStrength += 6* (float)delta;
             if (_timer <= 0) {
                 StopFiring();
                 StartCooldown();
+                lighter.Visible = false;
             }
         }
         Rotation = GetParent<Node2D>().Rotation;
@@ -58,6 +62,10 @@ public partial class LaserBeamWeapon : Node2D
     public void StartFiring(float angleInDegrees)
     {
         if (_isCooldown || _isFiring) return;
+        
+        lighter.Visible = true;
+        lighter.Scale = Vector2.One * .9f;
+        lightStrength = 2.6f;
 
         _isFiring = true;
         _timer = _beamDuration;
@@ -92,6 +100,7 @@ public partial class LaserBeamWeapon : Node2D
         var query = PhysicsRayQueryParameters2D.Create(GlobalPosition, GlobalPosition + Vector2.Right.Rotated(Rotation) * _maxRange);
         
         Godot.Collections.Dictionary result = default;
+        
         for (int i = 0; i < 5; i++) {
             result = spaceState.IntersectRay(query);
             if (result.Count > 0) {
@@ -125,6 +134,7 @@ public partial class LaserBeamWeapon : Node2D
         // Вычисляем прогресс стрельбы от 0 до 1 (чтобы ширина росла по мере удержания луча)
         float progress = 1.0f - (_timer / _beamDuration);
         float currentDynamicWidth = Mathf.Lerp(_minWidth, _maxWidth, progress);
+        lighter.Scale += Vector2.One *  (float) delta;
 
         DrawVisualBeam(targetPoint, currentDynamicWidth);
     }

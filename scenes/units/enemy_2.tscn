@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://dhf451nagtbr6"]
+
+[ext_resource type="Texture2D" uid="uid://b3akdv3susrgq" path="res://assets/textures/units/drillo.png" id="1_5qlbn"]
+[ext_resource type="Script" uid="uid://bxg13vjx3msup" path="res://scripts/units/Enemy2.cs" id="1_y1wao"]
+[ext_resource type="Texture2D" uid="uid://cbtnc3nup6erg" path="res://assets/textures/light/firelight.png" id="3_m1x1v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tvc2c"]
+height = 52.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shlng"]
+atlas = ExtResource("1_5qlbn")
+region = Rect2(0, 0, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1wao"]
+atlas = ExtResource("1_5qlbn")
+region = Rect2(0, 32, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1x1v"]
+atlas = ExtResource("1_5qlbn")
+region = Rect2(0, 64, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3p6v"]
+atlas = ExtResource("1_5qlbn")
+region = Rect2(0, 96, 80, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sdmle"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shlng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1wao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1x1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3p6v")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h3p6v"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_sjgke"]
+offsets = PackedFloat32Array(0, 0.54320985, 0.93209875)
+colors = PackedColorArray(1, 1, 1, 1, 1.8989718, 1.4668138, 0, 1, 0.12750009, 0, 0.85, 1)
+
+[sub_resource type="Gradient" id="Gradient_l1hyv"]
+offsets = PackedFloat32Array(0, 0.845679, 1)
+colors = PackedColorArray(1, 0.050000012, 0.050000012, 1, 0.8874584, 0.95, 0.19949998, 1, 0.16000003, 1, 0.32800007, 1)
+
+[node name="Enemy2" type="CharacterBody2D" unique_id=1268421380 node_paths=PackedStringArray("sohal", "cpuParticles2D", "c2", "sprite", "s2")]
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_y1wao")
+closeRange = 40.0
+sohal = NodePath("AnimatedSprite2D")
+cpuParticles2D = NodePath("CPUParticles2D")
+c2 = NodePath("CPUParticles2D2")
+sprite = NodePath("CPUParticles2D/Smoke")
+s2 = NodePath("CPUParticles2D2/Smoke")
+Faction = 4
+Hp = 48.0
+Speed = 200.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1675206458]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_tvc2c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1677383742]
+sprite_frames = SubResource("SpriteFrames_sdmle")
+frame_progress = 0.9531068
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1475755294]
+material = SubResource("CanvasItemMaterial_h3p6v")
+position = Vector2(-38, -9.5)
+amount = 24
+lifetime = 1.5
+explosiveness = 0.05
+direction = Vector2(-1, 0)
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 40.0
+scale_amount_min = 1.5
+scale_amount_max = 3.5
+color_ramp = SubResource("Gradient_sjgke")
+color_initial_ramp = SubResource("Gradient_l1hyv")
+
+[node name="Smoke" type="Sprite2D" parent="CPUParticles2D" unique_id=1407353585]
+modulate = Color(2.5032542, 2.1775112, 0.9998252, 1)
+texture = ExtResource("3_m1x1v")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=1142366442]
+material = SubResource("CanvasItemMaterial_h3p6v")
+position = Vector2(-38, 10.5)
+amount = 24
+lifetime = 1.5
+explosiveness = 0.05
+direction = Vector2(-1, 0)
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 40.0
+scale_amount_min = 1.5
+scale_amount_max = 3.5
+color_ramp = SubResource("Gradient_sjgke")
+color_initial_ramp = SubResource("Gradient_l1hyv")
+
+[node name="Smoke" type="Sprite2D" parent="CPUParticles2D2" unique_id=983486538]
+modulate = Color(2.5032542, 2.1775112, 0.9998252, 1)
+texture = ExtResource("3_m1x1v")

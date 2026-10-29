@@ -3,12 +3,15 @@ using System;
 
 public partial class ResourceUi : Control
 {
-	[Export] public Label Text;
+	[Export] public Label Text, QuoteText, HpNum, TimerLabel;
+	[Export] public Line2D HpLine;
 	MoneyManager mm = MoneyManager.Instance;
-
+	Player player;
+	public float Time = 80;
 	public override void _Ready()
 	{
 		mm??=MoneyManager.Instance;
+		player = GameManager.Instance.Player;
 	}
 
 	public override void _Process(double delta)
@@ -18,5 +21,17 @@ public partial class ResourceUi : Control
 		            $"Ti: {mm.Items.Titan}\n" +
 		            $"Si: {mm.Items.Silicon}\n" +
 		            $"S:  {mm.Items.Sulfur}";
+		
+		QuoteText.Text = "Quote:\n" +
+					$"Fe: {mm.QuoteItems.Ferrum}\n" +
+		            $"Ti: {mm.QuoteItems.Titan}\n" +
+		            $"Si: {mm.QuoteItems.Silicon}\n" +
+		            $"S:  {mm.QuoteItems.Sulfur}";
+		
+		HpLine.SetPointPosition(1, new Vector2(Mathf.Clamp(player.Hp/player.MaxHp, 0, 1)*200+10,25));
+		HpNum.Text = $"{player.Hp:F1}/{player.MaxHp}";
+		
+		Time -= (float)delta;
+		TimerLabel.Text = $"{Time:N0}";
 	}
 }

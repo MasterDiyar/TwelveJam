@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b6uqhnsnsd7s8"]
 
 [ext_resource type="Script" uid="uid://bfuqudlbhp6g5" path="res://scripts/weapons/LaserBeamWeapon.cs" id="1_gab0f"]
+[ext_resource type="Texture2D" uid="uid://cdjyj8kab45ws" path="res://assets/textures/light/lighter_smoke.png" id="2_f5snb"]
 
 [sub_resource type="Curve" id="Curve_p47bc"]
 _data = [Vector2(0, 0.39325845), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -9,13 +10,14 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_lvxji"]
 colors = PackedColorArray(0.94661134, 0.5956609, 0.49904168, 0.5921569, 1, 1, 1, 1)
 
-[node name="Node2D" type="Node2D" unique_id=1731546378 node_paths=PackedStringArray("_rayCast", "_lineVisual", "_coreLineVisual")]
+[node name="Node2D" type="Node2D" unique_id=1731546378 node_paths=PackedStringArray("_rayCast", "_lineVisual", "_coreLineVisual", "lighter")]
 script = ExtResource("1_gab0f")
 _rayCast = NodePath("RayCast2D")
 _lineVisual = NodePath("Line2D2")
 _coreLineVisual = NodePath("Line2D")
 _minWidth = 0.01
 _maxWidth = 6.0
+lighter = NodePath("LighterSmoke")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=319400787]
 
@@ -26,3 +28,11 @@ gradient = SubResource("Gradient_lvxji")
 
 [node name="Line2D2" type="Line2D" parent="." unique_id=1174735967]
 default_color = Color(2.8165433, 2.8165433, 2.8165433, 0.78431374)
+
+[node name="LighterSmoke" type="Sprite2D" parent="." unique_id=1151163671]
+texture = ExtResource("2_f5snb")
+
+[node name="PointLight2D" type="PointLight2D" parent="LighterSmoke" unique_id=873744908]
+energy = 2.64
+texture = ExtResource("2_f5snb")
+texture_scale = 3.34

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dwsjsakhl85ya"]
+
+[ext_resource type="Texture2D" uid="uid://dhctnfbtuavvn" path="res://assets/textures/light/whitbox.png" id="1_1tt0l"]
+
+[sub_resource type="Gradient" id="Gradient_ek8l3"]
+offsets = PackedFloat32Array(0, 0.9508197)
+colors = PackedColorArray(1.9754877, 1.9754877, 1.9754877, 1, 1.4369954, 1.4369954, 1.4369954, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_grgi1"]
+gradient = SubResource("Gradient_ek8l3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sdmle"]
+lifetime_randomness = 0.4
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 120.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+scale_min = 0.19999999
+scale_max = 0.45
+color = Color(1, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_grgi1")
+
+[node name="CPUParticles2D" type="GPUParticles2D" unique_id=2130424264]
+emitting = false
+amount = 16
+texture = ExtResource("1_1tt0l")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_sdmle")
