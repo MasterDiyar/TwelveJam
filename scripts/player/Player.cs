@@ -97,8 +97,8 @@ public partial class Player : Unit
             _camera.Zoom = new Vector2(currentZoomX, currentZoomX);
         }
         var angle = (-GlobalPosition + GetGlobalMousePosition()).Angle();
-        if (Input.IsActionPressed("lm")) foreach (var wep in Weapons) {
-            wep.Attack(angle);    
+        if (Input.IsActionPressed("lm")) {
+            foreach (var wep in Weapons) { wep.Attack(angle); }
             Laser.StartFiring(angle);
         }
 

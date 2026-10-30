@@ -41,6 +41,8 @@ public partial class Building : StaticBody2D, IDamagable
     public override void _InputEvent(Viewport viewport, InputEvent @event, int shapeIdx)
     {
         if (@event is InputEventMouseButton { Pressed: true, ButtonIndex: MouseButton.Left } && Clickable) {
+            if (GameManager.Instance.Player.GlobalPosition.DistanceTo(GetGlobalPosition()) > 140) return;
+            
             GameManager.Instance.OpenInfoForBuilding(this);
             EmitSignal(SignalName.OnClick, this);
         }

@@ -58,6 +58,8 @@ texture = ExtResource("2_jd1c7")
 [node name="LaserWeapon" parent="." unique_id=1494475726 instance=ExtResource("3_jd1c7")]
 position = Vector2(29.369984, 34.285976)
 WeaponFaction = 2
+Damage = 8.0
+Speed = 635.0
 BulletsCount = 2
 BetweenShotTime = 0.1
 

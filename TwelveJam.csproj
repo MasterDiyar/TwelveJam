@@ -6,7 +6,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="scripts\bullets\" />
-    <Folder Include="scripts\resources\" />
     <Folder Include="scripts\ui\" />
   </ItemGroup>
   <ItemGroup>
