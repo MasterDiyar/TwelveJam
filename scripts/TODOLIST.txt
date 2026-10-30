@@ -2,15 +2,11 @@
 
 TODO timer of mining meteor
 
-TODO Baseline of Building +=+
-
-TODO Helper Drones +-
+TODO Baseline of Building +=++++
 
 TODO Helper stations
 
 TODO MUSIC
-
-
 
 
 

@@ -40,7 +40,7 @@ offset_top = 901.0
 offset_right = 360.0
 offset_bottom = 1005.0
 text = "laser"
-Unlocker = [NodePath("../Button3")]
+Unlocker = [NodePath("../Button3"), NodePath("../Button6")]
 Id = 2
 
 [node name="Button3" parent="." unique_id=91629053 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
@@ -75,5 +75,18 @@ offset_right = 360.0
 offset_bottom = 872.0
 text = "more lasers!!!"
 Id = 3
+
+[node name="Button7" parent="." unique_id=1942295682 instance=ExtResource("1_uqwgi")]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 153.0
+offset_right = 182.0
+offset_bottom = 257.0
+text = "more meteors"
+isUnlocked = true
+Id = 3
+Ferrum = 25.0
+Titan = 100.0
+Sulfur = 100.0
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1880010037]

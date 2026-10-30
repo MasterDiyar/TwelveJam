@@ -1,17 +1,64 @@
 [gd_scene format=3 uid="uid://dr3m4jehpld0q"]
 
 [ext_resource type="Script" uid="uid://vu0bvuitxcu5" path="res://scripts/units/Okraina.cs" id="1_7qk8a"]
+[ext_resource type="Texture2D" uid="uid://4ughcrea25g5" path="res://assets/textures/units/kreeper.png" id="2_cx64f"]
+[ext_resource type="Texture2D" uid="uid://cbtnc3nup6erg" path="res://assets/textures/light/firelight.png" id="3_x2v4a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmle"]
 radius = 601.8513
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2047837662]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cx64f"]
+radius = 5.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_dd0st"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_e8e7d"]
+offsets = PackedFloat32Array(0, 0.29012346, 0.93209875)
+colors = PackedColorArray(1, 1, 1, 1, 1.8989718, 1.4668138, 0, 1, 0.20309411, 0, 1.2248633, 0.6)
+
+[sub_resource type="Gradient" id="Gradient_poo7r"]
+colors = PackedColorArray(1, 0.72760993, 0.6849281, 1, 1, 0.7213983, 0.549335, 1)
+
+[node name="Kreeper" type="CharacterBody2D" unique_id=2047837662 node_paths=PackedStringArray("_cpuParticles2D", "_sprite", "_scaner")]
 motion_mode = 1
 script = ExtResource("1_7qk8a")
+_cpuParticles2D = NodePath("CPUParticles2D")
+_sprite = NodePath("CPUParticles2D/Smoke")
+_scaner = NodePath("Area2D")
+Hp = 33.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=632767873]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1177202659]
 shape = SubResource("CircleShape2D_sdmle")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=36746986]
+position = Vector2(7, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_cx64f")
+
+[node name="Kreeper" type="Sprite2D" parent="." unique_id=551937914]
+texture = ExtResource("2_cx64f")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1845281556]
+material = SubResource("CanvasItemMaterial_dd0st")
+position = Vector2(-9, 0)
+amount = 12
+explosiveness = 0.05
+direction = Vector2(-1, 0)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+angle_min = -20.0
+angle_max = 20.0
+scale_amount_min = 0.75
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_e8e7d")
+color_initial_ramp = SubResource("Gradient_poo7r")
+
+[node name="Smoke" type="Sprite2D" parent="CPUParticles2D" unique_id=1253312557]
+modulate = Color(1.7000704, 1.6735574, 0.109239556, 1)
+texture = ExtResource("3_x2v4a")

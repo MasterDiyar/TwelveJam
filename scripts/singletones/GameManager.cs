@@ -13,7 +13,8 @@ public partial class GameManager : Node2D
 	public Player Player;
 	
 	public float DemolishMultiplier = .25f;
-	public int CurrentDay = 1;
+	public float OkrainaDamageMultiplier = 1f;
+	public int CurrentDay = 1, MeteorPerDay = 4;
 	public override void _Ready()
 	{
 		if (GameManager.Instance == null)
@@ -34,11 +35,19 @@ public partial class GameManager : Node2D
 		EmitSignalBuildingChanged(building);
 	}
 	
-	public void ExecuteGameOver()
+	public void ExecuteGameOver(string exception = "Random TF said do it")
 	{
 		Game.QueueFree();
-		GetParent().AddChild(GD.Load<PackedScene>("res://scenes/ui/retry.tscn").Instantiate());
+		var retry = GD.Load<PackedScene>("res://scenes/ui/retry.tscn").Instantiate<Retry>();
+		retry.CauseOfDeath.Text = exception;
+		GetParent().AddChild(retry);
+	}
+
+	public void ExecuteChangeDay()
+	{
+		CurrentDay++;
 		
+		EmitSignalDayChanged(CurrentDay);
 	}
 	
 	public void ResetGame()
@@ -49,8 +58,11 @@ public partial class GameManager : Node2D
 		Game = null;
 
 		CurrentDay = 1;
-		
+
+		DemolishMultiplier = .25f;
+
 	}
 	
 	[Signal] public delegate void BuildingChangedEventHandler(Building building);
+	[Signal] public delegate void DayChangedEventHandler(int day);
 }

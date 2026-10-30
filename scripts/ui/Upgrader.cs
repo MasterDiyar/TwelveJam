@@ -8,6 +8,8 @@ public partial class Upgrader : Control
     private List<UpgradeButton> _buttons = [];
     private List<Line2D> _connectionLines = [];
 
+    public Weapon Laser1, Laser2;
+
     public override void _Ready()
     {
         foreach (var child in GetChildren())

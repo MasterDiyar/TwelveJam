@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dkpvteqfy7m7i" path="res://scripts/ui/Retry.cs" id="1_53nt0"]
 
-[node name="Control" type="Control" unique_id=560838449]
+[node name="Control" type="Control" unique_id=560838449 node_paths=PackedStringArray("CauseOfDeath")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_53nt0")
+CauseOfDeath = NodePath("Label")
 
 [node name="Button" type="Button" parent="." unique_id=1314689103]
 layout_mode = 0
@@ -18,3 +19,11 @@ offset_top = 324.0
 offset_right = 1119.0
 offset_bottom = 508.0
 text = "RETRY"
+
+[node name="Label" type="Label" parent="." unique_id=856826978]
+layout_mode = 0
+offset_left = 802.0
+offset_top = 246.0
+offset_right = 988.0
+offset_bottom = 303.0
+text = "ботботбот"

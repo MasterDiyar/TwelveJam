@@ -40,11 +40,37 @@ load_path = "res://.godot/imported/meteor.png-a841c35bdb8049cf7173c7f4e9578c12.c
 atlas = SubResource("CompressedTexture2D_6ti65")
 region = Rect2(192, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vifgf"]
+atlas = ExtResource("3_rmegu")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ohhlg"]
+load_path = "res://.godot/imported/meteor.png-a841c35bdb8049cf7173c7f4e9578c12.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkgh7"]
+atlas = SubResource("CompressedTexture2D_ohhlg")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nthne"]
+load_path = "res://.godot/imported/meteor.png-a841c35bdb8049cf7173c7f4e9578c12.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ti65"]
+atlas = SubResource("CompressedTexture2D_nthne")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_aitre"]
+load_path = "res://.godot/imported/meteor.png-a841c35bdb8049cf7173c7f4e9578c12.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36yu1"]
+atlas = SubResource("CompressedTexture2D_aitre")
+region = Rect2(192, 64, 64, 64)
+
 [node name="Meteor" type="StaticBody2D" unique_id=1188832017 node_paths=PackedStringArray("RotatingNode")]
 collision_layer = 128
 input_pickable = true
 script = ExtResource("1_2lnv5")
 Faction = 3
+Hp = 120.0
 RotationSpeed = 0.786
 RotatingNode = NodePath("RandomSprite")
 AmplitudeMinimal = Vector2(0.05, 0.5)
@@ -55,7 +81,7 @@ shape = SubResource("CircleShape2D_lvxji")
 [node name="RandomSprite" type="Sprite2D" parent="." unique_id=1285639609]
 texture = SubResource("AtlasTexture_rmegu")
 script = ExtResource("2_1tjxf")
-sprites = Array[Texture2D]([SubResource("AtlasTexture_7iymu"), SubResource("AtlasTexture_ohhlg"), SubResource("AtlasTexture_nthne"), SubResource("AtlasTexture_aitre")])
+sprites = Array[Texture2D]([SubResource("AtlasTexture_7iymu"), SubResource("AtlasTexture_ohhlg"), SubResource("AtlasTexture_nthne"), SubResource("AtlasTexture_aitre"), SubResource("AtlasTexture_vifgf"), SubResource("AtlasTexture_jkgh7"), SubResource("AtlasTexture_6ti65"), SubResource("AtlasTexture_36yu1")])
 chances = PackedFloat32Array(1, 1, 1, 1)
 metadata/_custom_type_script = "uid://bve6dmk6irtot"
 

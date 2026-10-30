@@ -12,8 +12,13 @@ public partial class PauseMenu : Control
 	[Signal] public delegate void ExitEventHandler();
 	public override void _Ready()
 	{
-		resumeButton.Pressed += EmitSignalResume;
-		restartButton.Pressed += EmitSignalRestart;
-		exitButton.Pressed += EmitSignalExit;
+		resumeButton.Pressed += ResumeButtonOnPressed;
+		restartButton.Pressed += () => GameManager.Instance.ExecuteGameOver();
+		exitButton.Pressed += () => GetTree().Quit();
+	}
+
+	private void ResumeButtonOnPressed()
+	{
+		EmitSignalResume();
 	}
 }

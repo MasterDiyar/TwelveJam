@@ -36,8 +36,7 @@ public partial class ResourceUi : Control
 
 		if (Time < 0)
 		{
-			GameManager.Instance.CurrentDay++;
-			mm.Daychanged();
+			GameManager.Instance.ExecuteChangeDay();
 			Time = 60 + 10*GameManager.Instance.CurrentDay;
 		}
 	}

@@ -70,7 +70,7 @@ public partial class InfoTablet : Node2D
             float t = Mathf.Clamp(_timer / _animationDurationPerItem, 0.0f, 1.0f);
             
             _currentValues[_currentIndex] = Mathf.Lerp(0.0f, _targetValues[_currentIndex], t);
-            _currentScaledLengths[_currentIndex] = _currentValues[_currentIndex] / 3.0f;
+            _currentScaledLengths[_currentIndex] = _currentValues[_currentIndex] ;
 
             if (_labels[_currentIndex] != null) {
                 _labels[_currentIndex].Text = Mathf.RoundToInt(_currentValues[_currentIndex]).ToString();

@@ -18,6 +18,7 @@ public partial class MoneyManager : Node
 	public override void _Ready()
 	{
 		Instance = this;
+		GameManager.Instance.DayChanged += Daychanged;
 	}
 	
 	public string GetMoney() => $"{Money:F1}";
@@ -34,7 +35,7 @@ public partial class MoneyManager : Node
 		Items -= item;
 	}
 
-	public void Daychanged()
+	public void Daychanged(int day)
 	{
 		Items -= QuoteNeed;
 		if (Items.AnyNegative())
@@ -42,7 +43,7 @@ public partial class MoneyManager : Node
 			GameManager.Instance.ExecuteGameOver();
 			return;
 		}
-		QuoteItems *= 2.5f/GameManager.Instance.CurrentDay+1;
+		QuoteItems *= 2.5f/day+1;
 		QuoteNeed = QuoteItems * 1;
 	}
 	

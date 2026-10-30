@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://da5k1outx1dvd"]
 
+[ext_resource type="Script" uid="uid://cxac22ahxysnv" path="res://scripts/game/Space.cs" id="1_qp3o2"]
 [ext_resource type="Texture2D" uid="uid://lj4oqwnbky2w" path="res://assets/textures/background/canvas.png" id="1_t1xst"]
 [ext_resource type="Shader" uid="uid://cjkdantipd0ik" path="res://shaders/space_gas.gdshader" id="2_orbv3"]
 [ext_resource type="Script" uid="uid://d171dya1y2jks" path="res://scripts/game/ParralaxCanvas.cs" id="2_yb3g2"]
 [ext_resource type="Texture2D" uid="uid://dipj3igxptnov" path="res://assets/textures/background/white.png" id="3_71ude"]
 [ext_resource type="PackedScene" uid="uid://c1cdhoa62bkq0" path="res://scenes/player/player.tscn" id="4_71ude"]
 [ext_resource type="PackedScene" uid="uid://dv72amp00wjyn" path="res://scenes/buildings/meteor.tscn" id="5_3jwen"]
-[ext_resource type="Texture2D" uid="uid://bxuxodl4b4muo" path="res://assets/textures/light/small_no_gradient.png" id="7_sgeah"]
+[ext_resource type="PackedScene" uid="uid://dw0b8y2yr5ij6" path="res://scenes/game/mover.tscn" id="7_qp3o2"]
 [ext_resource type="PackedScene" uid="uid://blubn7r1vqpba" path="res://scenes/units/enemy_1.tscn" id="8_os47o"]
 [ext_resource type="PackedScene" uid="uid://dhf451nagtbr6" path="res://scenes/units/enemy_2.tscn" id="9_ucy6o"]
 
@@ -31,6 +32,9 @@ shader_parameter/color_blue = Color(0.54599965, 0, 0.84, 0.37254903)
 
 [node name="Space" type="Node2D" unique_id=509825059]
 texture_filter = 3
+script = ExtResource("1_qp3o2")
+MeteorScene = ExtResource("5_3jwen")
+MoverScene = ExtResource("7_qp3o2")
 
 [node name="Canvas" type="Sprite2D" parent="." unique_id=1813181672]
 modulate = Color(1.753959, 1.753959, 1.753959, 1)
@@ -67,6 +71,11 @@ position = Vector2(614, 389)
 [node name="Meteor6" parent="." unique_id=346937616 instance=ExtResource("5_3jwen")]
 position = Vector2(595, 667)
 
+[node name="Mover" parent="Meteor6" unique_id=1236682183 node_paths=PackedStringArray("movingObject") instance=ExtResource("7_qp3o2")]
+movingObject = NodePath("..")
+movePosition = Vector2(1250, 350)
+moveSpeed = 100.0
+
 [node name="Meteor7" parent="." unique_id=1500813987 instance=ExtResource("5_3jwen")]
 position = Vector2(761, 326)
 
@@ -75,13 +84,6 @@ position = Vector2(959, 846)
 
 [node name="Meteor3" parent="." unique_id=487905572 instance=ExtResource("5_3jwen")]
 position = Vector2(1385, 703)
-
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=139181184]
-position = Vector2(927, 526)
-rotation = 3.1415927
-color = Color(1, 0.3, 0.3, 1)
-texture = ExtResource("7_sgeah")
-texture_scale = 0.4
 
 [node name="Enemy1" parent="." unique_id=1192629781 instance=ExtResource("8_os47o")]
 position = Vector2(1365, 350)

@@ -7,6 +7,7 @@ public partial class Okraina : Unit
     [Export] private CpuParticles2D _cpuParticles2D;
     [Export] private Sprite2D _sprite;
     [Export] private Area2D _scaner;
+    [Export] private PackedScene boomscene;
 
     private List<Unit> _targets = [];
     
@@ -59,5 +60,14 @@ public partial class Okraina : Unit
         {
             _targets.Remove(unit);
         }
+    }
+
+    public override void OnDie()
+    {
+        var xplosion  =boomscene.Instantiate<Bullet>();
+        xplosion.SetWeapon(Faction, 100*GameManager.Instance.OkrainaDamageMultiplier,
+            0, 0, 0, .5f);
+        GetParent().AddChild(xplosion);
+        base.OnDie();
     }
 }

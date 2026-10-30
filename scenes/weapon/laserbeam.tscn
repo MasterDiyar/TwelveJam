@@ -33,6 +33,4 @@ default_color = Color(2.8165433, 2.8165433, 2.8165433, 0.78431374)
 texture = ExtResource("2_f5snb")
 
 [node name="PointLight2D" type="PointLight2D" parent="LighterSmoke" unique_id=873744908]
-energy = 2.64
 texture = ExtResource("2_f5snb")
-texture_scale = 3.34
