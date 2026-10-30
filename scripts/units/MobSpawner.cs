@@ -11,8 +11,11 @@ public partial class MobSpawner : Node2D
     private int spawnIndex;
     private WaveResource activeWave;
 
+    private Node2D parent;
+
     public override void _Ready()
     {
+        parent = GetParent<Node2D>();
         GameManager.Instance.DayChanged += InstanceOnDayChanged;
         timer.Timeout += TimerOnTimeout;
         
@@ -58,7 +61,7 @@ public partial class MobSpawner : Node2D
             Vector2 randomOffset = GetRandomPointInRadius(2000f);
             unitInstance.GlobalPosition = GlobalPosition + randomOffset;
             
-            GetTree().CurrentScene.AddChild(unitInstance);
+            parent.CallDeferred("add_child",unitInstance);
         }
 
         spawnIndex++;

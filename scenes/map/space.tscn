@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://dw0b8y2yr5ij6" path="res://scenes/game/mover.tscn" id="7_qp3o2"]
 [ext_resource type="PackedScene" uid="uid://blubn7r1vqpba" path="res://scenes/units/enemy_1.tscn" id="8_os47o"]
 [ext_resource type="PackedScene" uid="uid://dhf451nagtbr6" path="res://scenes/units/enemy_2.tscn" id="9_ucy6o"]
+[ext_resource type="PackedScene" uid="uid://cpnmyfvemrmth" path="res://scenes/units/mob_spawner.tscn" id="11_7y8fu"]
+[ext_resource type="PackedScene" uid="uid://6o4gxoixrgag" path="res://scenes/units/enemy_3.tscn" id="12_kjw3l"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yb3g2"]
 
@@ -94,3 +96,8 @@ position = Vector2(692.0369, 821.70135)
 
 [node name="Enemy3" parent="." unique_id=1135803986 instance=ExtResource("9_ucy6o")]
 position = Vector2(292, 578)
+
+[node name="MobSpawner" parent="." unique_id=1505884972 instance=ExtResource("11_7y8fu")]
+
+[node name="Enemy4" parent="." unique_id=1516439145 instance=ExtResource("12_kjw3l")]
+position = Vector2(1581.1345, 746.34204)

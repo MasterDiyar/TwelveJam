@@ -89,10 +89,10 @@ public partial class Weapon : Node2D
         var bulletNode = BulletScene.Instantiate();
         if (bulletNode is Bullet bullet)
         {
-            Vector2 rotatedOffset = SpawnOffset.Rotated(Rotation + finalAngle);
+            Vector2 rotatedOffset = SpawnOffset.Rotated( finalAngle);
             bullet.GlobalPosition = GlobalPosition + rotatedOffset;
 
-            bullet.SetWeapon(WeaponFaction, Damage, Speed, Acceleration, Rotation + finalAngle, LifeTime);
+            bullet.SetWeapon(WeaponFaction, Damage, Speed, Acceleration,  finalAngle, LifeTime);
 
             GameManager.Instance.Game.Pausable.AddChild(bullet);
         }

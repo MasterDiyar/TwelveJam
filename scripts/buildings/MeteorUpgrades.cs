@@ -27,6 +27,7 @@ public partial class MeteorUpgrades : HBoxContainer
 		var Basement = GD.Load<PackedScene>("res://scenes/buildings/base.tscn").Instantiate<Base>();
 		Basement.GlobalPosition = parent.GlobalPosition;
 		Basement.SetForConsume(parent.Ferrum, parent.Titan, parent.Silicon, parent.Sulfur);
+		
 		GameManager.Instance.Picker.Visible = false;
 		GameManager.Instance.InfoTablet.Visible = false;
 		

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://6o4gxoixrgag"]
+
+[ext_resource type="Script" uid="uid://dbjj02jnih8wd" path="res://scripts/units/Enemy3.cs" id="1_b7nn4"]
+[ext_resource type="Texture2D" uid="uid://bt3br57y4i3rh" path="res://assets/textures/units/stealer.png" id="1_rbulv"]
+[ext_resource type="Texture2D" uid="uid://cbtnc3nup6erg" path="res://assets/textures/light/firelight.png" id="3_jthqt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grgi1"]
+radius = 8.0
+height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbulv"]
+radius = 3.7069664
+height = 36.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b47d3"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_wifgs"]
+offsets = PackedFloat32Array(0, 0.54320985, 0.93209875)
+colors = PackedColorArray(1, 1, 1, 1, 1.8989718, 1.4668138, 0, 1, 0, 0.44146425, 0.097758144, 0.36078432)
+
+[sub_resource type="Gradient" id="Gradient_irfqb"]
+colors = PackedColorArray(1, 0.050000012, 0.050000012, 1, 0.9999998, 0.5280756, 0.15972024, 1)
+
+[node name="Enemy3" type="CharacterBody2D" unique_id=1516439145 node_paths=PackedStringArray("cpuParticles2D", "sprite")]
+script = ExtResource("1_b7nn4")
+cpuParticles2D = NodePath("CPUParticles2D")
+sprite = NodePath("CPUParticles2D/Smoke")
+Faction = 2
+Speed = 200.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=8031245]
+position = Vector2(-2, -1)
+rotation = 1.5707964
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_grgi1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=681086768]
+position = Vector2(9, -6.000001)
+rotation = 2.268928
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CapsuleShape2D_rbulv")
+
+[node name="Stealer" type="Sprite2D" parent="." unique_id=15491974]
+position = Vector2(3, -4)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_rbulv")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=788715147]
+material = SubResource("CanvasItemMaterial_b47d3")
+position = Vector2(-12, -2.5)
+scale = Vector2(0.5, 0.5)
+amount = 10
+explosiveness = 0.05
+direction = Vector2(-1, 0)
+spread = 20.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+scale_amount_min = 0.5
+scale_amount_max = 1.5
+color_ramp = SubResource("Gradient_wifgs")
+color_initial_ramp = SubResource("Gradient_irfqb")
+
+[node name="Smoke" type="Sprite2D" parent="CPUParticles2D" unique_id=1717942311]
+modulate = Color(2.5032542, 1.048323, 0, 1)
+texture = ExtResource("3_jthqt")

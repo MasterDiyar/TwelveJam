@@ -24,6 +24,8 @@ public partial class BaseUpgrader : Control
 	private void KazarmaOnPressed()
 	{
 		
+
+		clearer();
 	}
 
 	private void DemolishOnPressed()
@@ -51,9 +53,18 @@ public partial class BaseUpgrader : Control
 		parent.AddChild(ep);
 		parent.weapon = ep;
 		parent.CanShoot = true;
+		
+		clearer();
+	}
+
+	void clearer()
+	{
 		Tower.QueueFree();
-		Tower.Pressed -= TowerOnPressed;
-		Tower = null;
+        Tower.Pressed -= TowerOnPressed;
+        Tower = null;
+        Kazarma.Pressed -= KazarmaOnPressed;
+        Kazarma.QueueFree();
+        Kazarma = null;
 	}
 
 

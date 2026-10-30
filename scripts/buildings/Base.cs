@@ -14,10 +14,10 @@ public partial class Base : Building
 
     public void SetForConsume(float ferrum, float titan, float silicon, float sulfur)
     {
-        Ferrum = ferrum;
-        Titan = titan;
-        Sulfur = sulfur;
-        Silicon = silicon;
+        Ferrum = ferrum/2;
+        Titan = titan/2;
+        Sulfur = sulfur/2;
+        Silicon = silicon/2;
     }
     public override void _Ready()
     {

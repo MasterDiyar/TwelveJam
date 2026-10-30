@@ -58,7 +58,7 @@ colors = PackedColorArray(1, 0.050000012, 0.050000012, 1, 0.8874584, 0.95, 0.199
 motion_mode = 1
 platform_on_leave = 2
 script = ExtResource("1_y1wao")
-closeRange = 40.0
+closeRange = 48.0
 sohal = NodePath("AnimatedSprite2D")
 cpuParticles2D = NodePath("CPUParticles2D")
 c2 = NodePath("CPUParticles2D2")
@@ -66,7 +66,7 @@ sprite = NodePath("CPUParticles2D/Smoke")
 s2 = NodePath("CPUParticles2D2/Smoke")
 Faction = 4
 Hp = 48.0
-Speed = 200.0
+Speed = 180.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1675206458]
 rotation = 1.5707964
