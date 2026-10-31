@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://c1cdhoa62bkq0" path="res://scenes/player/player.tscn" id="4_71ude"]
 [ext_resource type="PackedScene" uid="uid://dv72amp00wjyn" path="res://scenes/buildings/meteor.tscn" id="5_3jwen"]
 [ext_resource type="PackedScene" uid="uid://dw0b8y2yr5ij6" path="res://scenes/game/mover.tscn" id="7_qp3o2"]
-[ext_resource type="PackedScene" uid="uid://dxp701601ylo6" path="res://scenes/units/enemy_1_harder.tscn" id="11_4y8kt"]
 [ext_resource type="PackedScene" uid="uid://cpnmyfvemrmth" path="res://scenes/units/mob_spawner.tscn" id="11_7y8fu"]
 [ext_resource type="PackedScene" uid="uid://s08qb55bcb1c" path="res://scenes/game/cutscene.tscn" id="12_7y8fu"]
 
@@ -90,6 +89,3 @@ position = Vector2(1385, 703)
 
 [node name="Cutscene" parent="." unique_id=1486733016 instance=ExtResource("12_7y8fu")]
 position = Vector2(1200, 563)
-
-[node name="Enemy1_harder" parent="." unique_id=1192629781 instance=ExtResource("11_4y8kt")]
-position = Vector2(1369.161, 407.37207)

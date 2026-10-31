@@ -81,6 +81,10 @@ public partial class UpgradeButton : Button
 				player.Sprite.Texture = GD.Load<Texture2D>("res://assets/textures/player/player_test3.png");
 				player.MaxHp += 250f;
 				break;
+			
+			case 10:
+				GameManager.Instance.MeteorPerDay++;
+				break;
 		}
 	}
 }

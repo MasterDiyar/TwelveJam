@@ -64,10 +64,6 @@ texture = ExtResource("4_kelw5")
 visible = false
 
 [node name="ResourceUI" parent="UI" unique_id=1377592144 instance=ExtResource("9_2a8rs")]
-offset_left = -88.0
-offset_top = -66.0
-offset_right = -88.0
-offset_bottom = -66.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=693728675]
 environment = SubResource("Environment_sdmle")

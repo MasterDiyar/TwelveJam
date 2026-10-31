@@ -31,7 +31,6 @@ boomscene = ExtResource("2_dd0st")
 Hp = 33.0
 
 [node name="Area2D" type="Area2D" parent="." unique_id=632767873]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1177202659]
 shape = SubResource("CircleShape2D_sdmle")

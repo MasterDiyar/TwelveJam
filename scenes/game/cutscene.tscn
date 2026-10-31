@@ -149,10 +149,15 @@ tracks/4/keys = {
 "values": [Color(2.5032542, 1.0483229, 0, 0), Color(2.5032542, 1.0483229, 0, 0), Color(2.5032542, 1.048323, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_y55d6"]
+resource_name = "waiter"
+length = 2.0
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kqlnk"]
 _data = {
 &"RESET": SubResource("Animation_twjbm"),
-&"staart": SubResource("Animation_x16tb")
+&"staart": SubResource("Animation_x16tb"),
+&"waiter": SubResource("Animation_y55d6")
 }
 
 [node name="Cutscene" type="Node2D" unique_id=1486733016 node_paths=PackedStringArray("animationPlayer")]

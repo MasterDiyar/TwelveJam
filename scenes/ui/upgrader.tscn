@@ -23,10 +23,10 @@ color = Color(0.39, 0.109199986, 0.109199986, 0.21960784)
 
 [node name="Button" parent="." unique_id=421685302 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
 layout_mode = 0
-offset_left = 34.0
-offset_top = 900.0
-offset_right = 170.0
-offset_bottom = 1004.0
+offset_left = 216.0
+offset_top = 262.0
+offset_right = 384.0
+offset_bottom = 366.0
 text = "fix turbines"
 Unlocker = [NodePath("../Button2")]
 isUnlocked = true
@@ -35,58 +35,73 @@ Money = 20.0
 
 [node name="Button2" parent="." unique_id=1483949857 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
 layout_mode = 0
-offset_left = 224.0
-offset_top = 901.0
-offset_right = 360.0
-offset_bottom = 1005.0
+offset_left = 406.0
+offset_top = 263.0
+offset_right = 574.0
+offset_bottom = 367.0
 text = "laser"
 Unlocker = [NodePath("../Button3"), NodePath("../Button6")]
 Id = 2
 
 [node name="Button3" parent="." unique_id=91629053 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
 layout_mode = 0
-offset_left = 417.0
-offset_top = 951.0
-offset_right = 553.0
-offset_bottom = 1055.0
+offset_left = 599.0
+offset_top = 313.0
+offset_right = 767.0
+offset_bottom = 417.0
 text = "armor"
 Unlocker = [NodePath("../Button4"), NodePath("../Button5")]
 Id = 4
 
 [node name="Button4" parent="." unique_id=101626787 instance=ExtResource("1_uqwgi")]
 layout_mode = 0
-offset_left = 621.0
-offset_top = 721.0
-offset_right = 757.0
-offset_bottom = 825.0
+offset_left = 803.0
+offset_top = 83.0
+offset_right = 971.0
+offset_bottom = 187.0
 
 [node name="Button5" parent="." unique_id=2078307187 instance=ExtResource("1_uqwgi")]
 layout_mode = 0
-offset_left = 606.0
-offset_top = 959.0
-offset_right = 742.0
-offset_bottom = 1063.0
+offset_left = 788.0
+offset_top = 321.0
+offset_right = 956.0
+offset_bottom = 425.0
 
 [node name="Button6" parent="." unique_id=1898990680 instance=ExtResource("1_uqwgi")]
 layout_mode = 0
-offset_left = 224.0
-offset_top = 768.0
-offset_right = 360.0
-offset_bottom = 872.0
+offset_left = 406.0
+offset_top = 130.0
+offset_right = 574.0
+offset_bottom = 234.0
 text = "more lasers!!!"
 Id = 3
 
-[node name="Button7" parent="." unique_id=1942295682 instance=ExtResource("1_uqwgi")]
+[node name="Button7" parent="." unique_id=1942295682 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 153.0
-offset_right = 182.0
-offset_bottom = 257.0
+offset_left = 228.0
+offset_top = 781.0
+offset_right = 396.0
+offset_bottom = 885.0
 text = "more meteors"
+Unlocker = [NodePath("../Button8")]
 isUnlocked = true
-Id = 3
+Id = 10
 Ferrum = 25.0
 Titan = 100.0
 Sulfur = 100.0
+
+[node name="Button8" parent="." unique_id=415566366 instance=ExtResource("1_uqwgi")]
+layout_mode = 0
+offset_left = 482.0
+offset_top = 849.0
+offset_right = 650.0
+offset_bottom = 953.0
+text = "EVEN more meteors"
+isUnlocked = true
+Id = 10
+Ferrum = 25.0
+Titan = 150.0
+Silicon = 50.0
+Sulfur = 150.0
 
 [node name="Line2D" type="Line2D" parent="." unique_id=1880010037]

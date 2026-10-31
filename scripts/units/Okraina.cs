@@ -36,7 +36,7 @@ public partial class Okraina : Unit
             Vector2 direction = vec.Normalized();
             Velocity = direction * Speed;
             Rotation = direction.Angle()+Single.Pi/2;
-            if (vec.Length() > 30) OnDie();
+            if (vec.Length() < 30) OnDie();
         }else {
             float radius = (Speed * 3f) / (2f * Mathf.Pi);
 

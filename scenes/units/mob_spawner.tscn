@@ -4,10 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://dhf451nagtbr6" path="res://scenes/units/enemy_2.tscn" id="2_ib3yq"]
 [ext_resource type="Script" uid="uid://da6ny82quna6w" path="res://scripts/resources/UnitResource.cs" id="3_qhlrp"]
 [ext_resource type="Script" uid="uid://c5o2vvpv5f5qc" path="res://scripts/resources/WaveResource.cs" id="4_k40cm"]
+[ext_resource type="PackedScene" uid="uid://blubn7r1vqpba" path="res://scenes/units/enemy_1.tscn" id="4_n3tg4"]
+[ext_resource type="PackedScene" uid="uid://6o4gxoixrgag" path="res://scenes/units/enemy_3.tscn" id="6_pojoy"]
 
-[sub_resource type="Resource" id="Resource_n3tg4"]
+[sub_resource type="Resource" id="Resource_k40cm"]
 script = ExtResource("3_qhlrp")
-Unit = ExtResource("2_ib3yq")
+Count = -1
 metadata/_custom_type_script = "uid://da6ny82quna6w"
 
 [sub_resource type="Resource" id="Resource_pojoy"]
@@ -15,11 +17,21 @@ script = ExtResource("3_qhlrp")
 Unit = ExtResource("2_ib3yq")
 metadata/_custom_type_script = "uid://da6ny82quna6w"
 
+[sub_resource type="Resource" id="Resource_kf56l"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("4_n3tg4")
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
 [sub_resource type="Resource" id="Resource_nhar6"]
 script = ExtResource("4_k40cm")
-Resource = Array[Object]([SubResource("Resource_n3tg4"), SubResource("Resource_pojoy")])
-BetweenSpawnTime = PackedInt32Array(8, 12)
+Resource = Array[Object]([SubResource("Resource_k40cm"), SubResource("Resource_pojoy"), SubResource("Resource_kf56l")])
+BetweenSpawnTime = PackedInt32Array(7, 12, 13)
 metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
+
+[sub_resource type="Resource" id="Resource_n3tg4"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("2_ib3yq")
+metadata/_custom_type_script = "uid://da6ny82quna6w"
 
 [sub_resource type="Resource" id="Resource_2s7ya"]
 script = ExtResource("4_k40cm")
@@ -27,9 +39,36 @@ Resource = Array[Object]([SubResource("Resource_n3tg4"), SubResource("Resource_p
 BetweenSpawnTime = PackedInt32Array(1, 10)
 metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
 
+[sub_resource type="Resource" id="Resource_b0g8c"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("6_pojoy")
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_hcvqf"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("6_pojoy")
+Count = 2
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_5v4fu"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("4_n3tg4")
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_5i4gt"]
+script = ExtResource("3_qhlrp")
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_4xn87"]
+script = ExtResource("4_k40cm")
+Resource = Array[Object]([SubResource("Resource_b0g8c"), SubResource("Resource_hcvqf"), SubResource("Resource_5v4fu"), SubResource("Resource_5i4gt")])
+BetweenSpawnTime = PackedInt32Array(2, 1, 4, 4, 4, 12, 12, 12)
+metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
+
 [node name="MobSpawner" type="Node2D" unique_id=1505884972 node_paths=PackedStringArray("timer")]
 script = ExtResource("1_5f0ek")
 timer = NodePath("Timer")
-waveResources = Array[Object]([SubResource("Resource_nhar6"), SubResource("Resource_2s7ya")])
+waveResources = Array[Object]([SubResource("Resource_nhar6"), SubResource("Resource_2s7ya"), SubResource("Resource_4xn87")])
 
 [node name="Timer" type="Timer" parent="." unique_id=1389998080]
+wait_time = 6.0

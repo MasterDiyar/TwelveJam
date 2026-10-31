@@ -32,7 +32,8 @@ public partial class ResourceUi : Control
 		HpLine.SetPointPosition(1, new Vector2(Mathf.Clamp(player.Hp/player.MaxHp, 0, 1)*200+10,25));
 		HpNum.Text = $"{player.Hp:F1}/{player.MaxHp}";
 		
-		if (isStarted) Time -= (float)delta;
+		if (GameManager.Instance.Game.Pausable.ProcessMode != ProcessModeEnum.Pausable)
+			if (isStarted) Time -= (float)delta;
 		TimerLabel.Text = $"{Time:N0}";
 
 		if (Time < 0)
