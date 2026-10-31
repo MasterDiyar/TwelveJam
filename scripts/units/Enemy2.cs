@@ -4,7 +4,7 @@ using TwelveJam.scripts.units;
 
 public partial class Enemy2 : Unit
 {
-	[Export] float closeRange = 20f;
+	[Export] float closeRange = 25f;
 	[Export] private AnimatedSprite2D sohal;
 	[Export] CpuParticles2D cpuParticles2D, c2;
 	[Export] Sprite2D sprite, s2;
@@ -15,7 +15,7 @@ public partial class Enemy2 : Unit
 	{
 		_player = GameManager.Instance.Player;sohal.Play("default");
 		Scale = (GD.Randf() / 2f + 0.3f)* Scale;
-		closeRange *= Scale.X;
+		closeRange *= (Scale.X + .1f);
 		_maxSpeed = Speed + 100f;
 	}
 

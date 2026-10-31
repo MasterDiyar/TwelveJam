@@ -13,13 +13,12 @@ metadata/_custom_type_script = "uid://da6ny82quna6w"
 [sub_resource type="Resource" id="Resource_pojoy"]
 script = ExtResource("3_qhlrp")
 Unit = ExtResource("2_ib3yq")
-Count = 5
 metadata/_custom_type_script = "uid://da6ny82quna6w"
 
 [sub_resource type="Resource" id="Resource_nhar6"]
 script = ExtResource("4_k40cm")
 Resource = Array[Object]([SubResource("Resource_n3tg4"), SubResource("Resource_pojoy")])
-BetweenSpawnTime = PackedInt32Array(5, 5)
+BetweenSpawnTime = PackedInt32Array(8, 12)
 metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
 
 [sub_resource type="Resource" id="Resource_2s7ya"]

@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://s08qb55bcb1c"]
+
+[ext_resource type="Script" uid="uid://rjw3x6af6vei" path="res://scripts/game/Cutscene1.cs" id="1_y55d6"]
+[ext_resource type="Texture2D" uid="uid://vf7bkp18up3v" path="res://assets/textures/player/player_test3.png" id="2_3v5db"]
+[ext_resource type="Texture2D" uid="uid://cbtnc3nup6erg" path="res://assets/textures/light/firelight.png" id="3_45pk5"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_eqipe"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_2o8kn"]
+offsets = PackedFloat32Array(0, 0.54320985, 0.93209875)
+colors = PackedColorArray(1, 1, 1, 1, 1.8989718, 1.4668138, 0, 1, 0.12750009, 0, 0.85, 1)
+
+[sub_resource type="Gradient" id="Gradient_4uhmt"]
+colors = PackedColorArray(1, 0.050000012, 0.050000012, 1, 0.9999998, 0.5280756, 0.15972024, 1)
+
+[sub_resource type="Animation" id="Animation_twjbm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Прокачка на <F>
+Ускорение на <shift>
+Собери квоту за отведенное время "]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerTest3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(165, -1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerTest3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.1415927]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerTest3/CPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerTest3/CPUParticles2D/Smoke:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(2.5032542, 1.048323, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x16tb"]
+resource_name = "staart"
+length = 7.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.1, 2.5333333, 3.6, 5, 5.6, 5.8333335, 6.766667, 7.0333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": ["Движение на WASD атака на лкм", "Движение на WASD атака на лкм", "", "Прокачка на <F>
+Ускорение на <shift>
+ ", "Прокачка на <F>
+Ускорение на <shift>
+Собери квоту за отведенное время ", "Прокачка на <F>
+Ускорение на <shift>
+Собери квоту за отведенное время ", "", "Удачи!", "Удачи!", ""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerTest3:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5.83, 6.07, 6.4333334, 6.98),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(165, -1), Vector2(165, -1), Vector2(28, -61), Vector2(-77.000015, -209.00002), Vector2(100, -2200)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerTest3:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5.83, 6.07, 6.4666667, 6.98),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [3.1415927, 3.1415927, 3.8501964, 4.8694687, 4.8694687]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerTest3/CPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerTest3/CPUParticles2D/Smoke:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 6.0333333, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(2.5032542, 1.0483229, 0, 0), Color(2.5032542, 1.0483229, 0, 0), Color(2.5032542, 1.048323, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kqlnk"]
+_data = {
+&"RESET": SubResource("Animation_twjbm"),
+&"staart": SubResource("Animation_x16tb")
+}
+
+[node name="Cutscene" type="Node2D" unique_id=1486733016 node_paths=PackedStringArray("animationPlayer")]
+script = ExtResource("1_y55d6")
+animationPlayer = NodePath("AnimationPlayer")
+
+[node name="Label" type="Label" parent="." unique_id=1137336224]
+offset_left = 79.0
+offset_top = 35.0
+offset_right = 181.0
+offset_bottom = 81.0
+text = "Прокачка на <F>
+Ускорение на <shift>
+Собери квоту за отведенное время "
+
+[node name="PlayerTest3" type="Sprite2D" parent="." unique_id=1291063323]
+position = Vector2(165, -1)
+rotation = 3.1415927
+texture = ExtResource("2_3v5db")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="PlayerTest3" unique_id=340183986]
+material = SubResource("CanvasItemMaterial_eqipe")
+position = Vector2(-31, -0.99999726)
+emitting = false
+amount = 200
+lifetime = 2.0
+explosiveness = 0.05
+direction = Vector2(-1, 0)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+scale_amount_min = 1.5
+scale_amount_max = 3.5
+color_ramp = SubResource("Gradient_2o8kn")
+color_initial_ramp = SubResource("Gradient_4uhmt")
+
+[node name="Smoke" type="Sprite2D" parent="PlayerTest3/CPUParticles2D" unique_id=1592158859]
+modulate = Color(2.5032542, 1.048323, 0, 1)
+texture = ExtResource("3_45pk5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=819837108]
+libraries/ = SubResource("AnimationLibrary_kqlnk")

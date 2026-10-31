@@ -1,3 +1,4 @@
+using System;
 using Godot;
 using System.Collections.Generic;
 using TwelveJam.scripts.units;
@@ -8,6 +9,8 @@ public partial class Okraina : Unit
     [Export] private Sprite2D _sprite;
     [Export] private Area2D _scaner;
     [Export] private PackedScene boomscene;
+    
+    public Vector2 tPos = new Vector2(1024, 512);
 
     private List<Unit> _targets = [];
     
@@ -32,7 +35,7 @@ public partial class Okraina : Unit
             Vector2 vec = target.GlobalPosition - GlobalPosition;
             Vector2 direction = vec.Normalized();
             Velocity = direction * Speed;
-            Rotation = direction.Angle();
+            Rotation = direction.Angle()+Single.Pi/2;
             if (vec.Length() > 30) OnDie();
         }else {
             float radius = (Speed * 3f) / (2f * Mathf.Pi);
@@ -41,7 +44,7 @@ public partial class Okraina : Unit
             float angle = _circleTime * (2f * Mathf.Pi / 3f);
             Rotation = angle;
 
-            Vector2 targetPos = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * radius;
+            Vector2 targetPos = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * radius + tPos;
 
             Vector2 direction = (targetPos - GlobalPosition).Normalized();
             Velocity = direction * Speed;

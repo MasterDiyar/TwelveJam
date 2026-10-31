@@ -11,6 +11,7 @@ public partial class Game : Node2D
 	[Export] public CanvasModulate Modulation;
 	[Export] public Color Normal, LowHp, clr;
 	[Export] public Player Player;
+	[Export] public ResourceUi resourceUI;
 	public override void _Ready()
 	{
 		GameManager.Instance.Game = this;

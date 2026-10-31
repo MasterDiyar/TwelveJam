@@ -16,7 +16,7 @@ public partial class Building : StaticBody2D, IDamagable
     public Faction GetFaction() => Faction;
 
     [Export]public Vector2 AmplitudeMinimal;
-    public bool Clickable = true;
+    [Export]public bool Clickable = true;
 
     private RandomNumberGenerator _rng = new();
     public override void _Ready()

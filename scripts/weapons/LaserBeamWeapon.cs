@@ -14,7 +14,7 @@ public partial class LaserBeamWeapon : Node2D
     [Export] private Faction _myFaction = Faction.Player;
     [Export] private float _beamDuration = 2.0f;
     [Export] private float _cooldownDuration = 3.0f; 
-    [Export] private float _damagePerSecond = 10.0f;
+    [Export] private float _damagePerSecond = 80.0f;
     [Export] private float _maxRange = 500f; 
 
     [Export] private float _minWidth = 2.0f;

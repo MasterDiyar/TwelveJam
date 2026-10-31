@@ -22,8 +22,21 @@ public partial class Base : Building
     public override void _Ready()
     {
         area.BodyEntered += AreaOnBodyEntered;
+        var _refreshTimer = new Timer();
+        _refreshTimer.WaitTime = 0.5;
+        _refreshTimer.Autostart = true;
+        _refreshTimer.Timeout += OnRefreshTimerTimeout;
+        AddChild(_refreshTimer);
     }
 
+    private void OnRefreshTimerTimeout()
+    {
+        if (area == null) return;
+
+        // Выключаем и включаем мониторинг, чтобы Area2D перепроверил все объекты внутри
+        area.Monitoring = false;
+        area.Monitoring = true;
+    }
     private void AreaOnBodyEntered(Node2D body)
     {
         if (body is IDamagable f)

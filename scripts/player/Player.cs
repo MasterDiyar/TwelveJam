@@ -11,8 +11,8 @@ public partial class Player : Unit
     [Export] private Camera2D _camera;                 
     
     public float MaxHp = 200, Repair = 5f;
-    
-        
+
+    [Export] public float accel= 1.33f;
     
     [Export] private float _minZoom = 1.0f;
     [Export] private float _maxZoom = 3.0f; 
@@ -61,11 +61,12 @@ public partial class Player : Unit
     public override void _PhysicsProcess(double delta)
     {
         Vector2 velocity = Velocity;
-
+        
         Vector2 direction = Input.GetVector("a", "d", "w", "s");
         if (direction != Vector2.Zero) {
             velocity = direction * Speed;
-
+            if (Input.IsActionPressed("shift"))
+                velocity *= accel;
             if (ThrusterParticles != null && !ThrusterParticles.Emitting)
                 ThrusterParticles.Emitting = true;
             
@@ -88,8 +89,9 @@ public partial class Player : Unit
 
         if (velocity.LengthSquared() > 1.0f) {
             float targetAngle = velocity.Angle();
-
-            Rotation = Mathf.LerpAngle(Rotation, targetAngle, (float)(_rotationSpeed * delta));
+            
+            if (!Input.IsActionPressed("lm"))
+                Rotation = Mathf.LerpAngle(Rotation, targetAngle, (float)(_rotationSpeed * delta));
         }
 
         if (_camera != null) {
@@ -100,6 +102,7 @@ public partial class Player : Unit
         if (Input.IsActionPressed("lm")) {
             foreach (var wep in Weapons) { wep.Attack(angle); }
             Laser.StartFiring(angle);
+            Rotation = angle;
         }
 
         Hp = Mathf.Clamp(Hp + Repair * (float)delta, -10, MaxHp);
