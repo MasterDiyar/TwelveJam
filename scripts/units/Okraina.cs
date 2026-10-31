@@ -29,13 +29,17 @@ public partial class Okraina : Unit
 
         if (_targets.Count > 0) {
             Unit target = _targets[0];
-            Vector2 direction = (target.GlobalPosition - GlobalPosition).Normalized();
+            Vector2 vec = target.GlobalPosition - GlobalPosition;
+            Vector2 direction = vec.Normalized();
             Velocity = direction * Speed;
+            Rotation = direction.Angle();
+            if (vec.Length() > 30) OnDie();
         }else {
             float radius = (Speed * 3f) / (2f * Mathf.Pi);
 
             _circleTime += (float)delta;
             float angle = _circleTime * (2f * Mathf.Pi / 3f);
+            Rotation = angle;
 
             Vector2 targetPos = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * radius;
 
@@ -67,6 +71,7 @@ public partial class Okraina : Unit
         var xplosion  =boomscene.Instantiate<Bullet>();
         xplosion.SetWeapon(Faction, 100*GameManager.Instance.OkrainaDamageMultiplier,
             0, 0, 0, .5f);
+        xplosion.GlobalPosition = GlobalPosition;
         GetParent().AddChild(xplosion);
         base.OnDie();
     }

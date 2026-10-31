@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://c81l05e526tj3"]
 
+[ext_resource type="Script" uid="uid://cawin86qmklh1" path="res://scripts/bullets/Bullet.cs" id="1_iq8ay"]
 [ext_resource type="Texture2D" uid="uid://d0n8uskd1sg3n" path="res://assets/textures/bullets/boom.png" id="1_kswmm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmle"]
 radius = 34.0147
 
 [node name="Boom" type="Area2D" unique_id=1808967697]
+script = ExtResource("1_iq8ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=376935842]
 shape = SubResource("CircleShape2D_sdmle")

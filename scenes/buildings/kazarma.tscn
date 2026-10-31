@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://jjm6dxrkswj5"]
+
+[ext_resource type="Texture2D" uid="uid://bsj2jyihv6ja4" path="res://assets/textures/env/kazarma.png" id="1_smioy"]
+[ext_resource type="Script" uid="uid://o2ba8a2jlpgc" path="res://scripts/buildings/Kazarma.cs" id="2_klcjx"]
+[ext_resource type="PackedScene" uid="uid://dr3m4jehpld0q" path="res://scenes/units/Okraina.tscn" id="3_cjdbt"]
+
+[node name="Kazarma" type="Sprite2D" unique_id=858722659 node_paths=PackedStringArray("tima")]
+texture_filter = 3
+texture = ExtResource("1_smioy")
+script = ExtResource("2_klcjx")
+tima = NodePath("Timer")
+unit = ExtResource("3_cjdbt")
+
+[node name="Timer" type="Timer" parent="." unique_id=2117311277]

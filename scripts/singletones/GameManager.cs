@@ -15,6 +15,7 @@ public partial class GameManager : Node2D
 	public float DemolishMultiplier = .25f;
 	public float OkrainaDamageMultiplier = 1f;
 	public int CurrentDay = 1, MeteorPerDay = 4;
+	public int MaxUnitsFromKazarma = 9;
 	public override void _Ready()
 	{
 		if (GameManager.Instance == null)
@@ -60,7 +61,9 @@ public partial class GameManager : Node2D
 		CurrentDay = 1;
 
 		DemolishMultiplier = .25f;
-
+	    OkrainaDamageMultiplier = 1f;
+	    MeteorPerDay = 4;
+	    MaxUnitsFromKazarma = 9;
 	}
 	
 	[Signal] public delegate void BuildingChangedEventHandler(Building building);

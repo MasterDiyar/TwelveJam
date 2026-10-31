@@ -23,8 +23,8 @@ public partial class BaseUpgrader : Control
 
 	private void KazarmaOnPressed()
 	{
-		
-
+		var scene = GD.Load<PackedScene>("res://scenes/buildings/kazarma.tscn").Instantiate<Kazarma>();
+		parent.AddChild(scene);
 		clearer();
 	}
 
