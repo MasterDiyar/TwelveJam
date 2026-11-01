@@ -67,8 +67,8 @@ texture = ExtResource("3_gmlin")
 
 [node name="LaserBeam" parent="." unique_id=1731546378 instance=ExtResource("4_lvxji")]
 position = Vector2(18, -0.5)
-_beamDuration = 1.0
-_cooldownDuration = 2.0
+_beamDuration = 0.6
+_cooldownDuration = 1.7
 _damagePerSecond = 33.0
 _maxRange = 1200.0
 _maxWidth = 7.0

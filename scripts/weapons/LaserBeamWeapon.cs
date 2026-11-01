@@ -125,7 +125,10 @@ public partial class LaserBeamWeapon : Node2D
             {
                 if (collider is Unit uit)
                     uit.Velocity = Vector2.Zero;
-                enemy.TakeDamage(_damagePerSecond * (float)delta, _myFaction);
+                if (collider is Enemy2 e2) 
+                    enemy.TakeDamage(_damagePerSecond * 10 *  (float)delta, _myFaction);
+                else 
+                    enemy.TakeDamage(_damagePerSecond *  (float)delta, _myFaction);
             }
         }
         else

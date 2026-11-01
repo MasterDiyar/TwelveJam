@@ -11,7 +11,7 @@ public partial class Unit : CharacterBody2D, IDamagable
     
     public Faction GetFaction() => Faction;
 
-    public void TakeDamage(float amount, Faction attackerFaction)
+    public virtual void TakeDamage(float amount, Faction attackerFaction)
     {
         if (attackerFaction == Faction) return;
         Hp -= amount;

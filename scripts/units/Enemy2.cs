@@ -40,6 +40,11 @@ public partial class Enemy2 : Unit
 		s2.Modulate = s2.Modulate with {A = _modulation};
 		MoveAndSlide();
 	}
-	
-	
+
+
+	public override void TakeDamage(float amount, Faction attackerFaction)
+	{
+		GD.Print(amount);
+		base.TakeDamage(amount, attackerFaction);
+	}
 }

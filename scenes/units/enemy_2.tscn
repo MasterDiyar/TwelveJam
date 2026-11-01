@@ -65,7 +65,7 @@ c2 = NodePath("CPUParticles2D2")
 sprite = NodePath("CPUParticles2D/Smoke")
 s2 = NodePath("CPUParticles2D2/Smoke")
 Faction = 4
-Hp = 48.0
+Hp = 10.0
 Speed = 180.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1675206458]
