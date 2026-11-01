@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bp0eho5kntb7c"]
 
 [ext_resource type="Script" uid="uid://dkpvteqfy7m7i" path="res://scripts/ui/Retry.cs" id="1_53nt0"]
+[ext_resource type="Texture2D" uid="uid://lj4oqwnbky2w" path="res://assets/textures/background/canvas.png" id="2_1twu8"]
+[ext_resource type="Texture2D" uid="uid://b0s1uu6au1dpj" path="res://assets/textures/light/small_filled.png" id="3_f8nt8"]
 
 [node name="Control" type="Control" unique_id=560838449 node_paths=PackedStringArray("CauseOfDeath")]
 layout_mode = 3
@@ -12,18 +14,31 @@ grow_vertical = 2
 script = ExtResource("1_53nt0")
 CauseOfDeath = NodePath("Label")
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=799032245]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_1twu8")
+
+[node name="SmallFilled" type="Sprite2D" parent="." unique_id=1334959336]
+modulate = Color(0.31, 0.31, 0.31, 0.72156864)
+position = Vector2(895, 421)
+scale = Vector2(1.984375, 2)
+texture = ExtResource("3_f8nt8")
+
 [node name="Button" type="Button" parent="." unique_id=1314689103]
 layout_mode = 0
-offset_left = 662.0
-offset_top = 324.0
-offset_right = 1119.0
-offset_bottom = 508.0
+offset_left = 670.0
+offset_top = 273.0
+offset_right = 1127.0
+offset_bottom = 457.0
+theme_override_font_sizes/font_size = 64
 text = "RETRY"
 
 [node name="Label" type="Label" parent="." unique_id=856826978]
 layout_mode = 0
-offset_left = 802.0
-offset_top = 246.0
-offset_right = 988.0
-offset_bottom = 303.0
-text = "ботботбот"
+offset_left = 673.0
+offset_top = 193.0
+offset_right = 1121.0
+offset_bottom = 262.0
+text = "try again!"

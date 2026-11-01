@@ -6,15 +6,27 @@
 [ext_resource type="Script" uid="uid://c5o2vvpv5f5qc" path="res://scripts/resources/WaveResource.cs" id="4_k40cm"]
 [ext_resource type="PackedScene" uid="uid://blubn7r1vqpba" path="res://scenes/units/enemy_1.tscn" id="4_n3tg4"]
 [ext_resource type="PackedScene" uid="uid://6o4gxoixrgag" path="res://scenes/units/enemy_3.tscn" id="6_pojoy"]
+[ext_resource type="PackedScene" uid="uid://dxp701601ylo6" path="res://scenes/units/enemy_1_harder.tscn" id="7_k7tjw"]
+[ext_resource type="Script" uid="uid://bxg13vjx3msup" path="res://scripts/units/Enemy2.cs" id="8_5svmr"]
+[ext_resource type="Texture2D" uid="uid://b3akdv3susrgq" path="res://assets/textures/units/drillo.png" id="9_62woc"]
+[ext_resource type="Texture2D" uid="uid://cbtnc3nup6erg" path="res://assets/textures/light/firelight.png" id="10_ada2j"]
+[ext_resource type="Script" uid="uid://dbjj02jnih8wd" path="res://scripts/units/Enemy3.cs" id="11_n03sv"]
+[ext_resource type="Texture2D" uid="uid://bt3br57y4i3rh" path="res://assets/textures/units/stealer.png" id="12_eiuhi"]
+[ext_resource type="Script" uid="uid://cpsqlwlh5nqqo" path="res://scripts/units/Enemy1.cs" id="13_fherj"]
+[ext_resource type="Texture2D" uid="uid://c0qs0hg48cjm" path="res://assets/textures/units/enemy.png" id="14_8d5av"]
+[ext_resource type="PackedScene" uid="uid://cch2e3qmpn1mi" path="res://scenes/weapon/laser_weapon.tscn" id="15_8pe3u"]
+[ext_resource type="PackedScene" uid="uid://8vl8n0t3ou20" path="res://scenes/units/enemy_4.tscn" id="16_3cg13"]
 
 [sub_resource type="Resource" id="Resource_k40cm"]
 script = ExtResource("3_qhlrp")
+Unit = ExtResource("6_pojoy")
 Count = -1
 metadata/_custom_type_script = "uid://da6ny82quna6w"
 
 [sub_resource type="Resource" id="Resource_pojoy"]
 script = ExtResource("3_qhlrp")
 Unit = ExtResource("2_ib3yq")
+Count = 2
 metadata/_custom_type_script = "uid://da6ny82quna6w"
 
 [sub_resource type="Resource" id="Resource_kf56l"]
@@ -33,10 +45,16 @@ script = ExtResource("3_qhlrp")
 Unit = ExtResource("2_ib3yq")
 metadata/_custom_type_script = "uid://da6ny82quna6w"
 
+[sub_resource type="Resource" id="Resource_1twu8"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("4_n3tg4")
+Count = 2
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
 [sub_resource type="Resource" id="Resource_2s7ya"]
 script = ExtResource("4_k40cm")
-Resource = Array[Object]([SubResource("Resource_n3tg4"), SubResource("Resource_pojoy")])
-BetweenSpawnTime = PackedInt32Array(1, 10)
+Resource = Array[Object]([SubResource("Resource_n3tg4"), SubResource("Resource_pojoy"), SubResource("Resource_1twu8")])
+BetweenSpawnTime = PackedInt32Array(1, 10, 10, 5)
 metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
 
 [sub_resource type="Resource" id="Resource_b0g8c"]
@@ -57,6 +75,8 @@ metadata/_custom_type_script = "uid://da6ny82quna6w"
 
 [sub_resource type="Resource" id="Resource_5i4gt"]
 script = ExtResource("3_qhlrp")
+Unit = ExtResource("2_ib3yq")
+Count = 3
 metadata/_custom_type_script = "uid://da6ny82quna6w"
 
 [sub_resource type="Resource" id="Resource_4xn87"]
@@ -65,10 +85,331 @@ Resource = Array[Object]([SubResource("Resource_b0g8c"), SubResource("Resource_h
 BetweenSpawnTime = PackedInt32Array(2, 1, 4, 4, 4, 12, 12, 12)
 metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
 
+[sub_resource type="Resource" id="Resource_f8nt8"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("2_ib3yq")
+Count = 10
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_cxsc8"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("6_pojoy")
+Count = 3
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_jep7n"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("7_k7tjw")
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_wlvob"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("4_n3tg4")
+Count = 4
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_awk8h"]
+script = ExtResource("4_k40cm")
+Resource = Array[Object]([SubResource("Resource_f8nt8"), SubResource("Resource_cxsc8"), SubResource("Resource_jep7n"), SubResource("Resource_wlvob")])
+BetweenSpawnTime = PackedInt32Array(10, 10, 10, 12, 5)
+metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tvc2c"]
+height = 52.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shlng"]
+atlas = ExtResource("9_62woc")
+region = Rect2(0, 0, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1wao"]
+atlas = ExtResource("9_62woc")
+region = Rect2(0, 32, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1x1v"]
+atlas = ExtResource("9_62woc")
+region = Rect2(0, 64, 80, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3p6v"]
+atlas = ExtResource("9_62woc")
+region = Rect2(0, 96, 80, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sdmle"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shlng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1wao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1x1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3p6v")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_h3p6v"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_sjgke"]
+offsets = PackedFloat32Array(0, 0.54320985, 0.93209875)
+colors = PackedColorArray(1, 1, 1, 1, 1.8989718, 1.4668138, 0, 1, 0.12750009, 0, 0.85, 1)
+
+[sub_resource type="Gradient" id="Gradient_l1hyv"]
+offsets = PackedFloat32Array(0, 0.845679, 1)
+colors = PackedColorArray(1, 0.050000012, 0.050000012, 1, 0.8874584, 0.95, 0.19949998, 1, 0.16000003, 1, 0.32800007, 1)
+
+[sub_resource type="PackedScene" id="PackedScene_s21bp"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("Enemy2", "CharacterBody2D", "motion_mode", "platform_on_leave", "script", "closeRange", "sohal", "cpuParticles2D", "c2", "sprite", "s2", "Faction", "Hp", "Speed", "CollisionShape2D", "CollisionShape2D", "rotation", "shape", "AnimatedSprite2D", "AnimatedSprite2D", "sprite_frames", "frame_progress", "CPUParticles2D", "CPUParticles2D", "material", "position", "amount", "lifetime", "explosiveness", "direction", "spread", "gravity", "initial_velocity_min", "initial_velocity_max", "scale_amount_min", "scale_amount_max", "color_ramp", "color_initial_ramp", "Smoke", "Sprite2D", "modulate", "texture", "CPUParticles2D2", "CPUParticles2D", "material", "position", "amount", "lifetime", "explosiveness", "direction", "spread", "gravity", "initial_velocity_min", "initial_velocity_max", "scale_amount_min", "scale_amount_max", "color_ramp", "color_initial_ramp", "Smoke", "Sprite2D", "modulate", "texture"),
+"node_count": 7,
+"node_ids": PackedInt32Array(1268421380, 1675206458, 1677383742, 1475755294, 1407353585, 1142366442, 983486538),
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("./CPUParticles2D"), NodePath("."), NodePath("./CPUParticles2D2")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 12, 2, 0, 3, 1, 4, 2, 5, 3, 1073741830, 4, 1073741831, 5, 1073741832, 6, 1073741833, 7, 1073741834, 8, 11, 9, 12, 10, 13, 11, 0, 1073741824, 0, 15, 14, -1, 2, 16, 12, 17, 13, 0, 1073741825, 0, 19, 18, -1, 2, 20, 14, 21, 15, 0, 1073741826, 0, 23, 22, -1, 14, 24, 16, 25, 17, 26, 18, 27, 19, 28, 20, 29, 21, 30, 22, 31, 23, 32, 24, 33, 25, 34, 26, 35, 27, 36, 28, 37, 29, 0, 1073741827, 0, 39, 38, -1, 2, 40, 30, 41, 31, 0, 1073741828, 0, 43, 42, -1, 14, 44, 32, 45, 33, 46, 34, 47, 35, 48, 36, 49, 37, 50, 38, 51, 39, 52, 40, 53, 41, 54, 42, 55, 43, 56, 44, 57, 45, 0, 1073741829, 0, 59, 58, -1, 2, 60, 46, 61, 47, 0),
+"variants": [1, 2, ExtResource("8_5svmr"), 48.0, NodePath("AnimatedSprite2D"), NodePath("CPUParticles2D"), NodePath("CPUParticles2D2"), NodePath("CPUParticles2D/Smoke"), NodePath("CPUParticles2D2/Smoke"), 4, 48.0, 180.0, 1.5707964, SubResource("CapsuleShape2D_tvc2c"), SubResource("SpriteFrames_sdmle"), 0.27614632, SubResource("CanvasItemMaterial_h3p6v"), Vector2(-38, -9.5), 24, 1.5, 0.05, Vector2(-1, 0), 60.0, Vector2(0, 0), 30.0, 40.0, 1.5, 3.5, SubResource("Gradient_sjgke"), SubResource("Gradient_l1hyv"), Color(2.5032542, 2.1775112, 0.9998252, 1), ExtResource("10_ada2j"), SubResource("CanvasItemMaterial_h3p6v"), Vector2(-38, 10.5), 24, 1.5, 0.05, Vector2(-1, 0), 60.0, Vector2(0, 0), 30.0, 40.0, 1.5, 3.5, SubResource("Gradient_sjgke"), SubResource("Gradient_l1hyv"), Color(2.5032542, 2.1775112, 0.9998252, 1), ExtResource("10_ada2j")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_cctux"]
+script = ExtResource("3_qhlrp")
+Unit = SubResource("PackedScene_s21bp")
+Count = 10
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grgi1"]
+radius = 8.0
+height = 36.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rbulv"]
+radius = 3.7069664
+height = 36.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b47d3"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_wifgs"]
+offsets = PackedFloat32Array(0, 0.54320985, 0.93209875)
+colors = PackedColorArray(1, 1, 1, 1, 1.8989718, 1.4668138, 0, 1, 0, 0.44146425, 0.097758144, 0.36078432)
+
+[sub_resource type="Gradient" id="Gradient_irfqb"]
+colors = PackedColorArray(1, 0.050000012, 0.050000012, 1, 0.9999998, 0.5280756, 0.15972024, 1)
+
+[sub_resource type="PackedScene" id="PackedScene_30hh2"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("Enemy3", "script", "closeRange", "cpuParticles2D", "sprite", "Faction", "Speed", "CharacterBody2D", "CollisionShape2D", "position", "rotation", "scale", "shape", "CollisionShape2D2", "Stealer", "texture", "Sprite2D", "CPUParticles2D", "material", "amount", "explosiveness", "direction", "spread", "gravity", "initial_velocity_min", "initial_velocity_max", "scale_amount_min", "scale_amount_max", "color_ramp", "color_initial_ramp", "Smoke", "modulate"),
+"node_count": 6,
+"node_ids": PackedInt32Array(1516439145, 8031245, 681086768, 15491974, 788715147, 1717942311),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 7, 0, -1, 6, 1, 0, 2, 1, 1073741827, 2, 1073741828, 3, 5, 4, 6, 5, 0, 0, 0, 8, 8, -1, 4, 9, 6, 10, 7, 11, 8, 12, 9, 0, 0, 0, 8, 13, -1, 4, 9, 10, 10, 11, 11, 8, 12, 12, 0, 0, 0, 16, 14, -1, 3, 9, 13, 11, 8, 15, 14, 0, 0, 0, 17, 17, -1, 14, 18, 15, 9, 16, 11, 8, 19, 17, 20, 18, 21, 19, 22, 20, 23, 21, 24, 22, 25, 22, 26, 23, 27, 24, 28, 25, 29, 26, 0, 4, 0, 16, 30, -1, 2, 31, 27, 15, 28, 0),
+"variants": [ExtResource("11_n03sv"), 32.0, NodePath("CPUParticles2D"), NodePath("CPUParticles2D/Smoke"), 2, 200.0, Vector2(-2, -1), 1.5707964, Vector2(0.5, 0.5), SubResource("CapsuleShape2D_grgi1"), Vector2(9, -6.000001), 2.268928, SubResource("CapsuleShape2D_rbulv"), Vector2(3, -4), ExtResource("12_eiuhi"), SubResource("CanvasItemMaterial_b47d3"), Vector2(-12, -2.5), 10, 0.05, Vector2(-1, 0), 20.0, Vector2(0, 0), 30.0, 0.5, 1.5, SubResource("Gradient_wifgs"), SubResource("Gradient_irfqb"), Color(2.5032542, 1.048323, 0, 1), ExtResource("10_ada2j")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_685bq"]
+script = ExtResource("3_qhlrp")
+Unit = SubResource("PackedScene_30hh2")
+Count = 3
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="PackedScene" id="PackedScene_7nmmo"]
+_bundled = {
+"base_scene": 0,
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [],
+"names": PackedStringArray("Enemy1_harder", "closeRange", "Hp", "Speed", "CollisionShape2D", "CollisionShape2D2", "CollisionShape2D3", "Enemy", "modulate", "LaserWeapon", "Damage", "BulletsCount", "AngleStep", "CPUParticles2D", "Smoke"),
+"node_count": 3,
+"node_ids": PackedInt32Array(1192629781, 1731881483, 1494475726),
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 2147483647, 0, -1, 3, 1, 1, 2, 2, 3, 3, 0, 0, 0, 2147483647, 1048583, -1, 1, 8, 4, 0, 0, 0, 2147483647, 1310729, -1, 3, 10, 5, 11, 6, 12, 7, 0),
+"variants": [ExtResource("4_n3tg4"), 180.0, 140.0, 60.0, Color(0.77971077, 0.77971077, 0.77971077, 1), 9.0, 3, 0.22],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_kabaa"]
+script = ExtResource("3_qhlrp")
+Unit = SubResource("PackedScene_7nmmo")
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sdmle"]
+height = 58.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bqml6"]
+radius = 5.0
+height = 58.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iqe7g"]
+radius = 8.496775
+height = 28.35109
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iqe7g"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_n5uio"]
+offsets = PackedFloat32Array(0, 0.54320985, 0.93209875)
+colors = PackedColorArray(1, 1, 1, 1, 1.8989718, 1.4668138, 0, 1, 0.12750009, 0, 0.85, 1)
+
+[sub_resource type="Gradient" id="Gradient_4mwjg"]
+colors = PackedColorArray(0.30333334, 1, 0.050000012, 1, 0.16000003, 1, 0.32800007, 1)
+
+[sub_resource type="PackedScene" id="PackedScene_3n0ua"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("Enemy1", "CharacterBody2D", "motion_mode", "platform_on_leave", "script", "closeRange", "wep", "cpuParticles2D", "sprite", "Faction", "Speed", "CollisionShape2D", "CollisionShape2D", "position", "rotation", "shape", "CollisionShape2D2", "CollisionShape2D", "position", "rotation", "shape", "CollisionShape2D3", "CollisionShape2D", "position", "rotation", "shape", "Enemy", "Sprite2D", "texture", "LaserWeapon", "position", "WeaponFaction", "Damage", "Speed", "BulletsCount", "BetweenShotTime", "CPUParticles2D", "CPUParticles2D", "material", "position", "amount", "lifetime", "explosiveness", "direction", "spread", "gravity", "initial_velocity_min", "initial_velocity_max", "scale_amount_min", "scale_amount_max", "color_ramp", "color_initial_ramp", "Smoke", "Sprite2D", "modulate", "position", "texture"),
+"node_count": 8,
+"node_ids": PackedInt32Array(1192629781, 2107736658, 1023120497, 408927308, 1731881483, 1494475726, 156266851, 706937468),
+"node_paths": [NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./CPUParticles2D")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 9, 2, 0, 3, 1, 4, 2, 5, 3, 1073741830, 4, 1073741831, 5, 1073741832, 6, 9, 7, 10, 8, 0, 1073741824, 0, 12, 11, -1, 3, 13, 9, 14, 10, 15, 11, 0, 1073741825, 0, 17, 16, -1, 3, 18, 12, 19, 13, 20, 14, 0, 1073741826, 0, 22, 21, -1, 3, 23, 15, 24, 16, 25, 17, 0, 1073741827, 0, 27, 26, -1, 1, 28, 18, 0, 1073741828, 0, 2147483647, 29, 19, 6, 30, 20, 31, 21, 32, 22, 33, 23, 34, 24, 35, 25, 0, 1073741829, 0, 37, 36, -1, 14, 38, 26, 39, 27, 40, 28, 41, 29, 42, 30, 43, 31, 44, 32, 45, 33, 46, 34, 47, 35, 48, 36, 49, 37, 50, 38, 51, 39, 0, 1073741830, 0, 53, 52, -1, 3, 54, 40, 55, 41, 56, 42, 0),
+"variants": [1, 2, ExtResource("13_fherj"), 200.0, NodePath("LaserWeapon"), NodePath("CPUParticles2D"), NodePath("CPUParticles2D/Smoke"), 2, 50.0, Vector2(15, 0), 1.5707964, SubResource("CapsuleShape2D_sdmle"), Vector2(-13, 0), 1.5707964, SubResource("CapsuleShape2D_bqml6"), Vector2(2.1755447, 30.503225), 1.5707964, SubResource("CapsuleShape2D_iqe7g"), ExtResource("14_8d5av"), ExtResource("15_8pe3u"), Vector2(29.369984, 34.285976), 2, 8.0, 635.0, 2, 0.1, SubResource("CanvasItemMaterial_iqe7g"), Vector2(-40, -6.5), 24, 1.5, 0.05, Vector2(-1, 0), 60.0, Vector2(0, 0), 30.0, 40.0, 1.5, 3.5, SubResource("Gradient_n5uio"), SubResource("Gradient_4mwjg"), Color(1.2503967, 2.5032542, 0, 1), Vector2(0, -0.5), ExtResource("10_ada2j")],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_u3foy"]
+script = ExtResource("3_qhlrp")
+Unit = SubResource("PackedScene_3n0ua")
+Count = 4
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_kg1oy"]
+script = ExtResource("4_k40cm")
+Resource = Array[Object]([SubResource("Resource_cctux"), SubResource("Resource_685bq"), SubResource("Resource_kabaa"), SubResource("Resource_u3foy")])
+BetweenSpawnTime = PackedInt32Array(10, 10, 10, 12, 5)
+metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
+
+[sub_resource type="Resource" id="Resource_c1r7k"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("2_ib3yq")
+Count = 16
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_ep3pb"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("4_n3tg4")
+Count = 6
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_rmh44"]
+script = ExtResource("4_k40cm")
+Resource = Array[Object]([SubResource("Resource_c1r7k"), SubResource("Resource_ep3pb")])
+BetweenSpawnTime = PackedInt32Array(20, 20, 0)
+metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
+
+[sub_resource type="Resource" id="Resource_k7iyr"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("16_3cg13")
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_31jji"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("16_3cg13")
+Count = 2
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_qvvsl"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("16_3cg13")
+Count = 3
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_ihlbe"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("6_pojoy")
+Count = 10
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_onga1"]
+script = ExtResource("4_k40cm")
+Resource = Array[Object]([SubResource("Resource_k7iyr"), SubResource("Resource_31jji"), SubResource("Resource_qvvsl"), SubResource("Resource_ihlbe")])
+BetweenSpawnTime = PackedInt32Array(10, 10, 10, 10)
+metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
+
+[sub_resource type="Resource" id="Resource_es2k7"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("7_k7tjw")
+Count = 4
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_0gu5m"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("4_n3tg4")
+Count = 10
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_6h0j3"]
+script = ExtResource("4_k40cm")
+Resource = Array[Object]([SubResource("Resource_es2k7"), SubResource("Resource_0gu5m")])
+BetweenSpawnTime = PackedInt32Array(15, 20, 20)
+metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
+
+[sub_resource type="Resource" id="Resource_idaig"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("16_3cg13")
+Count = 3
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_vqgnc"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("4_n3tg4")
+Count = 5
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_dqjhb"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("2_ib3yq")
+Count = 16
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_k7tjw"]
+script = ExtResource("4_k40cm")
+Resource = Array[Object]([SubResource("Resource_idaig"), SubResource("Resource_vqgnc"), SubResource("Resource_dqjhb")])
+BetweenSpawnTime = PackedInt32Array(1, 1, 1, 10)
+metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
+
+[sub_resource type="Resource" id="Resource_7viln"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("16_3cg13")
+Count = 10
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_40dc5"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("4_n3tg4")
+Count = 10
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_6im3b"]
+script = ExtResource("3_qhlrp")
+Unit = ExtResource("2_ib3yq")
+Count = 10
+metadata/_custom_type_script = "uid://da6ny82quna6w"
+
+[sub_resource type="Resource" id="Resource_5svmr"]
+script = ExtResource("4_k40cm")
+Resource = Array[Object]([SubResource("Resource_7viln"), SubResource("Resource_40dc5"), SubResource("Resource_6im3b")])
+BetweenSpawnTime = PackedInt32Array(1, 1, 1)
+metadata/_custom_type_script = "uid://c5o2vvpv5f5qc"
+
 [node name="MobSpawner" type="Node2D" unique_id=1505884972 node_paths=PackedStringArray("timer")]
 script = ExtResource("1_5f0ek")
 timer = NodePath("Timer")
-waveResources = Array[Object]([SubResource("Resource_nhar6"), SubResource("Resource_2s7ya"), SubResource("Resource_4xn87")])
+waveResources = Array[Object]([SubResource("Resource_nhar6"), SubResource("Resource_2s7ya"), SubResource("Resource_4xn87"), SubResource("Resource_awk8h"), SubResource("Resource_kg1oy"), SubResource("Resource_rmh44"), SubResource("Resource_onga1"), SubResource("Resource_6h0j3"), SubResource("Resource_k7tjw"), SubResource("Resource_5svmr")])
 
 [node name="Timer" type="Timer" parent="." unique_id=1389998080]
 wait_time = 6.0

@@ -24,6 +24,7 @@ colors = PackedColorArray(1, 0.050000012, 0.050000012, 1, 0.9999998, 0.5280756, 
 
 [node name="Enemy3" type="CharacterBody2D" unique_id=1516439145 node_paths=PackedStringArray("cpuParticles2D", "sprite")]
 script = ExtResource("1_b7nn4")
+closeRange = 32.0
 cpuParticles2D = NodePath("CPUParticles2D")
 sprite = NodePath("CPUParticles2D/Smoke")
 Faction = 2

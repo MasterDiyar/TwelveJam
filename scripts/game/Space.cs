@@ -5,17 +5,25 @@ using TwelveJam.scripts.buildings;
 public partial class Space : Node2D
 {
 	[Export] private PackedScene MeteorScene, MoverScene;
-	[Export] private AudioStreamPlayer2D SoundPlayer;
+	[Export] private AudioStreamPlayer SoundPlayer;
 
-	[Export] private AudioStreamWav[] pack1, pack2, pack3;
-
-	//[Export] private MobSpawner spawner;
+	[Export] private AudioStreamMP3[] pack1, pack2;
+	
+	[Export] private int RepeatsPerLoop = 4;
+	private int _currentLoopIndex = 0, currentsound = 0;
+	int _currentLoop = 0;
+	private Timer t;
 	public override void _Ready()
 	{
+		t = new Timer();
+		AddChild(t);
+		t.WaitTime = 4f/117f;
+		t.OneShot = true;
+		t.Timeout += () => SoundPlayer.Play();
 		GameManager.Instance.DayChanged += InstanceOnDayChanged;
-		
+		SoundPlayer.Stream = pack1[currentsound];
 		SoundPlayer.Play();
-		
+		SoundPlayer.Finished += Melody;
 	}
 
 	private void InstanceOnDayChanged(int day)
@@ -39,17 +47,46 @@ public partial class Space : Node2D
 		}
 	}
 
-	public override void _Process(double delta)
-	{
-	}
-
 	void Melody()
 	{
-		int day = GameManager.Instance.CurrentDay;
-		AudioStreamWav[] muzlo=pack1;
-		if (day is < 6 and > 3)
-			muzlo= pack2;
-		
-		SoundPlayer.Stream = muzlo[0];
+		if (_currentLoop == 0) {
+			_currentLoopIndex++;
+			if (currentsound == 1)
+			{
+				currentsound++;
+				SoundPlayer.Stream = pack1[currentsound];
+				_currentLoopIndex--;
+			}
+			if (_currentLoopIndex >= RepeatsPerLoop) {
+				currentsound++;
+				_currentLoopIndex = 0;
+
+				if (currentsound >= pack1.Length) {
+					_currentLoop = 1;
+					currentsound = 0;
+					SoundPlayer.Stream = pack2[currentsound]; 
+				} else {
+					SoundPlayer.Stream = pack1[currentsound];
+				}
+			}
+			t.Start();
+		}
+		else if (_currentLoop == 1) {
+			_currentLoopIndex++;
+			if (_currentLoopIndex >= RepeatsPerLoop) {
+				currentsound++;
+				_currentLoopIndex = 0;
+				if (currentsound >= pack2.Length) {
+					_currentLoop = 0;
+					currentsound = 0;
+					SoundPlayer.Stream = pack1[currentsound];
+				} else {
+					SoundPlayer.Stream = pack2[currentsound];
+				}
+			}
+			t.Start();
+		}
 	}
+	
+	
 }

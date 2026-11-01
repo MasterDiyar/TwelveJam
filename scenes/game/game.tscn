@@ -25,13 +25,13 @@ Picker = NodePath("Pausable/Picker")
 InfoTablet = NodePath("Pausable/InfoTablet")
 Modulation = NodePath("Pausable/CanvasModulate")
 Normal = Color(0.71848166, 0.7282755, 0.8007568, 1)
-LowHp = Color(0.92, 0.2392, 0.5796, 1)
+LowHp = Color(0.98941463, 0.16965517, 0.31264174, 1)
 resourceUI = NodePath("UI/ResourceUI")
 
 [node name="Pausable" type="Node2D" parent="." unique_id=534425687]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Pausable" unique_id=461786814]
-color = Color(0.71848166, 0.7282755, 0.8007568, 1)
+color = Color(3.5264125, 0.44568497, 1.113176, 1)
 
 [node name="Space" parent="Pausable" unique_id=509825059 instance=ExtResource("2_0sr1o")]
 

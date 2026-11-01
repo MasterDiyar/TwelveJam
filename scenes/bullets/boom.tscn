@@ -2,15 +2,35 @@
 
 [ext_resource type="Script" uid="uid://cawin86qmklh1" path="res://scripts/bullets/Bullet.cs" id="1_iq8ay"]
 [ext_resource type="Texture2D" uid="uid://d0n8uskd1sg3n" path="res://assets/textures/bullets/boom.png" id="1_kswmm"]
+[ext_resource type="Texture2D" uid="uid://ckfmq7fffpm3y" path="res://assets/textures/bullets/boomling.png" id="2_4xn87"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sdmle"]
 radius = 34.0147
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_sdmle"]
+particle_flag_align_y = true
+particle_flag_disable_z = true
+angle_min = -360.0
+angle_max = 360.00003
+spread = 180.0
+initial_velocity_min = 40.0
+initial_velocity_max = 90.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 49.999996
+linear_accel_max = 99.99999
 
 [node name="Boom" type="Area2D" unique_id=1808967697]
 script = ExtResource("1_iq8ay")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=376935842]
 shape = SubResource("CircleShape2D_sdmle")
+
+[node name="CPUParticles2D" type="GPUParticles2D" parent="." unique_id=1201570293]
+amount = 24
+texture = ExtResource("2_4xn87")
+lifetime = 0.3
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_sdmle")
 
 [node name="Boom" type="Sprite2D" parent="." unique_id=1112163523]
 position = Vector2(0, -1)

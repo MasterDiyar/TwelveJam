@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://8vl8n0t3ou20"]
+
+[ext_resource type="Script" uid="uid://7ihai6b8bkas" path="res://scripts/units/Enemy4.cs" id="1_3no0f"]
+[ext_resource type="Texture2D" uid="uid://cbtnc3nup6erg" path="res://assets/textures/light/firelight.png" id="1_ceyg8"]
+[ext_resource type="Texture2D" uid="uid://08fbbderwwn0" path="res://assets/textures/units/tolstyak.png" id="1_x4oab"]
+[ext_resource type="PackedScene" uid="uid://cch2e3qmpn1mi" path="res://scenes/weapon/laser_weapon.tscn" id="4_57hlw"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_r15w0"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_3no0f"]
+offsets = PackedFloat32Array(0, 0.54320985, 0.93209875)
+colors = PackedColorArray(1, 1, 1, 1, 1.8989718, 1.4668138, 0, 1, 0, 0.43363297, 0.31124973, 1)
+
+[sub_resource type="Gradient" id="Gradient_57hlw"]
+colors = PackedColorArray(0.46166676, 0.050000012, 1, 1, 1, 0.16000003, 0.87399995, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sdmle"]
+radius = 28.071337
+
+[node name="Enemy4" type="CharacterBody2D" unique_id=96827041 node_paths=PackedStringArray("weps", "cpuParticles2D", "sprite")]
+script = ExtResource("1_3no0f")
+closeRange = 240.0
+weps = [NodePath("LaserWeapon"), NodePath("LaserWeapon2")]
+cpuParticles2D = NodePath("CPUParticles2D")
+sprite = NodePath("CPUParticles2D/Smoke")
+Faction = 1
+Hp = 400.0
+Speed = 100.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=617343706]
+material = SubResource("CanvasItemMaterial_r15w0")
+position = Vector2(-31, 0)
+amount = 24
+lifetime = 1.5
+explosiveness = 0.05
+direction = Vector2(-1, 0)
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 40.0
+scale_amount_min = 1.5
+scale_amount_max = 3.5
+color_ramp = SubResource("Gradient_3no0f")
+color_initial_ramp = SubResource("Gradient_57hlw")
+
+[node name="Smoke" type="Sprite2D" parent="CPUParticles2D" unique_id=2112770112]
+modulate = Color(2.0586917, 0, 2.5032542, 1)
+position = Vector2(0, -0.5)
+texture = ExtResource("1_ceyg8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=71490817]
+position = Vector2(8, 0)
+shape = SubResource("CircleShape2D_sdmle")
+
+[node name="Tolstyak" type="Sprite2D" parent="." unique_id=600671945]
+texture = ExtResource("1_x4oab")
+
+[node name="LaserWeapon" parent="." unique_id=1494475726 instance=ExtResource("4_57hlw")]
+position = Vector2(34.461403, -15.478929)
+WeaponFaction = 2
+Speed = 700.0
+Acceleration = -300.0
+BulletsCount = 5
+BetweenShotTime = 0.2
+AttackSpeed = 3.0
+
+[node name="LaserWeapon2" parent="." unique_id=976673660 instance=ExtResource("4_57hlw")]
+position = Vector2(34.15395, 14.265427)
+WeaponFaction = 2
+Speed = 700.0
+Acceleration = -300.0
+BulletsCount = 5
+BetweenShotTime = 0.2
+AttackSpeed = 3.0

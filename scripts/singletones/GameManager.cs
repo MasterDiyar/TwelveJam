@@ -37,7 +37,7 @@ public partial class GameManager : Node2D
 		EmitSignalBuildingChanged(building);
 	}
 	
-	public void ExecuteGameOver(string exception = "Random TF said do it")
+	public void ExecuteGameOver(string exception = "Shit happens :)")
 	{
 		Game.QueueFree();
 		var retry = GD.Load<PackedScene>("res://scenes/ui/retry.tscn").Instantiate<Retry>();
@@ -54,6 +54,7 @@ public partial class GameManager : Node2D
 	
 	public void ResetGame()
 	{
+		MoneyManager.Instance.ResetGame();
 		Player = null;
 		Picker = null;
 		InfoTablet = null;

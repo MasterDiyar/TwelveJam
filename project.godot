@@ -10,10 +10,12 @@ config_version=5
 
 [application]
 
-config/name="TwelveJam"
+config/name="Space awake"
+config/version="1.0"
 run/main_scene="uid://c7gp3nt6poj22"
 config/features=PackedStringArray("4.7", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="uid://nkewj3opp22b"
+config/icon="uid://nkewj3opp22b"
 
 [autoload]
 

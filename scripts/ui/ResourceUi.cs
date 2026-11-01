@@ -3,7 +3,7 @@ using System;
 
 public partial class ResourceUi : Control
 {
-	[Export] public Label Text, QuoteText, HpNum, TimerLabel, Alert;
+	[Export] public Label Text, QuoteText, HpNum, TimerLabel, Alert, Day;
 	[Export] public Line2D HpLine;
 	[Export] public Color NormalHp, RadiationalHp;
 	MoneyManager mm = MoneyManager.Instance;
@@ -36,6 +36,7 @@ public partial class ResourceUi : Control
 		if (GameManager.Instance.Game.Pausable.ProcessMode != ProcessModeEnum.Disabled)
 			if (isStarted) Time -= (float)delta;
 		TimerLabel.Text = $"{Time:N0}";
+		Day.Text = $"Day: {GameManager.Instance.CurrentDay}";
 
 		if (Time < 0)
 		{

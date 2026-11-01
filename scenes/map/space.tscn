@@ -5,11 +5,21 @@
 [ext_resource type="Shader" uid="uid://cjkdantipd0ik" path="res://shaders/space_gas.gdshader" id="2_orbv3"]
 [ext_resource type="Script" uid="uid://d171dya1y2jks" path="res://scripts/game/ParralaxCanvas.cs" id="2_yb3g2"]
 [ext_resource type="Texture2D" uid="uid://dipj3igxptnov" path="res://assets/textures/background/white.png" id="3_71ude"]
+[ext_resource type="AudioStream" uid="uid://chyv8febdkfb" path="res://assets/sound/IKWIT_1.mp3" id="4_22ivh"]
 [ext_resource type="PackedScene" uid="uid://c1cdhoa62bkq0" path="res://scenes/player/player.tscn" id="4_71ude"]
 [ext_resource type="PackedScene" uid="uid://dv72amp00wjyn" path="res://scenes/buildings/meteor.tscn" id="5_3jwen"]
+[ext_resource type="AudioStream" uid="uid://dxi208oumgadl" path="res://assets/sound/IKWIT_2.mp3" id="5_jpbjk"]
+[ext_resource type="AudioStream" uid="uid://cv3tygyximy0e" path="res://assets/sound/IKWIT_3.mp3" id="6_l82ac"]
+[ext_resource type="AudioStream" uid="uid://cis4e0kjbwkal" path="res://assets/sound/IKWIT_4.mp3" id="7_dk1k1"]
 [ext_resource type="PackedScene" uid="uid://dw0b8y2yr5ij6" path="res://scenes/game/mover.tscn" id="7_qp3o2"]
+[ext_resource type="AudioStream" uid="uid://c7s86w31qi5pt" path="res://assets/sound/ICMLT1.mp3" id="8_cy4id"]
+[ext_resource type="AudioStream" uid="uid://dinaswjokmimw" path="res://assets/sound/ICMLT2.mp3" id="9_t45vr"]
+[ext_resource type="AudioStream" uid="uid://da0t8n65vns13" path="res://assets/sound/ICMLT3.mp3" id="10_4noe5"]
 [ext_resource type="PackedScene" uid="uid://cpnmyfvemrmth" path="res://scenes/units/mob_spawner.tscn" id="11_7y8fu"]
+[ext_resource type="AudioStream" uid="uid://dutbsp60l0g1g" path="res://assets/sound/ICMLT4.mp3" id="11_e2g82"]
 [ext_resource type="PackedScene" uid="uid://s08qb55bcb1c" path="res://scenes/game/cutscene.tscn" id="12_7y8fu"]
+[ext_resource type="AudioStream" uid="uid://cvisryiknavv0" path="res://assets/sound/ICMLT5.mp3" id="12_dw5mw"]
+[ext_resource type="AudioStream" uid="uid://6l3e4yek4nvs" path="res://assets/sound/ICMLT6.mp3" id="13_h1b3w"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_yb3g2"]
 
@@ -30,11 +40,14 @@ shader_parameter/color_red = Color(0.17362507, 0.0975, 0.75, 0.1254902)
 shader_parameter/color_purple = Color(0, 0.77, 0.6544999, 0.19607843)
 shader_parameter/color_blue = Color(0.54599965, 0, 0.84, 0.37254903)
 
-[node name="Space" type="Node2D" unique_id=509825059]
+[node name="Space" type="Node2D" unique_id=509825059 node_paths=PackedStringArray("SoundPlayer")]
 texture_filter = 3
 script = ExtResource("1_qp3o2")
 MeteorScene = ExtResource("5_3jwen")
 MoverScene = ExtResource("7_qp3o2")
+SoundPlayer = NodePath("AudioStreamPlayer")
+pack1 = Array[AudioStreamMP3]([ExtResource("4_22ivh"), ExtResource("5_jpbjk"), ExtResource("6_l82ac"), ExtResource("7_dk1k1")])
+pack2 = Array[AudioStreamMP3]([ExtResource("8_cy4id"), ExtResource("9_t45vr"), ExtResource("10_4noe5"), ExtResource("11_e2g82"), ExtResource("12_dw5mw"), ExtResource("13_h1b3w")])
 
 [node name="Canvas" type="Sprite2D" parent="." unique_id=1813181672]
 modulate = Color(1.753959, 1.753959, 1.753959, 1)
@@ -91,3 +104,4 @@ position = Vector2(1385, 703)
 position = Vector2(1200, 563)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1417207899]
+volume_db = -21.997

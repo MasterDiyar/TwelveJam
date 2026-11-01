@@ -53,7 +53,8 @@ public partial class MobSpawner : Node2D
 
         var unitRes = activeWave.Resource[spawnIndex];
         if (unitRes?.Unit == null) return;
-
+        if (unitRes == null) return;
+        
         for (int i = 0; i < unitRes.Count; i++)
         {
             var unitInstance = (Unit)unitRes.Unit.Instantiate();
@@ -86,5 +87,13 @@ public partial class MobSpawner : Node2D
         float distance = (float)GD.RandRange(0, radius); // Случайная дистанция от 0 до 2000
         
         return new Vector2(MathF.Cos(angle), MathF.Sin(angle)) * distance;
+    }
+    
+    public override void _ExitTree()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.DayChanged -= InstanceOnDayChanged;
+        }
     }
 }

@@ -18,11 +18,16 @@ public partial class BaseUpgrader : Control
 		Demolish.Pressed += DemolishOnPressed;
 		Kazarma.Pressed += KazarmaOnPressed;
 
-		Tower.TooltipText = "30 15 20";
+		Tower.TooltipText = "Ferrum: 30\n Silicon: 15\n Titan: 20\n";
+		Kazarma.TooltipText = "Silicon: 40\n Titan: 20\n Sulfur: 40";
 	}
 
 	private void KazarmaOnPressed()
 	{
+		if (towerplaced) return;
+		if (MoneyManager.Instance.CanConsumeResources(new Items(10, 40, 20, 40))) 
+			MoneyManager.Instance.ConsumeResources(new Items(0, 40, 20, 40));
+		else return;
 		var scene = GD.Load<PackedScene>("res://scenes/buildings/kazarma.tscn").Instantiate<Kazarma>();
 		parent.AddChild(scene);
 		clearer();
@@ -65,6 +70,7 @@ public partial class BaseUpgrader : Control
         Kazarma.Pressed -= KazarmaOnPressed;
         Kazarma.QueueFree();
         Kazarma = null;
+        Visible = false;
 	}
 
 

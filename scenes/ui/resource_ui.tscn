@@ -20,7 +20,7 @@ font_size = 120
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
-[node name="ResourceUI" type="Control" unique_id=1377592144 node_paths=PackedStringArray("Text", "QuoteText", "HpNum", "TimerLabel", "Alert", "HpLine")]
+[node name="ResourceUI" type="Control" unique_id=1377592144 node_paths=PackedStringArray("Text", "QuoteText", "HpNum", "TimerLabel", "Alert", "Day", "HpLine")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,6 +34,7 @@ QuoteText = NodePath("Label2")
 HpNum = NodePath("Label4")
 TimerLabel = NodePath("Label3")
 Alert = NodePath("Label5")
+Day = NodePath("Label6")
 HpLine = NodePath("HpLine")
 NormalHp = Color(0.9586322, 0, 0.13665262, 1)
 RadiationalHp = Color(0.11528229, 0.41455126, 0.26302573, 1)
@@ -89,6 +90,15 @@ offset_top = 11.0
 offset_right = 1006.0
 offset_bottom = 45.0
 text = "80"
+label_settings = SubResource("LabelSettings_vmyg7")
+
+[node name="Label6" type="Label" parent="." unique_id=1389221917]
+layout_mode = 0
+offset_left = 1035.0
+offset_top = 11.0
+offset_right = 1111.0
+offset_bottom = 45.0
+text = "Day: 1"
 label_settings = SubResource("LabelSettings_vmyg7")
 
 [node name="Label5" type="Label" parent="." unique_id=1827656401]

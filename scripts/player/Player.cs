@@ -10,7 +10,7 @@ public partial class Player : Unit
     [Export] public CpuParticles2D ThrusterParticles; 
     [Export] private Camera2D _camera;                 
     
-    public float MaxHp = 200, Repair = 5f;
+    public float MaxHp = 200, Repair = 0.5f;
 
     [Export] public float accel= 1.33f;
     

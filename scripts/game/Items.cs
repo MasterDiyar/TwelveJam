@@ -9,7 +9,7 @@ public class Items
         Titan = titan;
         Sulfur = sulfur;
     }
-    public float Ferrum, Titan, Silicon, Sulfur;
+    public float Ferrum=0, Titan=0, Silicon=0, Sulfur=0;
 
     public static bool operator >(Items a, Items b)=>
         a.Ferrum > b.Ferrum && a.Sulfur > b.Sulfur && a.Titan > b.Titan &&  a.Silicon > b.Silicon;

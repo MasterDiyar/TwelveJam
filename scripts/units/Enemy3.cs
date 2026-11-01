@@ -44,5 +44,6 @@ public partial class Enemy3 : Unit
 	public override void OnDie()
 	{
 		MoneyManager.Instance.Items += stealed;
+		QueueFree();
 	}
 }

@@ -22,9 +22,9 @@ public partial class Burovik : Unit
         if (animName != "mine") return;
         
         WorkTime++;
-        MoneyManager.Instance.Items += building.GetItem()* (1/6f);
+        
         if (WorkTime >= 6) {
-                
+            MoneyManager.Instance.Items += building.GetItem();
             anim.AnimationFinished -= AnimOnAnimationFinished;
             building.QueueFree();
             return;

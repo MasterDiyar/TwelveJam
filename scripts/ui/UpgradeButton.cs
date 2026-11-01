@@ -5,6 +5,8 @@ using TwelveJam.scripts.game;
 public partial class UpgradeButton : Button
 {
 	[Signal] public delegate void BuyEventHandler();
+
+	[Export] public AudioStreamPlayer BuySound;
 	[Export] public UpgradeButton[] Unlocker;
 	[Export] public bool isUnlocked = false;
 	[Export] public int Id = 0; 
@@ -43,10 +45,16 @@ public partial class UpgradeButton : Button
 
 	void AfterBuy()
 	{
+		BuySound.Play();
 		isClicked =  true;
+		Disabled = true;
 		var player = GameManager.Instance.Player;
 		switch (Id)
 		{
+			case -47:
+				papa.Laser1.Damage += 10;
+				papa.Laser2.Damage += 10;
+				break;
 			case 1:
 				player.Speed += 50;
 				break;
@@ -80,6 +88,7 @@ public partial class UpgradeButton : Button
 			case 4:
 				player.Sprite.Texture = GD.Load<Texture2D>("res://assets/textures/player/player_test4.png");
 				player.MaxHp += 250f;
+				player.accel += 0.1f;
 				break;
 			
 			case 5:
@@ -89,13 +98,36 @@ public partial class UpgradeButton : Button
 				papa.Spher = spher;
 				break;
 			
+			case 7:
+				player.accel += 0.1f;
+				player.Speed += 40f;
+				break;
+			
 			case 10:
 				GameManager.Instance.MeteorPerDay++;
+				break;
+			case 11:
+				GameManager.Instance.MeteorPerDay+=3;
+				break;
+			case 12:
+				GameManager.Instance.DemolishMultiplier = .33f;
+				break;
+			
+			case 897:
+				player.Repair += 5f;
 				break;
 			
 			case 15:
 				papa.Spher.BetweenShotTime = 0.2f;
 				papa.Spher.BulletsCount = 2;
+				break;
+			
+			case 117:
+				player.Repair += 10;
+				break;
+			
+			case 1488:
+				GameManager.Instance.MeteorPerDay+= 7;
 				break;
 		}
 	}

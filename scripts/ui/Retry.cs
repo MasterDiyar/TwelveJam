@@ -9,8 +9,9 @@ public partial class Retry : Control
 		var btn = GetNode<Button>("Button");
 		btn.Pressed += () =>
 		{
+			CauseOfDeath.Text = CauseOfDeath.Text +$"\n Days alive: {GameManager.Instance.CurrentDay} ";
 			GameManager.Instance.ResetGame();
-         			MoneyManager.Instance.ResetGame();
+			MoneyManager.Instance.ResetGame();
 			GetTree().Root.AddChild( GD.Load<PackedScene>("res://scenes/game/game.tscn").Instantiate());
 			QueueFree();
 		};
