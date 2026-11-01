@@ -5,11 +5,17 @@ using TwelveJam.scripts.buildings;
 public partial class Space : Node2D
 {
 	[Export] private PackedScene MeteorScene, MoverScene;
+	[Export] private AudioStreamPlayer2D SoundPlayer;
+
+	[Export] private AudioStreamWav[] pack1, pack2, pack3;
 
 	//[Export] private MobSpawner spawner;
 	public override void _Ready()
 	{
 		GameManager.Instance.DayChanged += InstanceOnDayChanged;
+		
+		SoundPlayer.Play();
+		
 	}
 
 	private void InstanceOnDayChanged(int day)
@@ -35,5 +41,15 @@ public partial class Space : Node2D
 
 	public override void _Process(double delta)
 	{
+	}
+
+	void Melody()
+	{
+		int day = GameManager.Instance.CurrentDay;
+		AudioStreamWav[] muzlo=pack1;
+		if (day is < 6 and > 3)
+			muzlo= pack2;
+		
+		SoundPlayer.Stream = muzlo[0];
 	}
 }

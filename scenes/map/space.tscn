@@ -89,3 +89,5 @@ position = Vector2(1385, 703)
 
 [node name="Cutscene" parent="." unique_id=1486733016 instance=ExtResource("12_7y8fu")]
 position = Vector2(1200, 563)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1417207899]
