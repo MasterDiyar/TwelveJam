@@ -19,13 +19,15 @@ public partial class Player : Unit
     [Export] private float _zoomSpeed = 0.2f;
     [Export] private float _zoomStep = 0.1f;
 
-    [Export] private float _rotationSpeed = 10.0f, _firelightPower = 0;
+    [Export] private float _rotationSpeed = 10.0f, _firelightPower = 0, _maxDistance = 1488f;
 
     [Export] public Sprite2D Sprite, Firelight;
     [Export] public LaserBeamWeapon Laser;
     
     public List<Weapon> Weapons = [];
 
+    public bool OnRadiation = false;
+    
     private float _targetZoom;
 
     public override void _Ready()
@@ -106,11 +108,20 @@ public partial class Player : Unit
         }
 
         Hp = Mathf.Clamp(Hp + Repair * (float)delta, -10, MaxHp);
+
+        OnRadiation = GlobalPosition.DistanceTo(new Vector2(1000, 500)) > _maxDistance;
+        
+        if (OnRadiation)
+            TakeDamage(50 * (float)delta, Faction.Neutral);
     }
 
     public override void OnDie()
     {
-        GetTree().Root.AddChild(GD.Load<PackedScene>("res://scenes/ui/retry.tscn").Instantiate());
+        var ret = GD.Load<PackedScene>("res://scenes/ui/retry.tscn").Instantiate<Retry>();
+        if (OnRadiation)
+            ret.CauseOfDeath.Text = "Rediational death";
+        
+        GetTree().Root.AddChild(ret);
         GetTree().Root.GetNode<Game>("Game").QueueFree();
         
     }

@@ -31,7 +31,8 @@ public partial class GameManager : Node2D
 		Picker?.SetPicker(building.GlobalPosition, building.AmplitudeMinimal.X, building.AmplitudeMinimal.Y);
 		
 		if (InfoTablet == null) return;
-		InfoTablet.GlobalPosition = building.GlobalPosition + Vector2.Right * 64 * building.AmplitudeMinimal.Y; 
+		InfoTablet.GlobalPosition = building.GlobalPosition + Vector2.Right * 64 * building.AmplitudeMinimal.Y;
+		
 		InfoTablet.ShowData(building.Ferrum, building.Titan, building.Silicon, building.Sulfur);
 		EmitSignalBuildingChanged(building);
 	}

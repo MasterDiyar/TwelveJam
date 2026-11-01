@@ -8,7 +8,7 @@ public partial class Upgrader : Control
     private List<UpgradeButton> _buttons = [];
     private List<Line2D> _connectionLines = [];
 
-    public Weapon Laser1, Laser2;
+    public Weapon Laser1, Laser2, Spher;
 
     public override void _Ready()
     {

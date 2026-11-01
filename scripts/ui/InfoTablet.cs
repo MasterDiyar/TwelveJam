@@ -37,7 +37,7 @@ public partial class InfoTablet : Node2D
             }
         }
         
-        SetProcess(false); 
+        //SetProcess(false); 
     }
 
     public void ShowData(float ferrum, float titan, float silicon, float sulfur)
@@ -57,7 +57,7 @@ public partial class InfoTablet : Node2D
         _currentIndex = 0;
         _timer = 0.0f;
         _isAnimating = true;
-        SetProcess(true);
+        //SetProcess(true);
     }
 
     public override void _Process(double delta)
@@ -70,7 +70,7 @@ public partial class InfoTablet : Node2D
             float t = Mathf.Clamp(_timer / _animationDurationPerItem, 0.0f, 1.0f);
             
             _currentValues[_currentIndex] = Mathf.Lerp(0.0f, _targetValues[_currentIndex], t);
-            _currentScaledLengths[_currentIndex] = _currentValues[_currentIndex] ;
+            _currentScaledLengths[_currentIndex] = _currentValues[_currentIndex] /3f;
 
             if (_labels[_currentIndex] != null) {
                 _labels[_currentIndex].Text = Mathf.RoundToInt(_currentValues[_currentIndex]).ToString();

@@ -15,7 +15,12 @@ font_size = 32
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[node name="ResourceUI" type="Control" unique_id=1377592144 node_paths=PackedStringArray("Text", "QuoteText", "HpNum", "TimerLabel", "HpLine")]
+[sub_resource type="LabelSettings" id="LabelSettings_grgi1"]
+font_size = 120
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="ResourceUI" type="Control" unique_id=1377592144 node_paths=PackedStringArray("Text", "QuoteText", "HpNum", "TimerLabel", "Alert", "HpLine")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -28,7 +33,10 @@ Text = NodePath("Label")
 QuoteText = NodePath("Label2")
 HpNum = NodePath("Label4")
 TimerLabel = NodePath("Label3")
+Alert = NodePath("Label5")
 HpLine = NodePath("HpLine")
+NormalHp = Color(0.9586322, 0, 0.13665262, 1)
+RadiationalHp = Color(0.11528229, 0.41455126, 0.26302573, 1)
 
 [node name="HpLine2" type="Line2D" parent="." unique_id=143560849]
 points = PackedVector2Array(8, 25, 212, 25)
@@ -51,10 +59,10 @@ label_settings = SubResource("LabelSettings_sdmle")
 
 [node name="Label" type="Label" parent="." unique_id=874017416]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 76.0
-offset_right = 54.0
-offset_bottom = 169.0
+offset_left = 156.0
+offset_top = 75.0
+offset_right = 196.0
+offset_bottom = 168.0
 text = "Fe:0
 Ti:0
 Si:0
@@ -63,10 +71,10 @@ label_settings = SubResource("LabelSettings_sdmle")
 
 [node name="Label2" type="Label" parent="." unique_id=304206097]
 layout_mode = 0
-offset_left = 156.0
-offset_top = 52.0
-offset_right = 204.0
-offset_bottom = 169.0
+offset_left = 11.0
+offset_top = 54.0
+offset_right = 59.0
+offset_bottom = 171.0
 text = "Quote:
 Fe:0
 Ti:0
@@ -82,3 +90,12 @@ offset_right = 1006.0
 offset_bottom = 45.0
 text = "80"
 label_settings = SubResource("LabelSettings_vmyg7")
+
+[node name="Label5" type="Label" parent="." unique_id=1827656401]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 815.0
+offset_right = 1522.0
+offset_bottom = 920.0
+text = "!!ALERT! RADIATIONAL ZONE!!"
+label_settings = SubResource("LabelSettings_grgi1")

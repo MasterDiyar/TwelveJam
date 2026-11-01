@@ -53,13 +53,13 @@ public partial class UpgradeButton : Button
 			case 2:
 				var laser = GD.Load<PackedScene>("res://scenes/weapon/laser_weapon.tscn");
 				var laser1 = laser.Instantiate<Weapon>();
-				laser1.Position = new Vector2(8, -17);
+				laser1.Position = new Vector2(15, -22);
 				player.AddChild(laser1);
 				player.Weapons.Add(laser1);
 				papa.Laser1 = laser1;
 				
 				var laser2 = laser.Instantiate<Weapon>();
-				laser2.Position = new Vector2(8, 16);
+				laser2.Position = new Vector2(15, 22);
 				player.AddChild(laser2);
 				player.Weapons.Add(laser2);
 				papa.Laser2 = laser2;
@@ -78,12 +78,24 @@ public partial class UpgradeButton : Button
 				
 				break;
 			case 4:
-				player.Sprite.Texture = GD.Load<Texture2D>("res://assets/textures/player/player_test3.png");
+				player.Sprite.Texture = GD.Load<Texture2D>("res://assets/textures/player/player_test4.png");
 				player.MaxHp += 250f;
+				break;
+			
+			case 5:
+				var spher = GD.Load<PackedScene>("res://scenes/weapon/circle_weapon.tscn").Instantiate<Weapon>();
+				player.AddChild(spher);
+				player.Weapons.Add(spher);
+				papa.Spher = spher;
 				break;
 			
 			case 10:
 				GameManager.Instance.MeteorPerDay++;
+				break;
+			
+			case 15:
+				papa.Spher.BetweenShotTime = 0.2f;
+				papa.Spher.BulletsCount = 2;
 				break;
 		}
 	}

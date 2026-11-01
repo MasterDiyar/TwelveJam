@@ -18,7 +18,8 @@ public partial class Space : Node2D
 		{
 			var meteor = MeteorScene.Instantiate<Building>();
 			var mover = MoverScene.Instantiate<Mover>();
-			mover.movingObject = meteor;
+			mover.Setup(meteor);
+			mover.moveSpeed = 100 + 100 * GD.Randf();
 			meteor.Position = new Vector2(-200 + -400 *GD.Randf(), 1000 + -1200 * GD.Randf());
 			var angle = GD.Randf() * Mathf.Tau;
 			

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cbt22lmuvt3st"]
+
+[ext_resource type="Script" uid="uid://bbfkus5u7tws2" path="res://scripts/weapons/Weapon.cs" id="1_t0gpu"]
+[ext_resource type="PackedScene" uid="uid://cd5oxelgj7hpj" path="res://scenes/bullets/circlebullet.tscn" id="2_fuip5"]
+
+[node name="Weapon" type="Node2D" unique_id=1904990218 node_paths=PackedStringArray("BetweenAttackTimer")]
+script = ExtResource("1_t0gpu")
+BulletScene = ExtResource("2_fuip5")
+Damage = 16.0
+Speed = 4.0
+Acceleration = 1.0
+LifeTime = 0.3
+AngleStep = 0.0
+SpawnOffset = Vector2(-20, 0)
+BetweenAttackTimer = NodePath("Timer")
+AttackSpeed = 2.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=478689110]
+position = Vector2(0, -1)
+
+[node name="Timer" type="Timer" parent="." unique_id=566062910]

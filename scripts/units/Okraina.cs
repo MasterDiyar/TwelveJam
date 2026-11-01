@@ -73,7 +73,7 @@ public partial class Okraina : Unit
     {
         var xplosion  =boomscene.Instantiate<Bullet>();
         xplosion.SetWeapon(Faction, 100*GameManager.Instance.OkrainaDamageMultiplier,
-            0, 0, 0, .5f);
+            0, 0, 0, 1f);
         xplosion.GlobalPosition = GlobalPosition;
         GetParent().AddChild(xplosion);
         base.OnDie();

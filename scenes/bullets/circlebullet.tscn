@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cd5oxelgj7hpj"]
+
+[ext_resource type="Script" uid="uid://bottnadnw3rwe" path="res://scripts/bullets/CircleBullet.cs" id="1_bma4j"]
+[ext_resource type="Texture2D" uid="uid://cj30nnoaumhvv" path="res://assets/textures/bullets/firelin.png" id="2_iq868"]
+[ext_resource type="Shader" uid="uid://bexi6nyucjcj5" path="res://shaders/circlebullet.gdshader" id="2_w4x2j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sdmle"]
+radius = 30.066593
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fuip5"]
+shader = ExtResource("2_w4x2j")
+shader_parameter/progress = 0.0
+shader_parameter/grid_size = 64.0
+
+[node name="circle bullet" type="Area2D" unique_id=272738449 node_paths=PackedStringArray("_sprite")]
+script = ExtResource("1_bma4j")
+_sprite = NodePath("Firelin")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=92745186]
+shape = SubResource("CircleShape2D_sdmle")
+
+[node name="Firelin" type="Sprite2D" parent="." unique_id=586669102]
+material = SubResource("ShaderMaterial_fuip5")
+texture = ExtResource("2_iq868")

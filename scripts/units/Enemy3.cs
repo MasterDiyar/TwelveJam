@@ -30,9 +30,11 @@ public partial class Enemy3 : Unit
 			if (dist > 1488f)
 				QueueFree();
 		}else {
-			isStealed = true;
-			stealed = MoneyManager.Instance.Items * 0.1f;
-			MoneyManager.Instance.Items *= 0.9f;
+			if (!isStealed) {
+				isStealed = true;
+				stealed = MoneyManager.Instance.Items * 0.1f;
+				MoneyManager.Instance.Items *= 0.9f;
+			}
 		}
 		sprite.Modulate = sprite.Modulate with {A = _modulation};
 		

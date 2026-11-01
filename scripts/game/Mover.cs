@@ -34,4 +34,10 @@ public partial class Mover : Node2D
 			
 		
 	}
+
+	public void Setup(Building bld)
+	{
+		bld.Clickable = false;
+		movingObject = bld;
+	}
 }

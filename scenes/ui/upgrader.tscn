@@ -28,7 +28,7 @@ offset_top = 262.0
 offset_right = 384.0
 offset_bottom = 366.0
 text = "fix turbines"
-Unlocker = [NodePath("../Button2")]
+Unlocker = [NodePath("../Button2"), NodePath("../Button9")]
 isUnlocked = true
 Id = 1
 Money = 20.0
@@ -66,6 +66,25 @@ offset_left = 788.0
 offset_top = 321.0
 offset_right = 956.0
 offset_bottom = 425.0
+
+[node name="Button9" parent="." unique_id=297656827 node_paths=PackedStringArray("Unlocker") instance=ExtResource("1_uqwgi")]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 395.0
+offset_right = 384.0
+offset_bottom = 499.0
+text = "hot turbines"
+Unlocker = [NodePath("../Button10")]
+Id = 5
+
+[node name="Button10" parent="." unique_id=1067506048 instance=ExtResource("1_uqwgi")]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 447.0
+offset_right = 572.0
+offset_bottom = 551.0
+text = "hot tubs?"
+Id = 15
 
 [node name="Button6" parent="." unique_id=1898990680 instance=ExtResource("1_uqwgi")]
 layout_mode = 0

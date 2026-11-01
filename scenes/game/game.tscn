@@ -36,15 +36,15 @@ color = Color(0.71848166, 0.7282755, 0.8007568, 1)
 [node name="Space" parent="Pausable" unique_id=509825059 instance=ExtResource("2_0sr1o")]
 
 [node name="Picker" type="Sprite2D" parent="Pausable" unique_id=1076200927]
+visible = false
 top_level = true
 z_index = 2
 position = Vector2(19, -39)
 texture = ExtResource("3_lfrn8")
 script = ExtResource("4_5i0tg")
 
-[node name="InfoTablet" parent="Pausable" unique_id=1991134222 node_paths=PackedStringArray("_lines", "_labels") instance=ExtResource("5_bdhmt")]
-_lines = [null, null, null, null]
-_labels = [null, null, null, null]
+[node name="InfoTablet" parent="Pausable" unique_id=1991134222 instance=ExtResource("5_bdhmt")]
+visible = false
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1798494945]
 

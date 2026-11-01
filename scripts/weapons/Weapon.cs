@@ -55,7 +55,7 @@ public partial class Weapon : Node2D
         }
     }
 
-    public void Attack(float angle)
+    public virtual void Attack(float angle)
     {
         if (!CanShoot) return;
         CanShoot = false;
